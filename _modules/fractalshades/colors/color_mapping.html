@@ -1,0 +1,1070 @@
+<!== Adding "Fork me on Github" ribbon ==>
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fractalshades.colors.color_mapping &mdash; Fractalshades 0.5.6 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/rtd_dark.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/math.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link href="../../../_static/ribbon.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> Fractalshades
+            <img src="../../../_static/logo3.jpg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.5.6
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#installing">Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#a-5-minutes-guide-to-fractalshades">A 5-minutes guide to fractalshades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#graphical-user-interface">Graphical user interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#finding-areas-of-interest">Finding areas of interest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#unskewing-streched-areas">Unskewing streched areas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../math.html">Mathematical background</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#zoom-level-and-native-floating-point-precision">Zoom level and native floating-point precision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#perturbation-theory">Perturbation Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#avoiding-loss-of-precision">Avoiding loss of precision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#billinear-approximations">Billinear approximations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#extended-range-floating-points">Extended range floating points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#finding-minibrots">Finding minibrots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#going-further-a-few-references">Going further: a few references</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#batch-mode-gallery">Batch mode gallery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/01-full_basic.html">01 - Full Mandelbrot basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/02-bulb_fieldlines1.html">02 - Bulb fieldlines example “tint_or_shade”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/03-bulb_fieldlines2.html">03 - Bulb fieldlines example “twinfield”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/04-seahorse_shaded.html">04 - Seahorse shaded example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/05-seahorse_shaded_colored.html">05 - Seahorse shaded and colored example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/06-seahorse_interior.html">06 - Seahorse interior example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/07-seahorse_DEM.html">07 - Seahorse DEM example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/08-run_perturb_DEM.html">08 - DEM example with perturbation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/09-run_flake_DEM.html">09 - A deeper DEM example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/10-double_embedded_julia.html">10 - Double embedded Julia set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/11-run_perturbdeep.html">11- Ultra-deep embedded Julia set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/12-burning_ship_deep.html">12 - Burning Ship deep zoom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/13-burning_ship.html">13 - Burning ship DEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/14-burning_ship-deeper_DEM.html">14 - Burning ship deeper DEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/15-burning_ship-deepJulia_DEM.html">15 - Burning Ship ultra-deep embedded Julia set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/16-tetration_spring.html">16 - Tetration (power tower) zoom: “Spring”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/17-perpendicular_burning_ship_DEM.html">17 - “Perpendicular” Burning Ship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/18-perpendicular_burning_ship_glynn.html">18 - “Perpendicular” Burning Ship: hidden Glynn spiral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/19-perpendicular_burning_ship_Koch.html">19 - “Perpendicular” Burning Ship: hidden Koch snowflakes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/20-perpendicular_burning_ship_Sierpinski.html">20 - “Perpendicular” Burning Ship: hidden Sierpinski carpets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/21-perpendicular_burning_ship_trees.html">21 - “Perpendicular” Burning Ship: tree structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/22-shark_fin_deep.html">22 - “Shark Fin” escape-time fractal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/23-deep_min.html">23 - A deep mini</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#colormaps-template-gallery">Colormaps template gallery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/colormaps/plot_cmaps.html">Colormaps: available templates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#gui-mode-arbitrary-precision-implementations">GUI-mode: arbitrary precision implementations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_deepzoom/D01_run_interactive.html">D01 - Mandelbrot arbitrary-precision explorer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_deepzoom/D02_run_BS_interactive.html">D02 - Burning Ship arbitrary-precision explorer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_deepzoom/D03_run_perpendicular_BS_interactive.html">D03 - Perpendicular Burning Ship arbitrary-precision explorer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_deepzoom/D04_run_shark_fin_interactive.html">D04 - Shark Fin arbitrary-precision explorer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#gui-mode-standard-implementation-examples">GUI-mode: standard implementation examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_standard/S01_run_interactive_shallow.html">S01 - Mandelbrot explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_standard/S02_run_BS_shallow.html">S02 - Burning ship explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_standard/S03_run_interactive_Mn_shallow.html">S03 - Mandelbrot power n explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_standard/S04_run_collatz.html">S04 - Collatz explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_standard/S05_run_power_tower_shallow.html">S05 - Tetration fractal explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_standard/S06_run_perpendicular_BS_shallow.html">S06 - Perpendicular Burning Ship explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_standard/S07_run_shark_fin_shallow.html">S07 - Shark fin  explorer - Standard precision</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../API.html">Application Programming Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/core.html">Core components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core/Fractal.html">Fractal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core/PerturbationFractal.html">PerturbationFractal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core/Fractal_plotter.html">Fractal_plotter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core/decorators.html">Decorators</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/settings.html">Application-level settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/models.html">Fractal models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Perturbation_mandelbrot.html">Arbitrary-precision Mandelbrot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Perturbation_burning_ship.html">Arbitrary-precision Burning Ship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Perturbation_perpendicular_burning_ship.html">Arbitrary-precision Perpendicular Burning Ship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Perturbation_shark_fin.html">Arbitrary-precision Shark fin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Mandelbrot.html">Mandelbrot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Burning_ship.html">Burning Ship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Perpendicular_burning_ship.html">Perpendicular Burning Ship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Shark_fin.html">Shark fin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Mandelbrot_N.html">Mandelbrot power n &gt; 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Collatz.html">Collatz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Power_tower.html">Power tower (aka Tetration) fractal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/postproc.html">Postprocessing fields</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/Postproc.html">Postproc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/Raw_pp.html">Raw_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/Continuous_iter_pp.html">Continuous_iter_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/Fieldlines_pp.html">Fieldlines_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/DEM_normal_pp.html">DEM_normal_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/DEM_pp.html">DEM_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/Attr_normal_pp.html">Attr_normal_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/Attr_pp.html">Attr_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/Postproc_batch.html">Postproc_batch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/Fractal_array.html">Fractal_array</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/layers.html">Image layers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers/Virtual_layer.html">Virtual_layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers/Bool_layer.html">Bool_layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers/Color_layer.html">Color_layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers/Normal_map_layer.html">Normal_map_layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers/Grey_layer.html">Grey_layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers/Disp_layer.html">Disp_layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers/Blinn_lighting.html">Blinn_lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers/Overlay_mode.html">Overlay_mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/colors.html">Color mapping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/colors/Fractal_colormap.html">Fractal_colormap</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/GUI.html">GUI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/gui/Fractal_GUI.html">Fractal_GUI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-5-6">Rev 0.5.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-5-5">Rev 0.5.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-5-4">Rev 0.5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-5-3">Rev 0.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-5-2">Rev 0.5.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-5-0">Rev 0.5.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-4-3">Rev 0.4.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-4-2">Rev 0.4.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-4-1">Rev 0.4.1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../acknowledgment.html">Acknowledgment</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Fractalshades</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>fractalshades.colors.color_mapping</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+           <div itemprop="articleBody">
+             
+  <h1>Source code for fractalshades.colors.color_mapping</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1">#import matplotlib.colors</span>
+<span class="c1">#from matplotlib.figure import Figure</span>
+<span class="c1">#from matplotlib.backends.backend_agg import FigureCanvasAgg</span>
+<span class="kn">import</span> <span class="nn">numba</span>
+
+<span class="kn">import</span> <span class="nn">PIL</span>
+<span class="kn">import</span> <span class="nn">PIL.ImageQt</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">fractalshades.numpy_utils.expr_parser</span> <span class="k">as</span> <span class="nn">fs_parser</span>
+
+
+<span class="k">class</span> <span class="nc">Color_tools</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot; A bunch of staticmethods</span>
+<span class="sd">    Color conversions from http://www.easyrgb.com/en/math.php#text7</span>
+<span class="sd">    All take as input and return arrays of size [n, 3]&quot;&quot;&quot;</span>
+    <span class="c1"># CIE LAB constants Illuminant= D65</span>
+    <span class="c1"># Simulates noon daylight with correlated color temperature of 6504 K. </span>
+    <span class="n">Lab_ref_white</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.95047</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.08883</span><span class="p">])</span>
+    <span class="c1"># CIE LAB constants Illuminant= D55</span>
+    <span class="c1"># Simulates mid-morning or mid-afternoon daylight with correlated color</span>
+    <span class="c1"># temperature of 5500 K. </span>
+    <span class="n">D55_ref_white</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9568</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.9214</span><span class="p">])</span>
+    <span class="c1"># CIE LAB constants Illuminant= D50</span>
+    <span class="c1"># Simulates warm daylight at sunrise or sunset with correlated color</span>
+    <span class="c1"># temperature of 5003 K. Also known as horizon light.</span>
+    <span class="n">D50_ref_white</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.964212</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">.825188</span><span class="p">])</span>
+    <span class="c1"># CIE standard illuminant A, . Simulates typical, domestic,</span>
+    <span class="c1"># tungsten-filament lighting with correlated color temperature of 2856 K. </span>
+    <span class="n">A_ref_white</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0985</span><span class="p">,</span> <span class="mf">1.0000</span><span class="p">,</span> <span class="mf">0.3558</span><span class="p">])</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">rgb_to_XYZ</span><span class="p">(</span><span class="n">rgb</span><span class="p">):</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="mf">0.04045</span><span class="p">,</span> <span class="p">((</span><span class="n">arr</span> <span class="o">+</span> <span class="mf">0.055</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.055</span><span class="p">)</span> <span class="o">**</span> <span class="mf">2.4</span><span class="p">,</span>
+                       <span class="n">arr</span> <span class="o">/</span> <span class="mf">12.92</span><span class="p">)</span>
+        <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.4124</span><span class="p">,</span> <span class="mf">0.3576</span><span class="p">,</span> <span class="mf">0.1805</span><span class="p">],</span>
+                           <span class="p">[</span><span class="mf">0.2126</span><span class="p">,</span> <span class="mf">0.7152</span><span class="p">,</span> <span class="mf">0.0722</span><span class="p">],</span>
+                           <span class="p">[</span><span class="mf">0.0193</span><span class="p">,</span> <span class="mf">0.1192</span><span class="p">,</span> <span class="mf">0.9505</span><span class="p">]])</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">arr</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">XYZ_to_rgb</span><span class="p">(</span><span class="n">XYZ</span><span class="p">):</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">XYZ</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">matrix_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">3.24062548</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.53720797</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4986286</span> <span class="p">],</span>
+                               <span class="p">[</span><span class="o">-</span><span class="mf">0.96893071</span><span class="p">,</span>  <span class="mf">1.87575606</span><span class="p">,</span>  <span class="mf">0.04151752</span><span class="p">],</span>
+                               <span class="p">[</span> <span class="mf">0.05571012</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.20402105</span><span class="p">,</span>  <span class="mf">1.05699594</span><span class="p">]])</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matrix_inv</span><span class="p">,</span> <span class="n">arr</span><span class="p">)</span>
+        <span class="n">arr</span><span class="p">[</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mf">0.</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="mf">0.0031308</span><span class="p">,</span>
+                       <span class="mf">1.055</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mf">1.</span> <span class="o">/</span> <span class="mf">2.4</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.055</span><span class="p">,</span> <span class="n">arr</span> <span class="o">*</span> <span class="mf">12.92</span><span class="p">)</span>
+        <span class="n">arr</span><span class="p">[</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="mf">1.</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>    
+    <span class="k">def</span> <span class="nf">XYZ_to_CIELab</span><span class="p">(</span><span class="n">XYZ</span><span class="p">,</span> <span class="n">ref_white</span><span class="o">=</span><span class="n">Lab_ref_white</span><span class="p">):</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">XYZ</span> <span class="o">/</span> <span class="n">ref_white</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="mf">0.008856</span><span class="p">,</span> <span class="n">arr</span> <span class="o">**</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="mf">3.</span><span class="p">),</span>
+                       <span class="p">(</span><span class="mf">7.787</span> <span class="o">*</span> <span class="n">arr</span><span class="p">)</span> <span class="o">+</span> <span class="mf">16.</span> <span class="o">/</span> <span class="mf">116.</span><span class="p">)</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">arr</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">arr</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+        <span class="n">L</span><span class="p">,</span> <span class="n">a</span> <span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mf">116.</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="mf">16.</span> <span class="p">,</span> <span class="mf">500.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="p">,</span> <span class="mf">200.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">L</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="nd">@staticmethod</span> 
+    <span class="k">def</span> <span class="nf">CIELab_to_XYZ</span><span class="p">(</span><span class="n">Lab</span><span class="p">,</span> <span class="n">ref_white</span><span class="o">=</span><span class="n">Lab_ref_white</span><span class="p">):</span>
+        <span class="n">L</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">Lab</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">Lab</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">Lab</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="mf">16.</span><span class="p">)</span> <span class="o">/</span> <span class="mf">116.</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="mf">500.</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">/</span> <span class="mf">200.</span><span class="p">)</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">])</span> 
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="mf">0.2068966</span><span class="p">,</span> <span class="n">arr</span> <span class="o">**</span> <span class="mf">3.</span><span class="p">,</span>
+                       <span class="p">(</span><span class="n">arr</span> <span class="o">-</span> <span class="mf">16.</span> <span class="o">/</span> <span class="mf">116.</span><span class="p">)</span> <span class="o">/</span> <span class="mf">7.787</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">ref_white</span>
+
+    <span class="nd">@staticmethod</span> 
+    <span class="k">def</span> <span class="nf">CIELab_to_CIELch</span><span class="p">(</span><span class="n">Lab</span><span class="p">):</span>
+        <span class="n">L</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">Lab</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">Lab</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">Lab</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">h</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">h</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">180.</span><span class="p">,</span>
+                     <span class="mf">360.</span> <span class="o">+</span> <span class="n">h</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">180.</span><span class="p">)</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">L</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">h</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="nd">@staticmethod</span> 
+    <span class="k">def</span> <span class="nf">CIELch_to_CIELab</span><span class="p">(</span><span class="n">Lch</span><span class="p">):</span>
+        <span class="n">L</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">Lch</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">Lch</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">Lch</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+        <span class="n">h_rad</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">c</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">h_rad</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">h_rad</span><span class="p">)</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">L</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span> 
+    <span class="k">def</span> <span class="nf">rgb_to_CIELab</span><span class="p">(</span><span class="n">rgb</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">XYZ_to_CIELab</span><span class="p">(</span><span class="n">Color_tools</span><span class="o">.</span><span class="n">rgb_to_XYZ</span><span class="p">(</span><span class="n">rgb</span><span class="p">))</span>
+    <span class="nd">@staticmethod</span> 
+    <span class="k">def</span> <span class="nf">rgb_to_CIELch</span><span class="p">(</span><span class="n">rgb</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">CIELab_to_CIELch</span><span class="p">(</span>
+            <span class="n">Color_tools</span><span class="o">.</span><span class="n">XYZ_to_CIELab</span><span class="p">(</span><span class="n">Color_tools</span><span class="o">.</span><span class="n">rgb_to_XYZ</span><span class="p">(</span><span class="n">rgb</span><span class="p">)))</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">CIELab_to_rgb</span><span class="p">(</span><span class="n">Lab</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">XYZ_to_rgb</span><span class="p">(</span><span class="n">Color_tools</span><span class="o">.</span><span class="n">CIELab_to_XYZ</span><span class="p">(</span><span class="n">Lab</span><span class="p">))</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">CIELch_to_rgb</span><span class="p">(</span><span class="n">Lch</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">XYZ_to_rgb</span><span class="p">(</span>
+            <span class="n">Color_tools</span><span class="o">.</span><span class="n">CIELab_to_XYZ</span><span class="p">(</span><span class="n">Color_tools</span><span class="o">.</span><span class="n">CIELch_to_CIELab</span><span class="p">(</span><span class="n">Lch</span><span class="p">)))</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">Lab_gradient</span><span class="p">(</span><span class="n">color_1</span><span class="p">,</span> <span class="n">color_2</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a color gradient between color_1 and color_2, default linear in </span>
+<span class="sd">        Lab</span>
+<span class="sd">        *color1* and *color_2* in rgb coordinate</span>
+<span class="sd">        *n* integer number of color in gradient</span>
+<span class="sd">        *f* function default to linear, general case c1 + f * (c2 - c1)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">customized_Lab_gradient</span><span class="p">(</span><span class="n">color_1</span><span class="p">,</span> <span class="n">color_2</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">desaturated</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the grey tone of identical Luminance</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">rgb_to_CIELab</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:])[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">CIELab_to_rgb</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">L</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]]))[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">Lch_gradient</span><span class="p">(</span><span class="n">color_1</span><span class="p">,</span> <span class="n">color_2</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">long_path</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a color gradient between color_1 and color_2, default linear in</span>
+<span class="sd">        Lch</span>
+<span class="sd">        *color1* and *color_2* in rgb coordinate</span>
+<span class="sd">        *n* integer number of color in gradient</span>
+<span class="sd">        *long_path* boolean If True, select the path that is &gt; 180° in hue</span>
+<span class="sd">        *f* function default to linear, general case c1 + f * (c2 - c1)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">customized_Lch_gradient</span><span class="p">(</span><span class="n">color_1</span><span class="p">,</span> <span class="n">color_2</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
+                                                   <span class="n">long_path</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">color_gradient</span><span class="p">(</span><span class="n">kind</span><span class="p">,</span> <span class="n">color_1</span><span class="p">,</span> <span class="n">color_2</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a color gradient between color_1 and color_2, default linear in</span>
+<span class="sd">        Lch</span>
+<span class="sd">        *kind* &quot;Lab&quot; | &quot;Lch&quot; </span>
+<span class="sd">        *color1* and *color_2* in rgb coordinate</span>
+<span class="sd">        *n* integer number of color in gradient</span>
+<span class="sd">        *f* function default to linear, general case c1 + f * (c2 - c1)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;Lab&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">Lab_gradient</span><span class="p">(</span><span class="n">color_1</span><span class="p">,</span> <span class="n">color_2</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;Lch&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">Lch_gradient</span><span class="p">(</span><span class="n">color_1</span><span class="p">,</span> <span class="n">color_2</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;Unsupported kind </span><span class="si">{}</span><span class="s2">, expecting Lab or Lch&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">kind</span><span class="p">))</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">customized_Lab_gradient</span><span class="p">(</span><span class="n">color_1</span><span class="p">,</span> <span class="n">color_2</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> 
+        <span class="n">L</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span> <span class="n">ab</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Idem Lab_gradient except we customize 2 functions L and a = b noted ab</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Lab_1</span> <span class="o">=</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">rgb_to_CIELab</span><span class="p">(</span><span class="n">color_1</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:])[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">Lab_2</span> <span class="o">=</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">rgb_to_CIELab</span><span class="p">(</span><span class="n">color_2</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:])[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">Lab_1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> 
+                         <span class="n">f</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">Lab_2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">Lab_1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> 
+                         <span class="k">for</span> <span class="n">f</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="n">L</span><span class="p">,</span> <span class="n">ab</span><span class="p">,</span> <span class="n">ab</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])])</span><span class="o">.</span><span class="n">T</span>
+        <span class="k">return</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">CIELab_to_rgb</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">customized_Lch_gradient</span><span class="p">(</span><span class="n">color_1</span><span class="p">,</span> <span class="n">color_2</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">long_path</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">L</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Idem Lch_gradient except we customize all 3 functions L, c, h</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Lch_1</span> <span class="o">=</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">rgb_to_CIELch</span><span class="p">(</span><span class="n">color_1</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:])[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">Lch_2</span> <span class="o">=</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">rgb_to_CIELch</span><span class="p">(</span><span class="n">color_2</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:])[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">h1</span><span class="p">,</span> <span class="n">h2</span> <span class="o">=</span> <span class="n">Lch_1</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">Lch_2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h2</span><span class="o">-</span> <span class="n">h1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">180.</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">long_path</span><span class="p">):</span>
+            <span class="n">Lch_2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">h2</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">h2</span> <span class="o">-</span> <span class="n">h1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">360.</span> <span class="c1"># take the shortest path</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h2</span><span class="o">-</span> <span class="n">h1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">180.</span> <span class="ow">and</span> <span class="n">long_path</span><span class="p">:</span>
+            <span class="n">Lch_2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">h2</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">h2</span> <span class="o">-</span> <span class="n">h1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">360.</span> <span class="c1"># take the longest path</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">Lch_1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> 
+                         <span class="n">f</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">Lch_2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">Lch_1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> 
+                         <span class="k">for</span> <span class="n">f</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="n">L</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">h</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])])</span><span class="o">.</span><span class="n">T</span>
+        <span class="k">return</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">CIELch_to_rgb</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">blend</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">shade</span><span class="p">,</span> <span class="n">shade_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides several &quot;shading&quot; options based on shade_type dict</span>
+<span class="sd">        *rgb* array of colors to &#39;shade&#39;, shape (nx, 3) or (nx, ny, 3)</span>
+<span class="sd">        *shade* N&amp;B array shape similar to rgb but last dim is 1</span>
+<span class="sd">        *shade_type* {&quot;Lch&quot;: x1, &quot;overlay&quot;: x2, &quot;pegtop&quot;: x3}</span>
+<span class="sd">            x1, x2, x3 positive scalars, the proportion of each shading method</span>
+<span class="sd">            in the final image.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">shade_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">shade_type</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Lch&quot;</span><span class="p">:</span> <span class="mf">4.</span><span class="p">,</span> <span class="s2">&quot;overlay&quot;</span><span class="p">:</span> <span class="mf">4.</span><span class="p">,</span> <span class="s2">&quot;pegtop&quot;</span><span class="p">:</span> <span class="mf">1.</span><span class="p">}</span>        
+        
+        <span class="n">blend_T</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">shade_type</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span><span class="p">[</span><span class="s2">&quot;Lch&quot;</span><span class="p">,</span> <span class="s2">&quot;overlay&quot;</span><span class="p">,</span> <span class="s2">&quot;pegtop&quot;</span><span class="p">])))</span>
+
+        <span class="n">is_image</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rgb</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">is_image</span><span class="p">:</span>
+            <span class="n">imx</span><span class="p">,</span> <span class="n">imy</span><span class="p">,</span> <span class="n">ichannel</span> <span class="o">=</span> <span class="n">rgb</span><span class="o">.</span><span class="n">shape</span>
+            <span class="k">if</span> <span class="n">ichannel</span><span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;expectd rgb array&quot;</span><span class="p">)</span>
+            <span class="n">rgb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">rgb</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">imx</span> <span class="o">*</span> <span class="n">imy</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+            <span class="n">shade</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">shade</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">imx</span> <span class="o">*</span> <span class="n">imy</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        
+        <span class="n">XYZ</span> <span class="o">=</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">rgb_to_XYZ</span><span class="p">(</span><span class="n">rgb</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+
+        <span class="n">XYZ_overlay</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">imx</span> <span class="o">*</span> <span class="n">imy</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+        <span class="n">XYZ_pegtop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">imx</span> <span class="o">*</span> <span class="n">imy</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+        <span class="n">XYZ_Lch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">imx</span> <span class="o">*</span> <span class="n">imy</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+        <span class="n">ref_white</span> <span class="o">=</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">D50_ref_white</span>
+
+
+        <span class="k">if</span> <span class="n">shade_type</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;overlay&quot;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">low</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">shade</span> <span class="o">*</span> <span class="n">XYZ</span>
+            <span class="n">high</span> <span class="o">=</span> <span class="n">ref_white</span> <span class="o">*</span> <span class="mf">100.</span> <span class="o">-</span> <span class="mf">2.</span>  <span class="o">*</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">shade</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">ref_white</span> <span class="o">*</span> <span class="mf">100.</span> <span class="o">-</span> <span class="n">XYZ</span><span class="p">)</span>
+            <span class="n">XYZ_overlay</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">XYZ</span> <span class="o">&lt;=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">ref_white</span> <span class="o">*</span> <span class="mf">100.</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span>            
+
+        <span class="k">if</span> <span class="n">shade_type</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pegtop&quot;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">XYZ_pegtop</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">shade</span> <span class="o">*</span> <span class="n">XYZ</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">shade</span><span class="p">)</span> <span class="o">*</span> <span class="n">XYZ</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">ref_white</span>
+
+        <span class="k">if</span> <span class="n">shade_type</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Lch&quot;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">shade</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">shade</span> <span class="o">-</span> <span class="mf">1.</span>
+            <span class="n">Lab</span> <span class="o">=</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">XYZ_to_CIELab</span><span class="p">(</span><span class="n">XYZ</span><span class="p">)</span>
+            <span class="n">L</span> <span class="o">=</span> <span class="n">Lab</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">Lab</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">Lab</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">shade</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">L</span>  <span class="o">+</span> <span class="n">shade</span> <span class="o">*</span> <span class="p">(</span><span class="mf">100.</span> <span class="o">-</span> <span class="n">L</span><span class="p">))</span>     <span class="c1"># lighten</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">shade</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">L</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">+</span>  <span class="n">shade</span> <span class="p">))</span>          <span class="c1"># darken</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">shade</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">a</span>  <span class="o">-</span> <span class="n">shade</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>           <span class="c1"># lighten</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">shade</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span>  <span class="n">shade</span><span class="o">**</span><span class="mi">2</span> <span class="p">))</span>       <span class="c1"># darken</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">shade</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span>  <span class="o">-</span> <span class="n">shade</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>           <span class="c1"># lighten</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">shade</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span>  <span class="n">shade</span><span class="o">**</span><span class="mi">2</span> <span class="p">))</span>       <span class="c1"># darken</span>
+            <span class="n">Lab</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">Lab</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">Lab</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">XYZ_Lch</span> <span class="o">=</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">CIELab_to_XYZ</span><span class="p">(</span><span class="n">Lab</span><span class="p">)</span>
+
+        <span class="n">XYZ</span> <span class="o">=</span> <span class="p">(</span><span class="n">XYZ_overlay</span> <span class="o">*</span> <span class="n">shade_type</span><span class="p">[</span><span class="s2">&quot;overlay&quot;</span><span class="p">]</span> <span class="o">+</span>
+               <span class="n">XYZ_pegtop</span> <span class="o">*</span> <span class="n">shade_type</span><span class="p">[</span><span class="s2">&quot;pegtop&quot;</span><span class="p">]</span> <span class="o">+</span>
+               <span class="n">XYZ_Lch</span> <span class="o">*</span> <span class="n">shade_type</span><span class="p">[</span><span class="s2">&quot;Lch&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="n">blend_T</span>
+
+        <span class="c1"># Convert modified hsv back to rgb.</span>
+        <span class="n">blend</span> <span class="o">=</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">XYZ_to_rgb</span><span class="p">(</span><span class="n">XYZ</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">is_image</span><span class="p">:</span>
+            <span class="n">blend</span> <span class="o">=</span> <span class="n">blend</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">imx</span><span class="p">,</span> <span class="n">imy</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">blend</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">shade_layer</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span> <span class="n">theta_LS</span><span class="p">,</span> <span class="n">phi_LS</span><span class="p">,</span> <span class="n">shininess</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">ratio_specular</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span>
+                    <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        *normal* flat array of normal vect</span>
+<span class="sd">        shade_dict:</span>
+<span class="sd">            &quot;theta_LS&quot; angle of incoming light [0, 360]</span>
+<span class="sd">            &quot;phi_LS&quot;   azimuth of incoming light [0, 90] 90 is vertical</span>
+<span class="sd">            &quot;shininess&quot; material coefficient for specular</span>
+<span class="sd">            &quot;ratio_specular&quot; ratio of specular to lambert</span>
+<span class="sd">        Returns </span>
+<span class="sd">        *shade* array of light intensity, greyscale image (value btwn 0 and 1)</span>
+<span class="sd">        https://en.wikipedia.org/wiki/Blinn%E2%80%93Phong_reflection_model</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s2">&quot;LS_coords&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="c1"># LS is localized somewhere in the image computing theta_LS</span>
+            <span class="c1"># as a vector</span>
+            <span class="n">LSx</span><span class="p">,</span> <span class="n">LSy</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;LS_coords&quot;</span><span class="p">]</span>
+            <span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">ixx</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">iyy</span><span class="p">)</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;chunk_slice&quot;</span><span class="p">]</span>
+            <span class="n">chunk_mask</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;chunk_mask&quot;</span><span class="p">]</span>
+            <span class="n">nx</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;nx&quot;</span><span class="p">]</span>
+            <span class="n">ny</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;ny&quot;</span><span class="p">]</span>
+            <span class="n">nx_grid</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">ixx</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="n">nx</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
+            <span class="n">ny_grid</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">iy</span><span class="p">,</span> <span class="n">iyy</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="n">ny</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
+            <span class="n">ny_vec</span><span class="p">,</span> <span class="n">nx_vec</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">ny_grid</span><span class="p">,</span> <span class="n">nx_grid</span><span class="p">)</span>
+            <span class="n">theta_LS</span> <span class="o">=</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">LSy</span> <span class="o">-</span> <span class="n">ny_vec</span><span class="p">,</span> <span class="n">nx_vec</span> <span class="o">-</span> <span class="n">LSx</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+            <span class="k">if</span> <span class="n">chunk_mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">theta_LS</span> <span class="o">=</span> <span class="n">theta_LS</span><span class="p">[</span><span class="n">chunk_mask</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Default case LS at infinity incoming angle provided</span>
+            <span class="n">theta_LS</span> <span class="o">=</span> <span class="n">theta_LS</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.</span>
+        <span class="n">phi_LS</span> <span class="o">=</span> <span class="n">phi_LS</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.</span>
+        
+        <span class="k">if</span> <span class="s2">&quot;exp_map&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">()</span> <span class="c1"># debug</span>
+            <span class="c1"># Normal angle correction in case of exponential map</span>
+            <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;exp_map&quot;</span><span class="p">]:</span>
+                <span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">ixx</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">iyy</span><span class="p">)</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;chunk_slice&quot;</span><span class="p">]</span>
+                <span class="n">chunk_mask</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;chunk_mask&quot;</span><span class="p">]</span>
+                <span class="n">nx</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;nx&quot;</span><span class="p">]</span>
+                <span class="n">ny</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;ny&quot;</span><span class="p">]</span>
+                <span class="n">nx_grid</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">ixx</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="n">nx</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
+                <span class="n">ny_grid</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">iy</span><span class="p">,</span> <span class="n">iyy</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="n">ny</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
+                <span class="n">ny_vec</span><span class="p">,</span> <span class="n">nx_vec</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">ny_grid</span><span class="p">,</span> <span class="n">nx_grid</span><span class="p">)</span>
+                <span class="n">expmap_angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="p">(</span><span class="n">ny_vec</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">2.</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">chunk_mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">expmap_angle</span> <span class="o">=</span> <span class="n">expmap_angle</span><span class="p">[</span><span class="n">chunk_mask</span><span class="p">]</span>
+                <span class="n">normal</span> <span class="o">=</span> <span class="n">normal</span> <span class="o">*</span> <span class="n">expmap_angle</span>
+
+        <span class="c1"># k_ambient = - 1. / (2. * ratio_specular + 1.)</span>
+        <span class="n">k_lambert</span> <span class="o">=</span> <span class="mf">1.</span> <span class="c1">#- 2. * k_ambient</span>
+        <span class="n">k_spec</span> <span class="o">=</span> <span class="n">ratio_specular</span> <span class="o">*</span> <span class="n">k_lambert</span>
+
+        <span class="c1"># Light source coordinates</span>
+        <span class="n">LSx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_LS</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_LS</span><span class="p">)</span>
+        <span class="n">LSy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_LS</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_LS</span><span class="p">)</span>
+        <span class="n">LSz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi_LS</span><span class="p">)</span> 
+
+        <span class="c1"># Normal vector coordinates - Lambert shading</span>
+        <span class="n">nx</span> <span class="o">=</span> <span class="n">normal</span><span class="o">.</span><span class="n">real</span>
+        <span class="n">ny</span> <span class="o">=</span> <span class="n">normal</span><span class="o">.</span><span class="n">imag</span>
+        <span class="n">nz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">nx</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">ny</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> 
+        <span class="k">if</span> <span class="s2">&quot;inverse_n&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;inverse_n&quot;</span><span class="p">]:</span>
+                <span class="n">nx</span> <span class="o">=</span> <span class="o">-</span><span class="n">nx</span>
+                <span class="n">ny</span> <span class="o">=</span> <span class="o">-</span><span class="n">ny</span>
+                
+        <span class="n">lambert</span> <span class="o">=</span> <span class="n">LSx</span> <span class="o">*</span> <span class="n">nx</span> <span class="o">+</span> <span class="n">LSy</span> <span class="o">*</span> <span class="n">ny</span> <span class="o">+</span> <span class="n">LSz</span> <span class="o">*</span> <span class="n">nz</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">lambert</span><span class="p">,</span> <span class="n">lambert</span> <span class="o">&lt;</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span>
+
+        <span class="c1"># half-way vector coordinates - Blinn Phong shading</span>
+        <span class="n">specular</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">lambert</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ratio_specular</span> <span class="o">!=</span> <span class="mf">0.</span><span class="p">:</span>
+            <span class="n">phi_half</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">phi_LS</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span>
+            <span class="n">half_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_LS</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi_half</span><span class="p">)</span>
+            <span class="n">half_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_LS</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi_half</span><span class="p">)</span>
+            <span class="n">half_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_half</span><span class="p">)</span>
+            <span class="n">spec_angle</span> <span class="o">=</span> <span class="n">half_x</span> <span class="o">*</span> <span class="n">nx</span> <span class="o">+</span> <span class="n">half_y</span> <span class="o">*</span> <span class="n">ny</span> <span class="o">+</span> <span class="n">half_z</span> <span class="o">*</span> <span class="n">nz</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">spec_angle</span><span class="p">,</span> <span class="n">spec_angle</span> <span class="o">&lt;</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span>
+            <span class="n">specular</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">spec_angle</span><span class="p">,</span> <span class="n">shininess</span><span class="p">)</span>
+            
+        <span class="n">res</span> <span class="o">=</span>  <span class="n">k_lambert</span> <span class="o">*</span> <span class="n">lambert</span> <span class="o">+</span> <span class="n">k_spec</span> <span class="o">*</span> <span class="n">specular</span> <span class="c1"># + k_ambient</span>
+        
+        <span class="c1">#res[normal == 0.] = 0.5 * (np.nanmin(res) + np.nanmax(res))</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">normal</span> <span class="o">==</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">res</span><span class="p">)))</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="k">return</span> <span class="n">res</span><span class="c1"># k_ambient + k_lambert * lambert + k_spec * specular</span>
+
+
+<div class="viewcode-block" id="Fractal_colormap"><a class="viewcode-back" href="../../../API/colors/Fractal_colormap.html#fractalshades.colors.Fractal_colormap">[docs]</a><span class="k">class</span> <span class="nc">Fractal_colormap</span><span class="p">:</span>
+<div class="viewcode-block" id="Fractal_colormap.__init__"><a class="viewcode-back" href="../../../API/colors/Fractal_colormap.html#fractalshades.colors.Fractal_colormap.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">kinds</span><span class="p">,</span> <span class="n">grad_npts</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">grad_funcs</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span>
+        <span class="n">extent</span><span class="o">=</span><span class="s2">&quot;mirror&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fractal_colormap, concatenates (n-1) color gradients (passing</span>
+<span class="sd">        through n colors).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ==========</span>
+<span class="sd">        colors : rgb float np.array of shape [n, 3]</span>
+<span class="sd">            The successives colors of the colormap</span>
+<span class="sd">        kinds: arrays of string [n-1] , &quot;Lab&quot; or &quot;Lch&quot;</span>
+<span class="sd">            The kind of gradient between colors n and n+1 : either linear in</span>
+<span class="sd">            Lab space of Lch space</span>
+<span class="sd">        grad_npts : int np.array of size [n-1]</span>
+<span class="sd">            number of internal points stores, gradient between colors n and n+1</span>
+<span class="sd">            a typical value is 32.</span>
+<span class="sd">        grad_funcs : [n-1] array of callables mapping [0, 1.] to [0., 1]</span>
+<span class="sd">            These are passed to each gradient. Callable passed as a string</span>
+<span class="sd">            expression of x var</span>
+<span class="sd">            (ie, the callable is the evaluation of &quot;lambda x: &quot; + expr).</span>
+<span class="sd">            Default to identity.</span>
+<span class="sd">        extent : &quot;clip&quot; | &quot;mirror&quot; | &quot;repeat&quot;</span>
+<span class="sd">            What to do with out-of-range values.</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        =====</span>
+<span class="sd">        .. note::</span>
+<span class="sd">            </span>
+<span class="sd">            See also the colormap section of the gallery for the available</span>
+<span class="sd">            templates.</span>
+<span class="sd">            </span>
+<span class="sd">            </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_grads</span> <span class="o">=</span> <span class="n">n_grads</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_probes</span> <span class="o">=</span> <span class="n">n_probes</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># Provides sensible defaults if a scalar is provided</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">kinds</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">kinds</span> <span class="o">=</span> <span class="p">[</span><span class="n">kinds</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_grads</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">grad_npts</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">grad_npts</span> <span class="o">=</span> <span class="p">[</span><span class="n">grad_npts</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_grads</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">grad_funcs</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span> <span class="c1">#callable(grad_funcs):</span>
+            <span class="n">grad_funcs</span> <span class="o">=</span> <span class="p">[</span><span class="n">grad_funcs</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_grads</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">kinds</span> <span class="o">=</span> <span class="n">kinds</span> <span class="c1"># = np.asarray(kinds)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grad_npts</span> <span class="o">=</span> <span class="n">grad_npts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">grad_npts</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grad_funcs</span> <span class="o">=</span> <span class="n">grad_funcs</span> <span class="c1"># = np.asarray(grad_funcs)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extent</span> <span class="o">=</span> <span class="n">extent</span>
+
+        <span class="c1"># Deprecated option (not compatible with GUI editor)</span>
+        <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">grad_funcs</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Callable grad_funcs deprecated, use string&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Should define 2 internal arrays</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_interp_colors</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">grad_npts</span><span class="p">)</span> <span class="o">-</span> <span class="n">n_grads</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_interp_colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_interp_colors</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                                       <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_probes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">n_probes</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+        <span class="n">grad_func_evals</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">fs_parser</span><span class="o">.</span><span class="n">func_parser</span><span class="p">([</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">grad_funcs</span><span class="p">[</span><span class="n">i_grad</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">i_grad</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_grads</span><span class="p">)</span>
+        <span class="p">]</span>
+
+        <span class="n">i_col</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i_grad</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_grads</span><span class="p">):</span>
+            <span class="n">grad</span> <span class="o">=</span> <span class="n">Color_tools</span><span class="o">.</span><span class="n">color_gradient</span><span class="p">(</span>
+                <span class="n">kinds</span><span class="p">[</span><span class="n">i_grad</span><span class="p">],</span> <span class="n">colors</span><span class="p">[</span><span class="n">i_grad</span><span class="p">,</span> <span class="p">:],</span> <span class="n">colors</span><span class="p">[</span><span class="n">i_grad</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:],</span>
+                <span class="n">grad_npts</span><span class="p">[</span><span class="n">i_grad</span><span class="p">],</span> <span class="n">grad_func_evals</span><span class="p">[</span><span class="n">i_grad</span><span class="p">])</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_interp_colors</span><span class="p">[</span><span class="n">i_col</span><span class="p">:</span> <span class="n">i_col</span> <span class="o">+</span> <span class="n">grad_npts</span><span class="p">[</span><span class="n">i_grad</span><span class="p">],</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">grad</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_probes</span><span class="p">[</span><span class="n">i_grad</span><span class="p">]</span> <span class="o">=</span> <span class="n">i_col</span>
+            <span class="n">i_col</span> <span class="o">+=</span> <span class="p">(</span><span class="n">grad_npts</span><span class="p">[</span><span class="n">i_grad</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_probes</span><span class="p">[</span><span class="n">n_grads</span><span class="p">]</span> <span class="o">=</span> <span class="n">i_col</span> <span class="c1"># last piquet</span>
+        
+        <span class="c1"># Is is it a known template ?</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_template</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+    <span class="k">def</span> <span class="nf">_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Return a string that can be used to restore the colormap</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_template&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_template</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;fs.colors.cmap_register[</span><span class="se">\&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_template</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">]&quot;</span>
+        <span class="n">colors_str</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array2string</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+        <span class="n">kinds_str</span> <span class="o">=</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kinds</span><span class="p">)</span><span class="c1"># np.array2string(self.kinds, separator=&#39;, &#39;)</span>
+        <span class="n">grad_npts_str</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array2string</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grad_npts</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+        <span class="n">grad_funcs_str</span> <span class="o">=</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grad_funcs</span><span class="p">)</span><span class="c1"># np.array2string(self.grad_funcs, separator=&#39;, &#39;)</span>
+        <span class="n">extent_str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extent</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="s2">&quot;fs.colors.Fractal_colormap(</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;    colors=</span><span class="si">{}</span><span class="s2">,</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;    kinds=</span><span class="si">{}</span><span class="s2">,</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;    grad_npts=</span><span class="si">{}</span><span class="s2">,</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;    grad_funcs=</span><span class="si">{}</span><span class="s2">,</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;    extent=</span><span class="se">\&#39;</span><span class="si">{}</span><span class="se">\&#39;\n</span><span class="s2">)&quot;</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">colors_str</span><span class="p">,</span> <span class="n">kinds_str</span><span class="p">,</span> <span class="n">grad_npts_str</span><span class="p">,</span> <span class="n">grad_funcs_str</span><span class="p">,</span>
+                 <span class="n">extent_str</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">):</span>
+        <span class="n">margin</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">nx_im</span> <span class="o">=</span> <span class="n">nx</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">margin</span>
+        <span class="n">ny_im</span> <span class="o">=</span> <span class="n">ny</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">margin</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="n">nx_im</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span>
+                        <span class="n">ny_im</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">colorize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_probes</span><span class="p">)))</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="n">img</span> <span class="o">*</span> <span class="mf">255.999</span><span class="p">)</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="o">*</span> <span class="mi">255</span>
+        <span class="n">B</span><span class="p">[</span><span class="n">margin</span><span class="p">:</span><span class="n">nx</span> <span class="o">-</span> <span class="n">margin</span><span class="p">,</span> <span class="n">margin</span><span class="p">:</span><span class="n">ny</span> <span class="o">-</span> <span class="n">margin</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">img</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">output_png</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dir_path</span><span class="p">,</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Outputs the colorbar to a .png files:</span>
+<span class="sd">        dir_path/file_name.cbar.png</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+        <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">file_name</span> <span class="o">+</span> <span class="s2">&quot;.cbar.png&quot;</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">output_ImageQt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">):</span>
+<span class="c1">#https://stackoverflow.com/questions/34697559/pil-image-to-qpixmap-conversion-issue</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">PIL</span><span class="o">.</span><span class="n">ImageQt</span><span class="o">.</span><span class="n">ImageQt</span><span class="p">(</span><span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">colorize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">probes_z</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a color array bazed on z values</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">probes_z</span><span class="p">)</span>
+        <span class="c1"># linear interpolation in sorted color array</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_interp_colors</span><span class="p">),</span> <span class="n">z</span><span class="p">)</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">indices</span> <span class="o">-</span> <span class="n">z</span>
+        <span class="n">search_colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_interp_colors</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span>
+                                   <span class="bp">self</span><span class="o">.</span><span class="n">_interp_colors</span><span class="p">,</span>
+                                   <span class="bp">self</span><span class="o">.</span><span class="n">_interp_colors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]])</span>
+        <span class="n">z_colors</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">*</span> <span class="n">search_colors</span><span class="p">[</span><span class="n">indices</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> 
+             <span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">alpha</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span> <span class="o">*</span> <span class="n">search_colors</span><span class="p">[</span><span class="n">indices</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">z_colors</span><span class="p">,</span> <span class="p">[</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>  
+
+    <span class="k">def</span> <span class="nf">greyscale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">probes_z</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a color array bazed on z values</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">probes_z</span><span class="p">)</span>
+        <span class="c1"># linear interpolation in sorted greyscale array</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_interp_colors</span><span class="p">),</span> <span class="n">z</span><span class="p">)</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">indices</span> <span class="o">-</span> <span class="n">z</span>
+        <span class="n">search_colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span>
+            <span class="p">[</span><span class="mf">0.</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_interp_colors</span><span class="p">),</span>  <span class="p">[</span><span class="mf">1.</span><span class="p">]])</span>
+        <span class="n">z_greys</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">search_colors</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span> <span class="o">+</span>
+                   <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="n">search_colors</span><span class="p">[</span><span class="n">indices</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">z_greys</span>
+
+    <span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">probes_z</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Normalise z , z -&gt; z* so that z*min = 0 / z*max = self.n_interp_colors</span>
+<span class="sd">        *z*  array to normalise</span>
+<span class="sd">        *probes_z* array of dim self.n_probes: values of z at probes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">probes_z</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_probes</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">probes_z</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2</span><span class="p">,):</span>
+                <span class="n">probes_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">probes_z</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">probes_z</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                    <span class="n">num</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_probes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">probes_z</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+                <span class="k">assert</span> <span class="n">probes_z</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_probes</span><span class="o">.</span><span class="n">shape</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Expected *probes_values* of shape </span><span class="si">{0}</span><span class="s2">, &quot;</span>
+                    <span class="s2">&quot;given </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_probes</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">probes_z</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>        
+
+        <span class="c1"># on over / under flow : clip or mirror</span>
+        <span class="n">ext_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">probes_z</span><span class="p">)</span>
+        <span class="n">ext_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">probes_z</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">extent</span> <span class="o">==</span> <span class="s2">&quot;clip&quot;</span><span class="p">:</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">ext_min</span><span class="p">,</span> <span class="n">ext_max</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">extent</span> <span class="o">==</span> <span class="s2">&quot;mirror&quot;</span><span class="p">:</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mirror</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">ext_min</span><span class="p">,</span> <span class="n">ext_max</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">extent</span> <span class="o">==</span> <span class="s2">&quot;repeat&quot;</span><span class="p">:</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">ext_min</span><span class="p">,</span> <span class="n">ext_max</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unexpected extent property </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">extent</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">probes_z</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_probes</span><span class="p">)</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">clip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ext_min</span><span class="p">,</span> <span class="n">ext_max</span><span class="p">):</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">ext_min</span><span class="p">,</span> <span class="n">ext_min</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">ext_max</span><span class="p">,</span> <span class="n">ext_max</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">mirror</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ext_min</span><span class="p">,</span> <span class="n">ext_max</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Mirroring of x on ext_min &amp; ext_max</span>
+<span class="sd">Formula: https://en.wikipedia.org/wiki/Triangle_wave</span>
+<span class="sd">4/p * (t - p/2 * floor(2t/p + 1/2)) * (-1)**floor(2t/p + 1/2) where p = 4</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">ext_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">ext_max</span> <span class="o">-</span> <span class="n">ext_min</span><span class="p">)</span>  <span class="c1"># btw. 0. and 1</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">t</span> <span class="o">-</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">e</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="n">e</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ext_min</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="p">(</span><span class="n">ext_max</span> <span class="o">-</span> <span class="n">ext_min</span><span class="p">))</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">repeat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ext_min</span><span class="p">,</span> <span class="n">ext_max</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Repeating x based on ext_min &amp; ext_max (Sawtooth)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">ext_min</span> <span class="o">+</span> <span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">ext_min</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="n">ext_max</span> <span class="o">-</span> <span class="n">ext_min</span><span class="p">))</span></div>
+
+
+<span class="k">class</span> <span class="nc">Image_interpolator</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">wrap</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">screen_coord</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Interpolation of points in an image</span>
+<span class="sd">        image: Pillow image</span>
+<span class="sd">        wrap : if True, margins are wraped</span>
+<span class="sd">        screen_coord : if True pixels to interpolate are in screen coords</span>
+<span class="sd">                       (y downwards)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_im</span> <span class="o">=</span> <span class="n">image</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_wrap</span> <span class="o">=</span> <span class="n">wrap</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_screen_coord</span> <span class="o">=</span> <span class="n">screen_coord</span>
+
+    <span class="k">def</span> <span class="nf">interpolate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_im</span><span class="o">.</span><span class="n">mode</span> 
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;RGB&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolate_rgb</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">interpolate_rgb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        x arrays of floats between [0, nx]</span>
+<span class="sd">        y arrays of floats between [0, ny]</span>
+<span class="sd">        </span>
+<span class="sd">        Return an RGB array of shape shape-x) + (3,), dtype np.uint8)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+        <span class="n">wrap</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap</span>
+        <span class="n">screen_coord</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_screen_coord</span>
+        <span class="k">if</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">shape</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;x and y shall have same shape&quot;</span><span class="p">)</span>
+        <span class="n">xr</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">yr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;channels&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_im</span><span class="p">)</span>
+        <span class="c1"># channels &lt;PIL.PngImagePlugin.PngImageFile image mode=RGB size=3600x3600 at 0x7FF2C0CA20A0&gt;</span>
+        <span class="n">im_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_im</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ic</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="n">ic</span><span class="p">)</span>
+            <span class="n">channel</span> <span class="o">=</span> <span class="n">im_arr</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">ic</span><span class="p">]</span><span class="c1">#self._im.getchannel(ic)</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xr</span><span class="p">))</span>
+            <span class="n">im_interpolate</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">xr</span><span class="p">,</span> <span class="n">yr</span><span class="p">,</span> <span class="n">wrap</span><span class="p">,</span> <span class="n">screen_coord</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+            <span class="n">res</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">ic</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span> <span class="c1">#/ 255.</span>
+        <span class="k">return</span> <span class="n">res</span>
+        
+
+<span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span>
+<span class="k">def</span> <span class="nf">im_interpolate</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">wrap</span><span class="p">,</span> <span class="n">screen_coord</span><span class="p">,</span> <span class="n">out</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Numba jitted function to interpolate in an image channel</span>
+
+<span class="sd">    channel: The 2d image channel to interpolate </span>
+<span class="sd">    x: The 1d x-axis pts for interpolation</span>
+<span class="sd">    y: The 1d y-axis pts for interpolation</span>
+<span class="sd">    wrap: if True, wraps, otherwise, clip</span>
+<span class="sd">    out: the res array</span>
+<span class="sd">    </span>
+<span class="sd">    # note :  channel.shape: height x width (column-major)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span> <span class="o">=</span>  <span class="n">channel</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">npts</span><span class="p">,</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+    <span class="k">for</span> <span class="n">ipt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">npts</span><span class="p">):</span>
+        <span class="c1"># The x coords</span>
+        <span class="n">xloc</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">ipt</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.5</span>
+        <span class="n">divx</span><span class="p">,</span> <span class="n">modx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="n">xloc</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)</span>
+        <span class="n">divx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">divx</span><span class="p">)</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">divx</span> <span class="o">&lt;=</span> <span class="n">nx</span> <span class="o">-</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">ix1</span> <span class="o">=</span> <span class="n">divx</span>
+            <span class="n">ix2</span> <span class="o">=</span> <span class="n">ix1</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">divx</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># divx = -1</span>
+            <span class="n">ix2</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="n">wrap</span><span class="p">:</span>
+                <span class="n">ix1</span> <span class="o">=</span> <span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ix1</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1"># divx = nx - 1</span>
+            <span class="n">ix1</span> <span class="o">=</span> <span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">wrap</span><span class="p">:</span>
+                <span class="n">ix1</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ix1</span> <span class="o">=</span> <span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="c1"># The y coords</span>
+        <span class="k">if</span> <span class="kc">False</span><span class="p">:</span> <span class="c1">#screen_coord:</span>
+            <span class="n">yloc</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">ipt</span><span class="p">]</span> <span class="o">-</span> <span class="n">ny</span> <span class="o">+</span> <span class="mf">0.5</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">yloc</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">ipt</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.5</span>
+        <span class="n">divy</span><span class="p">,</span> <span class="n">mody</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="n">yloc</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)</span>
+        <span class="n">divy</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">divy</span><span class="p">)</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">divy</span> <span class="o">&lt;=</span> <span class="n">ny</span> <span class="o">-</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">iy1</span> <span class="o">=</span> <span class="n">divy</span>
+            <span class="n">iy2</span> <span class="o">=</span> <span class="n">iy1</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">divy</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># divy = -1</span>
+            <span class="n">iy2</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="n">wrap</span><span class="p">:</span>
+                <span class="n">iy1</span> <span class="o">=</span> <span class="n">ny</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">iy1</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1"># divx = ny - 1</span>
+            <span class="n">iy1</span> <span class="o">=</span> <span class="n">ny</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">wrap</span><span class="p">:</span>
+                <span class="n">iy1</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">iy1</span> <span class="o">=</span> <span class="n">ny</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="c1"># The interpolation as barycentric coordinates</span>
+        <span class="n">out</span><span class="p">[</span><span class="n">ipt</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">modx</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">mody</span><span class="p">)</span> <span class="o">*</span> <span class="n">channel</span><span class="p">[</span><span class="n">iy1</span><span class="p">,</span> <span class="n">ix1</span><span class="p">]</span>
+            <span class="o">+</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">modx</span><span class="p">)</span> <span class="o">*</span> <span class="n">mody</span> <span class="o">*</span> <span class="n">channel</span><span class="p">[</span><span class="n">iy2</span><span class="p">,</span> <span class="n">ix1</span><span class="p">]</span>
+            <span class="o">+</span> <span class="n">modx</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">mody</span><span class="p">)</span> <span class="o">*</span> <span class="n">channel</span><span class="p">[</span><span class="n">iy1</span><span class="p">,</span> <span class="n">ix2</span><span class="p">]</span>
+            <span class="o">+</span> <span class="n">modx</span> <span class="o">*</span> <span class="n">mody</span> <span class="o">*</span> <span class="n">channel</span><span class="p">[</span><span class="n">iy2</span><span class="p">,</span> <span class="n">ix2</span><span class="p">]</span>
+        <span class="p">)</span>
+            
+
+
+
+
+
+
+
+<span class="k">class</span> <span class="nc">Curve</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fn</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">brightness</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hardness</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">blur_ranges</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        TODO - work in progress</span>
+<span class="sd">        A transfert curve from [0, 1] to [0, 1]</span>
+<span class="sd">        (&quot;Grey levels map&quot;)</span>
+<span class="sd">        brightness float, O. leaves untouched, 0..+1 brighten</span>
+<span class="sd">                                              -1..0 darken</span>
+<span class="sd">        hardness float, 1. leaves untouched, 1..inf more contrast </span>
+<span class="sd">                                              0..1 les contrast</span>
+<span class="sd">        blur_ranges: danping base on layer &quot;damping_pp&quot;               </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: refactor as an editor with control points ?</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fn</span> <span class="o">=</span> <span class="n">fn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">brightness</span> <span class="o">=</span> <span class="n">brightness</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hardness</span> <span class="o">=</span> <span class="n">hardness</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blur_ranges</span> <span class="o">=</span> <span class="n">blur_ranges</span>
+    
+    <span class="k">def</span> <span class="nf">set_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;  register the curve as linked to a layer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer</span> <span class="o">=</span> <span class="n">layer</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">blur_base</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">damping_pp</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>      
+        <span class="n">brightness</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">brightness</span>
+        <span class="n">hardness</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hardness</span>
+        <span class="n">blur_ranges</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">blur_ranges</span>
+
+        <span class="c1"># renormalise between -1 and 1</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">data</span> <span class="o">-</span> <span class="mf">1.</span>
+
+        <span class="k">if</span> <span class="n">brightness</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">brighten</span><span class="p">(</span><span class="n">brightness</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">hardness</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">harden</span><span class="p">(</span><span class="n">hardness</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">blur_ranges</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">blur</span><span class="p">(</span><span class="n">blur_ranges</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">blur_base</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">data</span> <span class="o">+</span> <span class="mf">1.</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">brighten</span><span class="p">(</span><span class="n">brightness</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Input : data between [-1, 1]</span>
+<span class="sd">        output: data linearly rescaled between [min, max] so that :</span>
+<span class="sd">            - min = -1 or max = +1</span>
+<span class="sd">            - skewness = 0.5 * (min+max)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">brightness</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">1.</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Expected skew strictly between -1. and 1.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">brightness</span> <span class="o">&gt;=</span> <span class="mf">0.</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">1.</span> <span class="o">-</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">data</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">brightness</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mf">1.</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">brightness</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">harden</span><span class="p">(</span><span class="n">hardness</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adjust contrast for a np.array between -1 and 1</span>
+<span class="sd">        Parameter:</span>
+<span class="sd">        *hardness*   if  1. data unchanged</span>
+<span class="sd">                     if  0. &lt; hardness &lt; 1., soften the contrast</span>
+<span class="sd">                     if  hardness &gt; 1., accentuate the contrast</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">hardness</span> <span class="o">&lt;</span> <span class="mf">0.</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">hardness</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="n">hardness</span><span class="p">)</span>
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">bluring_coeff</span><span class="p">(</span><span class="n">blur1</span><span class="p">,</span> <span class="n">blur2</span><span class="p">,</span> <span class="n">blur3</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Define bluring coefficents for *x*, parameter blur1, blur2, blur3</span>
+<span class="sd">        Paramters</span>
+<span class="sd">        *blur1*, *blur2*, *blur3*    Monotonic, real inputs</span>
+<span class="sd">        *x*                          Array</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        *y*   Arrays of bluring coefficient at x location, as below if blur </span>
+<span class="sd">              param are increasing :</span>
+<span class="sd">                 1 below blur1.    </span>
+<span class="sd">                 smooth from blur1 to blur 2 1. -&gt; 0.</span>
+<span class="sd">                 stay at 0 between blur2 and blur 3</span>
+<span class="sd">                 back to 1. after blur3</span>
+<span class="sd">            If param blur1 to blur3 are decreasing inverse the logic (mirror)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">blur2</span> <span class="o">-</span> <span class="n">blur1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">blur3</span> <span class="o">-</span> <span class="n">blur2</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Expected monotonic blur1, blur2, blur3&quot;</span><span class="p">)</span>
+        <span class="n">sign</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">blur3</span> <span class="o">-</span> <span class="n">blur1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">sign</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unable to define blur direction, as blur1=blur3&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">sign</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Curve</span><span class="o">.</span><span class="n">bluring_coeff</span><span class="p">(</span><span class="o">-</span><span class="n">blur1</span><span class="p">,</span> <span class="o">-</span><span class="n">blur2</span><span class="p">,</span> <span class="o">-</span><span class="n">blur3</span><span class="p">,</span> <span class="o">-</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">y</span><span class="p">[</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">blur1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span>
+            <span class="n">y</span><span class="p">[</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">blur3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span> 
+            <span class="n">y</span><span class="p">[(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">blur2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">blur3</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">0.</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">blur1</span> <span class="o">+</span> <span class="n">blur2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="n">blur1</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">blur1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="p">)</span>
+            <span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">-</span> <span class="n">blur1</span><span class="p">)</span> <span class="o">/</span> <span class="n">l</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="mf">0.5</span> 
+            <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">mid</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">blur2</span><span class="p">)</span>
+            <span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">blur2</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span> <span class="o">/</span> <span class="n">l</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="mf">0.5</span> 
+            <span class="k">return</span> <span class="n">y</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">blur</span><span class="p">(</span><span class="n">blur_ranges</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">blur_base</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Selectively &quot;blurs&quot; ie contracts to 0. the data inside &quot;blur ranges&quot;</span>
+<span class="sd">        defined as quantiles of the base_layer_data.</span>
+<span class="sd">        Parameters :</span>
+<span class="sd">        blur_ranges [[blur1, blur2, blur3],</span>
+<span class="sd">                     [blur2, blur2, blur3], ...]  </span>
+<span class="sd">                     bluri expressed as quantiles of base_layer_data (in 0 - 1)</span>
+
+<span class="sd">        qt_base     distribution function applied to base data values </span>
+<span class="sd">                    (= the quantiles)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">blur_range</span> <span class="ow">in</span> <span class="n">blur_ranges</span><span class="p">:</span>
+            <span class="n">blur1</span><span class="p">,</span> <span class="n">blur2</span><span class="p">,</span> <span class="n">blur3</span> <span class="o">=</span> <span class="n">blur_range</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">*</span> <span class="n">Curve</span><span class="o">.</span><span class="n">bluring_coeff</span><span class="p">(</span><span class="n">blur1</span><span class="p">,</span> <span class="n">blur2</span><span class="p">,</span> <span class="n">blur3</span><span class="p">,</span> <span class="n">blur_base</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+
+           </div>
+          </div>
+<div class="ribbon">
+  <a href="https://github.com/GBillotey/Fractalshades">Fork me on GitHub</a>
+</div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Geoffroy Billotey.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<style>
+  .wy-nav-content { max-width: 1250px !important; }
+</style>
+
+
+</body>
+</html>

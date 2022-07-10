@@ -1,0 +1,1238 @@
+<!== Adding "Fork me on Github" ribbon ==>
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fractalshades.colors.layers &mdash; Fractalshades 0.5.6 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/rtd_dark.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/math.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link href="../../../_static/ribbon.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> Fractalshades
+            <img src="../../../_static/logo3.jpg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.5.6
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#installing">Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#a-5-minutes-guide-to-fractalshades">A 5-minutes guide to fractalshades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#graphical-user-interface">Graphical user interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#finding-areas-of-interest">Finding areas of interest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#unskewing-streched-areas">Unskewing streched areas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../math.html">Mathematical background</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#zoom-level-and-native-floating-point-precision">Zoom level and native floating-point precision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#perturbation-theory">Perturbation Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#avoiding-loss-of-precision">Avoiding loss of precision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#billinear-approximations">Billinear approximations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#extended-range-floating-points">Extended range floating points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#finding-minibrots">Finding minibrots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#going-further-a-few-references">Going further: a few references</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#batch-mode-gallery">Batch mode gallery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/01-full_basic.html">01 - Full Mandelbrot basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/02-bulb_fieldlines1.html">02 - Bulb fieldlines example “tint_or_shade”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/03-bulb_fieldlines2.html">03 - Bulb fieldlines example “twinfield”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/04-seahorse_shaded.html">04 - Seahorse shaded example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/05-seahorse_shaded_colored.html">05 - Seahorse shaded and colored example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/06-seahorse_interior.html">06 - Seahorse interior example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/07-seahorse_DEM.html">07 - Seahorse DEM example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/08-run_perturb_DEM.html">08 - DEM example with perturbation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/09-run_flake_DEM.html">09 - A deeper DEM example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/10-double_embedded_julia.html">10 - Double embedded Julia set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/11-run_perturbdeep.html">11- Ultra-deep embedded Julia set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/12-burning_ship_deep.html">12 - Burning Ship deep zoom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/13-burning_ship.html">13 - Burning ship DEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/14-burning_ship-deeper_DEM.html">14 - Burning ship deeper DEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/15-burning_ship-deepJulia_DEM.html">15 - Burning Ship ultra-deep embedded Julia set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/16-tetration_spring.html">16 - Tetration (power tower) zoom: “Spring”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/17-perpendicular_burning_ship_DEM.html">17 - “Perpendicular” Burning Ship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/18-perpendicular_burning_ship_glynn.html">18 - “Perpendicular” Burning Ship: hidden Glynn spiral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/19-perpendicular_burning_ship_Koch.html">19 - “Perpendicular” Burning Ship: hidden Koch snowflakes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/20-perpendicular_burning_ship_Sierpinski.html">20 - “Perpendicular” Burning Ship: hidden Sierpinski carpets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/21-perpendicular_burning_ship_trees.html">21 - “Perpendicular” Burning Ship: tree structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/22-shark_fin_deep.html">22 - “Shark Fin” escape-time fractal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/23-deep_min.html">23 - A deep mini</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#colormaps-template-gallery">Colormaps template gallery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/colormaps/plot_cmaps.html">Colormaps: available templates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#gui-mode-arbitrary-precision-implementations">GUI-mode: arbitrary precision implementations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_deepzoom/D01_run_interactive.html">D01 - Mandelbrot arbitrary-precision explorer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_deepzoom/D02_run_BS_interactive.html">D02 - Burning Ship arbitrary-precision explorer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_deepzoom/D03_run_perpendicular_BS_interactive.html">D03 - Perpendicular Burning Ship arbitrary-precision explorer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_deepzoom/D04_run_shark_fin_interactive.html">D04 - Shark Fin arbitrary-precision explorer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#gui-mode-standard-implementation-examples">GUI-mode: standard implementation examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_standard/S01_run_interactive_shallow.html">S01 - Mandelbrot explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_standard/S02_run_BS_shallow.html">S02 - Burning ship explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_standard/S03_run_interactive_Mn_shallow.html">S03 - Mandelbrot power n explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_standard/S04_run_collatz.html">S04 - Collatz explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_standard/S05_run_power_tower_shallow.html">S05 - Tetration fractal explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_standard/S06_run_perpendicular_BS_shallow.html">S06 - Perpendicular Burning Ship explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_standard/S07_run_shark_fin_shallow.html">S07 - Shark fin  explorer - Standard precision</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../API.html">Application Programming Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/core.html">Core components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core/Fractal.html">Fractal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core/PerturbationFractal.html">PerturbationFractal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core/Fractal_plotter.html">Fractal_plotter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core/decorators.html">Decorators</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/settings.html">Application-level settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/models.html">Fractal models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Perturbation_mandelbrot.html">Arbitrary-precision Mandelbrot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Perturbation_burning_ship.html">Arbitrary-precision Burning Ship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Perturbation_perpendicular_burning_ship.html">Arbitrary-precision Perpendicular Burning Ship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Perturbation_shark_fin.html">Arbitrary-precision Shark fin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Mandelbrot.html">Mandelbrot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Burning_ship.html">Burning Ship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Perpendicular_burning_ship.html">Perpendicular Burning Ship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Shark_fin.html">Shark fin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Mandelbrot_N.html">Mandelbrot power n &gt; 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Collatz.html">Collatz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/models/Power_tower.html">Power tower (aka Tetration) fractal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/postproc.html">Postprocessing fields</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/Postproc.html">Postproc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/Raw_pp.html">Raw_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/Continuous_iter_pp.html">Continuous_iter_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/Fieldlines_pp.html">Fieldlines_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/DEM_normal_pp.html">DEM_normal_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/DEM_pp.html">DEM_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/Attr_normal_pp.html">Attr_normal_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/Attr_pp.html">Attr_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/Postproc_batch.html">Postproc_batch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc/Fractal_array.html">Fractal_array</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/layers.html">Image layers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers/Virtual_layer.html">Virtual_layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers/Bool_layer.html">Bool_layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers/Color_layer.html">Color_layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers/Normal_map_layer.html">Normal_map_layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers/Grey_layer.html">Grey_layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers/Disp_layer.html">Disp_layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers/Blinn_lighting.html">Blinn_lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers/Overlay_mode.html">Overlay_mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/colors.html">Color mapping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/colors/Fractal_colormap.html">Fractal_colormap</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/GUI.html">GUI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/gui/Fractal_GUI.html">Fractal_GUI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-5-6">Rev 0.5.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-5-5">Rev 0.5.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-5-4">Rev 0.5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-5-3">Rev 0.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-5-2">Rev 0.5.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-5-0">Rev 0.5.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-4-3">Rev 0.4.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-4-2">Rev 0.4.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-4-1">Rev 0.4.1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../acknowledgment.html">Acknowledgment</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Fractalshades</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>fractalshades.colors.layers</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+           <div itemprop="articleBody">
+             
+  <h1>Source code for fractalshades.colors.layers</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.lib.format</span> <span class="kn">import</span> <span class="n">open_memmap</span>
+<span class="c1">#import matplotlib.colors</span>
+<span class="c1">#from matplotlib.figure import Figure</span>
+<span class="c1">#from matplotlib.backends.backend_agg import FigureCanvasAgg</span>
+
+
+<span class="kn">import</span> <span class="nn">PIL</span>
+<span class="kn">import</span> <span class="nn">PIL.ImageQt</span>
+
+<span class="kn">import</span> <span class="nn">fractalshades.numpy_utils.expr_parser</span> <span class="k">as</span> <span class="nn">fs_parser</span>
+<span class="kn">import</span> <span class="nn">fractalshades.colors</span> <span class="k">as</span> <span class="nn">fscolors</span>
+
+<span class="c1">#import fractalshades.settings as fssettings</span>
+<span class="c1">#import fractalshades.utils as fsutils</span>
+
+<span class="c1">#        Note: Pillow image modes:</span>
+<span class="c1">#        RGB (3x8-bit pixels, true color)</span>
+<span class="c1">#        RGBA (4x8-bit pixels, true color with transparency mask)</span>
+<span class="c1">#        1 (1-bit pixels, black and white, stored with one pixel per byte)</span>
+<span class="c1">#        L ((8-bit pixels, black and white)</span>
+<span class="c1">#        I (32-bit signed integer pixels)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">fractal -&gt; postproc -&gt; Secondaryla -&gt; layer -&gt; combined layer (blend, shading)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Virtual_layer"><a class="viewcode-back" href="../../../API/layers/Virtual_layer.html#fractalshades.colors.layers.Virtual_layer">[docs]</a><span class="k">class</span> <span class="nc">Virtual_layer</span><span class="p">:</span>
+
+    <span class="n">N_CHANNEL_FROM_MODE</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;L&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;I&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;RGB&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">&quot;RGBA&quot;</span><span class="p">:</span> <span class="mi">4</span>
+    <span class="p">}</span>
+    <span class="n">DTYPE_FROM_MODE</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+        <span class="s2">&quot;L&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">,</span>
+        <span class="s2">&quot;I&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span>
+        <span class="s2">&quot;RGB&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">,</span>
+        <span class="s2">&quot;RGBA&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span>
+    <span class="p">}</span>
+    <span class="n">default_mask_color</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="Virtual_layer.__init__"><a class="viewcode-back" href="../../../API/layers/Virtual_layer.html#fractalshades.colors.layers.Virtual_layer.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">postname</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    Base class for all layer objects.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    postname : str</span>
+<span class="sd">        Unique identifier key for this layer. When added to a </span>
+<span class="sd">        `fractalshades.Fractal_plotter` plotter (see </span>
+<span class="sd">        `fractalshades.Fractal_plotter.add_layer`) the layer can then be</span>
+<span class="sd">        accessed through this key :</span>
+<span class="sd">            </span>
+<span class="sd">            layer = plotter[&quot;postname&quot;]</span>
+<span class="sd">        </span>
+<span class="sd">        The `postname` must match a `fractalshades.postproc.Postproc`</span>
+<span class="sd">        associated with this plotter.</span>
+
+<span class="sd">    func : None | callable</span>
+<span class="sd">        mapping applied during the post-processing initial step</span>
+
+<span class="sd">    output : bool</span>
+<span class="sd">        If True : an image will be saved when</span>
+<span class="sd">        `fractalshades.Fractal_plotter.add_layer` directive issued.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">postname</span> <span class="o">=</span> <span class="n">postname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>     <span class="c1"># neutral value for np.nanmin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>    <span class="c1"># neutral value for np.nanmax</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_scaling_defined</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># tracker</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_func_arg</span> <span class="o">=</span> <span class="n">func</span> <span class="c1"># kept for the record</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_func</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">output</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">parse_func</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">fs_parser</span><span class="o">.</span><span class="n">func_parser</span><span class="p">([</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">func</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">func</span>
+
+    <span class="k">def</span> <span class="nf">link_plotter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plotter</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plotter</span> <span class="o">=</span> <span class="n">plotter</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">fractal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fractal</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">plotter</span><span class="o">.</span><span class="n">fractal</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">n_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; private - The number of channels for self.arr &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">N_CHANNEL_FROM_MODE</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dtype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; private - The dtype for self.arr &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">DTYPE_FROM_MODE</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">]</span>
+
+<div class="viewcode-block" id="Virtual_layer.set_mask"><a class="viewcode-back" href="../../../API/layers/Virtual_layer.html#fractalshades.colors.layers.Virtual_layer.set_mask">[docs]</a>    <span class="k">def</span> <span class="nf">set_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">mask_color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Masks the base-layer</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        layer : `Bool_layer` | `Grey_layer`</span>
+<span class="sd">            The layer mask</span>
+<span class="sd">        mask_color : None | 3-uplet or 4_uplet of floats belonging to [0., 1.]</span>
+<span class="sd">            If None, a default value will be provided depending on the masked</span>
+<span class="sd">            array subclass</span>
+<span class="sd">            If a n-uplet is provided, it shall be with RGB or RGBA values for a</span>
+<span class="sd">            colored layer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">mask_color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># default class-implementation</span>
+            <span class="n">mask_color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_mask_color</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">mask_color</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mask_kind</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; private - 3 possiblilities : </span>
+<span class="sd">                - no mask (returns None)</span>
+<span class="sd">                - boolean mask (return &quot;bool&quot;)</span>
+<span class="sd">                - greyscale i.e. float mask (return &quot;float) &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">layer</span><span class="p">,</span> <span class="n">mask_color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">Bool_layer</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;bool&quot;</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">Grey_layer</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;float&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Mask layer type not recognized&quot;</span>
+                             <span class="o">+</span> <span class="nb">type</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; read the base data array for this layer</span>
+<span class="sd">        Returns a numpy array of </span>
+<span class="sd">        - shape (lx, ly) or (n_fields, lx, ly) if n_fields &gt; 1</span>
+<span class="sd">        - datatype self.dtype</span>
+<span class="sd">        </span>
+<span class="sd">        Note: this is the raw, unscaled values</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">ixx</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">iyy</span><span class="p">)</span> <span class="o">=</span> <span class="n">chunk_slice</span>
+        <span class="n">plotter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plotter</span>
+        <span class="k">if</span> <span class="n">plotter</span><span class="o">.</span><span class="n">has_memmap</span><span class="p">:</span>
+            <span class="n">mmap</span> <span class="o">=</span> <span class="n">open_memmap</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">plotter</span><span class="o">.</span><span class="n">temporary_mmap_path</span><span class="p">(),</span>
+                               <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mmap</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plotter</span><span class="o">.</span><span class="n">_RAM_data</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">ixx</span> <span class="o">-</span> <span class="n">ix</span><span class="p">,</span> <span class="n">iyy</span> <span class="o">-</span> <span class="n">iy</span><span class="p">),</span> <span class="n">mmap</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+        <span class="n">postname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">postname</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">rank</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">plotter</span><span class="o">.</span><span class="n">postnames</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">postname</span><span class="p">)</span>
+            <span class="n">arr</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">mmap</span><span class="p">[</span><span class="n">rank</span><span class="p">,</span> <span class="n">ix</span><span class="p">:</span><span class="n">ixx</span><span class="p">,</span> <span class="n">iy</span><span class="p">:</span><span class="n">iyy</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="c1"># Could happen that we need 2 fields (e.g., normal map...)</span>
+            <span class="k">if</span> <span class="n">postname</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">plotter</span><span class="o">.</span><span class="n">postnames_2d</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;postname not found: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">postname</span><span class="p">))</span>
+            <span class="n">rank</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plotter</span><span class="o">.</span><span class="n">postnames</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">postname</span> <span class="o">+</span> <span class="s2">&quot;_x&quot;</span><span class="p">)</span>
+            <span class="n">rank2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plotter</span><span class="o">.</span><span class="n">postnames</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">postname</span> <span class="o">+</span> <span class="s2">&quot;_y&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">rank2</span> <span class="o">!=</span> <span class="n">rank</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;x y coords not contiguous for postname: &quot;</span>
+                                 <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">postname</span><span class="p">))</span>
+            
+            <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">ixx</span> <span class="o">-</span> <span class="n">ix</span><span class="p">,</span> <span class="n">iyy</span> <span class="o">-</span> <span class="n">iy</span><span class="p">),</span> <span class="n">mmap</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+            <span class="n">arr</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">mmap</span><span class="p">[</span><span class="n">rank</span><span class="p">:</span><span class="n">rank</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">ix</span><span class="p">:</span><span class="n">ixx</span><span class="p">,</span> <span class="n">iy</span><span class="p">:</span><span class="n">iyy</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">arr</span>
+
+    <span class="k">def</span> <span class="nf">update_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Update the overall min - max according to what is found in this </span>
+<span class="sd">         chunk_slice  &quot;&quot;&quot;</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">chunk_slice</span><span class="p">]</span>
+        <span class="c1"># If a user-mapping is defined, apply it</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+        
+        <span class="n">sh</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">shape</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sh</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">n_fields</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">sh</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">n_fields</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="n">n_fields</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># standard case</span>
+            <span class="n">min_chunk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nanmin_with_mask</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">)</span>
+            <span class="n">max_chunk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nanmax_with_mask</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">min</span><span class="p">,</span> <span class="n">min_chunk</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">max_chunk</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">n_fields</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span> <span class="c1"># case of normal maps</span>
+            <span class="c1"># Normalizing by its module</span>
+            <span class="n">arr</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">**</span><span class="mi">2</span>
+            <span class="n">max_chunk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nanmax_with_mask</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">)</span>
+            <span class="n">max_chunk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">max_chunk</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">max_chunk</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">min</span> <span class="o">=</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">max</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">n_fields</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_scaling_defined</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">nanmin_with_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; nanmin but disregarding the masked vals (if layer has a mask)&quot;&quot;&quot;</span>
+        <span class="n">mask_kind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_kind</span>
+        <span class="k">if</span> <span class="n">mask_kind</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">mask_kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;bool&quot;</span><span class="p">,</span> <span class="s2">&quot;float&quot;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">mask_kind</span> <span class="o">==</span> <span class="s2">&quot;bool&quot;</span><span class="p">:</span>
+                <span class="n">keep_arr</span> <span class="o">=</span> <span class="o">~</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">chunk_slice</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">mask_kind</span> <span class="o">==</span> <span class="s2">&quot;float&quot;</span><span class="p">:</span>
+                <span class="n">keep_arr</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">chunk_slice</span><span class="p">]</span> <span class="o">!=</span> <span class="mf">1.</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">keep_arr</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">keep_arr</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">mask_kind</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">nanmax_with_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; nanmax but disregarding the masked vals (if layer has a mask)&quot;&quot;&quot;</span>
+        <span class="n">mask_kind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_kind</span>
+        <span class="k">if</span> <span class="n">mask_kind</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">mask_kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;bool&quot;</span><span class="p">,</span> <span class="s2">&quot;float&quot;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">mask_kind</span> <span class="o">==</span> <span class="s2">&quot;bool&quot;</span><span class="p">:</span>
+                <span class="n">keep_arr</span> <span class="o">=</span> <span class="o">~</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">chunk_slice</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">mask_kind</span> <span class="o">==</span> <span class="s2">&quot;float&quot;</span><span class="p">:</span>
+                <span class="n">keep_arr</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">chunk_slice</span><span class="p">]</span> <span class="o">!=</span> <span class="mf">1.</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">keep_arr</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">keep_arr</span><span class="p">])</span>
+            <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">mask_kind</span><span class="p">)</span> 
+
+    <span class="k">def</span> <span class="nf">crop</span><span class="p">(</span><span class="n">chunk_slice</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Return the image for this chunk</span>
+<span class="sd">        Subclasses should implement&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Derivate classes should implement &quot;</span>
+                                  <span class="s2">&quot;this method&quot;</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">np2PIL</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Utility function</span>
+<span class="sd">        Unfortunately we have a mess between numpy and pillow &quot;&quot;&quot;</span>
+        <span class="n">sh</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">shape</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sh</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">sh</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Expected 2 or 3 dim array, got: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                             <span class="nb">len</span><span class="p">(</span><span class="n">sh</span><span class="p">)))</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">PIL2np</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Inverse of np2PIL &quot;&quot;&quot;</span>
+        <span class="n">sh</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">shape</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sh</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">)[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">sh</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">)[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Expected 2 or 3 dim array, got: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                             <span class="nb">len</span><span class="p">(</span><span class="n">sh</span><span class="p">)))</span></div>
+
+<div class="viewcode-block" id="Color_layer"><a class="viewcode-back" href="../../../API/layers/Color_layer.html#fractalshades.colors.layers.Color_layer">[docs]</a><span class="k">class</span> <span class="nc">Color_layer</span><span class="p">(</span><span class="n">Virtual_layer</span><span class="p">):</span>
+    <span class="n">default_mask_color</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Color_layer.__init__"><a class="viewcode-back" href="../../../API/layers/Color_layer.html#fractalshades.colors.layers.Color_layer.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">postname</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">colormap</span><span class="p">,</span> <span class="n">probes_z</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                 <span class="n">probes_kind</span><span class="o">=</span><span class="s2">&quot;relative&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A colored layer.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        postname : str</span>
+<span class="sd">            passed to `Virtual_layer` constructor</span>
+<span class="sd">        func :</span>
+<span class="sd">            passed to `Virtual_layer` constructor</span>
+<span class="sd">        colormap : fractalshades.colors.Fractal_colormap</span>
+<span class="sd">            a colormap</span>
+<span class="sd">        probes_z : 2-floats list</span>
+<span class="sd">            The preprocessing affine rescaling. If [0., 1.] and probes_kind is </span>
+<span class="sd">            `relative` (default) the minimum value of the field will be mapped</span>
+<span class="sd">            to 0. and the maximum to 1.</span>
+<span class="sd">        probes_kind : &quot;relative&quot; | &quot;absolute&quot;</span>
+<span class="sd">            The key for  probes_z values. If relative, they are expressed</span>
+<span class="sd">            relatively to min and max field values (0. &lt;-&gt; min, 1. &lt;-&gt; max) ;</span>
+<span class="sd">            if absolute they are used directly</span>
+<span class="sd">        output : bool</span>
+<span class="sd">            passed to `Virtual_layer` constructor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">postname</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+        <span class="c1"># Will only become RGBA if </span>
+        <span class="c1"># - bool masked &amp; mask_color has transparency</span>
+        <span class="c1"># - float masked</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">colormap</span> <span class="o">=</span> <span class="n">colormap</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">probe_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">probes_z</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">probes_kind</span> <span class="o">=</span> <span class="n">probes_kind</span>
+        <span class="c1"># Init all modifiers to empty list</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_modifiers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_twin_field</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_kind</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;RGB&quot;</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_kind</span> <span class="o">==</span> <span class="s2">&quot;bool&quot;</span><span class="p">:</span>
+            <span class="n">maskcolorlen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">mode_from_maskcolorlen</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;RGB&quot;</span><span class="p">,</span>
+                <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;RGBA&quot;</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">mode_from_maskcolorlen</span><span class="p">[</span><span class="n">maskcolorlen</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_kind</span> <span class="o">==</span> <span class="s2">&quot;float&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;RGBA&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mask_kind</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Color_layer.overlay"><a class="viewcode-back" href="../../../API/layers/Color_layer.html#fractalshades.colors.layers.Color_layer.overlay">[docs]</a>    <span class="k">def</span> <span class="nf">overlay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">overlay_mode</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Combine the output of current layer with an overlayed layer *after*</span>
+<span class="sd">        color-mapping.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        layer : `Color_layer` | `Grey_layer`</span>
+<span class="sd">            The layer to overlay. See `Overlay_mode` documentation for the</span>
+<span class="sd">            options and restrictions.</span>
+<span class="sd">        overlay_mode : `Overlay_mode`</span>
+<span class="sd">            Object describing the kind of overlay used.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_modifiers</span> <span class="o">+=</span> <span class="p">[(</span><span class="s2">&quot;overlay&quot;</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">overlay_mode</span><span class="p">)]</span></div>
+
+<div class="viewcode-block" id="Color_layer.shade"><a class="viewcode-back" href="../../../API/layers/Color_layer.html#fractalshades.colors.layers.Color_layer.shade">[docs]</a>    <span class="k">def</span> <span class="nf">shade</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">lighting</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds scene lighting to the layer through a normal map effect.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        layer : `Normal_map_layer`</span>
+<span class="sd">            The layer holding the normal vector field.</span>
+<span class="sd">        lighting : `Blinn_lighting`</span>
+<span class="sd">            Object describing the scene lighting.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_modifiers</span> <span class="o">+=</span> <span class="p">[(</span><span class="s2">&quot;shade&quot;</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">lighting</span><span class="p">)]</span></div>
+
+<div class="viewcode-block" id="Color_layer.set_twin_field"><a class="viewcode-back" href="../../../API/layers/Color_layer.html#fractalshades.colors.layers.Color_layer.set_twin_field">[docs]</a>    <span class="k">def</span> <span class="nf">set_twin_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">scale</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Combine two postprocessing in one.</span>
+
+<span class="sd">        Combine the current layer with another layer *before* color-mapping.</span>
+<span class="sd">        (i.e. add directly the underlying float</span>
+<span class="sd">        `fractalshades.postproc.Postproc` arrays), tuning the intensity of</span>
+<span class="sd">        the effect with a scaling coefficient.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        layer : `Virtual_Layer` instance</span>
+<span class="sd">            The combined layer</span>
+<span class="sd">        scale : float</span>
+<span class="sd">            The scaling coefficient ; if 1. both layer will have the same</span>
+<span class="sd">            min-max contribtion. If 0.1 the combined layer will only contribute</span>
+<span class="sd">            to 10 % (This is based on min and max values reached for each</span>
+<span class="sd">            layer)</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">            Note : The mask of the current layer will be applied.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">layer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_twin_field</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_twin_field</span> <span class="o">=</span> <span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">layer</span><span class="o">.</span><span class="n">set_mask</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></div>
+
+    <span class="k">def</span> <span class="nf">crop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; private - Return the image for this chunk&quot;&quot;&quot;</span>
+        <span class="c1"># 1) The &quot;base&quot; image</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">chunk_slice</span><span class="p">]</span>
+        <span class="c1"># If a user-mapping is defined, apply it</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+
+        <span class="c1"># is there a twin-field ? If yes we add it here, before colormaping</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_twin_field</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">twin_layer</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_twin_field</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">twin_layer</span><span class="o">.</span><span class="n">_scaling_defined</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Twin layer should be computed before&quot;</span><span class="p">)</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="n">scale</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">min</span>
+                         <span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">twin_layer</span><span class="o">.</span><span class="n">max</span> <span class="o">-</span> <span class="n">twin_layer</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
+            <span class="n">twin_func</span> <span class="o">=</span> <span class="n">twin_layer</span><span class="o">.</span><span class="n">func</span>
+            <span class="k">if</span> <span class="n">twin_func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">arr</span> <span class="o">+=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">twin_layer</span><span class="p">[</span><span class="n">chunk_slice</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">arr</span> <span class="o">+=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">twin_func</span><span class="p">(</span><span class="n">twin_layer</span><span class="p">[</span><span class="n">chunk_slice</span><span class="p">])</span>
+
+        <span class="c1"># colorize from colormap </span>
+        <span class="c1"># taking into account probes for scaling</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">probes_kind</span> <span class="o">==</span> <span class="s2">&quot;relative&quot;</span><span class="p">:</span>
+            <span class="n">probes</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">probe_z</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">max</span>
+                      <span class="o">+</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">probe_z</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">probes_kind</span> <span class="o">==</span> <span class="s2">&quot;absolute&quot;</span><span class="p">:</span>
+            <span class="n">probes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">probe_z</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">probes_kind</span><span class="p">,</span> <span class="s2">&quot;not in [relative, absolute]&quot;</span><span class="p">)</span>
+        <span class="n">rgb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">colormap</span><span class="o">.</span><span class="n">colorize</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">probes</span><span class="p">)</span>
+
+        <span class="c1"># Apply the modifiers</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">kind</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">option</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modifiers</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;shade&quot;</span><span class="p">:</span>
+                <span class="n">rgb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_shade</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">option</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;overlay&quot;</span><span class="p">:</span>
+                <span class="n">rgb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_overlay</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">option</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;kind :&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span>
+
+        <span class="n">rgb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="n">rgb</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span>
+        <span class="n">crop</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">np2PIL</span><span class="p">(</span><span class="n">rgb</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_kind</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">crop</span>
+
+        <span class="c1"># Here we have a mask, apply it</span>
+        <span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">ixx</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">iyy</span><span class="p">)</span> <span class="o">=</span> <span class="n">chunk_slice</span>
+        <span class="n">crop_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">ixx</span><span class="o">-</span><span class="n">ix</span><span class="p">,</span> <span class="n">iyy</span><span class="o">-</span><span class="n">iy</span><span class="p">)</span>
+        <span class="n">mask_layer</span><span class="p">,</span> <span class="n">mask_color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apply_mask</span><span class="p">(</span><span class="n">crop</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">,</span>  <span class="n">mask_layer</span><span class="p">[</span><span class="n">chunk_slice</span><span class="p">],</span> <span class="n">mask_color</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">crop</span>
+
+    <span class="k">def</span> <span class="nf">apply_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">crop</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">,</span> <span class="n">mask_arr</span><span class="p">,</span> <span class="n">mask_color</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; private - apply the mask to the image</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mask_kind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_kind</span>
+        <span class="n">crop_mask</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">np2PIL</span><span class="p">(</span>
+                                        <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="mi">255</span> <span class="o">*</span> <span class="n">mask_arr</span><span class="p">)))</span>
+
+        <span class="k">if</span> <span class="n">mask_kind</span> <span class="o">==</span> <span class="s2">&quot;bool&quot;</span><span class="p">:</span>
+            <span class="n">lx</span><span class="p">,</span> <span class="n">ly</span> <span class="o">=</span> <span class="n">crop_size</span>
+            <span class="n">mask_colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mask_color</span><span class="p">),</span> <span class="n">crop_size</span>
+                                  <span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">lx</span><span class="p">,</span> <span class="n">ly</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">mask_color</span><span class="p">)])</span>
+            <span class="n">mask_colors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">np2PIL</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="mi">255</span> <span class="o">*</span> <span class="n">mask_colors</span><span class="p">))</span>
+            <span class="n">mask_colors</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">mask_colors</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;RGBA&quot;</span><span class="p">:</span>
+                <span class="n">crop</span><span class="o">.</span><span class="n">putalpha</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+            <span class="n">crop</span><span class="o">.</span><span class="n">paste</span><span class="p">(</span><span class="n">mask_colors</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">crop_mask</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">mask_kind</span> <span class="o">==</span> <span class="s2">&quot;float&quot;</span><span class="p">:</span>
+            <span class="c1"># TODO should scale !!</span>
+            <span class="n">crop</span><span class="o">.</span><span class="n">putalpha</span><span class="p">(</span><span class="n">crop_mask</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">mask_kind</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">apply_shade</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">lighting</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; private - apply the shading to rgb color array</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">Normal_map_layer</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Can only shade with Normal_map_layer&quot;</span><span class="p">)</span>
+        <span class="n">normal</span> <span class="o">=</span> <span class="n">layer</span><span class="p">[</span><span class="n">chunk_slice</span><span class="p">]</span>
+        <span class="n">nf</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="n">normal</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">complex_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">)</span>
+        <span class="c1"># max slope (from layer property) used for renormalisation</span>
+        <span class="n">coeff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">layer</span><span class="o">.</span><span class="n">max_slope</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> <span class="n">layer</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
+        <span class="n">complex_n</span><span class="o">.</span><span class="n">real</span> <span class="o">=</span> <span class="n">normal</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">coeff</span>
+        <span class="n">complex_n</span><span class="o">.</span><span class="n">imag</span> <span class="o">=</span> <span class="n">normal</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">coeff</span>
+        <span class="k">return</span> <span class="n">lighting</span><span class="o">.</span><span class="n">shade</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">complex_n</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">apply_overlay</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">overlay_mode</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; private - apply the overlay to rgb color array</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">overlay_mode</span><span class="o">.</span><span class="n">overlay</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Grey_layer"><a class="viewcode-back" href="../../../API/layers/Grey_layer.html#fractalshades.colors.layers.Grey_layer">[docs]</a><span class="k">class</span> <span class="nc">Grey_layer</span><span class="p">(</span><span class="n">Virtual_layer</span><span class="p">):</span>
+    <span class="n">default_mask_color</span> <span class="o">=</span> <span class="mf">0.</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;L&quot;</span>
+
+<div class="viewcode-block" id="Grey_layer.__init__"><a class="viewcode-back" href="../../../API/layers/Grey_layer.html#fractalshades.colors.layers.Grey_layer.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">postname</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">probes_z</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
+                 <span class="n">probes_kind</span><span class="o">=</span><span class="s2">&quot;relative&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A grey layer.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        postname : str</span>
+<span class="sd">            passed to `Virtual_layer` constructor</span>
+<span class="sd">        func :</span>
+<span class="sd">            passed to `Virtual_layer` constructor</span>
+<span class="sd">        curve : None | callable</span>
+<span class="sd">            A mapping from [0, 1] to [0, 1] applied *after* rescaling (this is </span>
+<span class="sd">            the equivalent of a colormap in greyscale)</span>
+<span class="sd">        probes_z : 2-floats list</span>
+<span class="sd">            The preprocessing affine rescaling. If [0., 1.] and probes_kind is </span>
+<span class="sd">            `relative` (default) the minimum value of the field will be mapped</span>
+<span class="sd">            to 0. and the maximum to 1.</span>
+<span class="sd">        probes_kind : &quot;relative&quot; | &quot;absolute&quot;</span>
+<span class="sd">            The key for  probes_z values. If relative, they are expressed</span>
+<span class="sd">            relatively to min and max field values (0. &lt;-&gt; min, 1. &lt;-&gt; max) ;</span>
+<span class="sd">            if absolute they are used directly</span>
+<span class="sd">        output : bool</span>
+<span class="sd">            passed to `Virtual_layer` constructor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">postname</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+        <span class="c1"># Will only become RGBA if masked &amp; mask_color has transparency</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curve</span> <span class="o">=</span> <span class="n">curve</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">probe_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">probes_z</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">probes_kind</span> <span class="o">=</span> <span class="n">probes_kind</span></div>
+
+<div class="viewcode-block" id="Grey_layer.set_mask"><a class="viewcode-back" href="../../../API/layers/Grey_layer.html#fractalshades.colors.layers.Grey_layer.set_mask">[docs]</a>    <span class="k">def</span> <span class="nf">set_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">mask_color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Masks the base-layer</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        layer : Bool_layer | Grey_layer</span>
+<span class="sd">            The layer mask</span>
+<span class="sd">        mask_color : None | float belonging to [0., 1.]</span>
+<span class="sd">            If None, a default value will be provided depending on the masked</span>
+<span class="sd">            array subclass</span>
+<span class="sd">            If a value is provided, it shall be with :</span>
+<span class="sd">            a float belonging to [0. (black) ; 1. (white)] interval</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">mask_color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># default class-implementation</span>
+            <span class="n">mask_color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_mask_color</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">mask_color</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;L&quot;</span>
+
+    <span class="k">def</span> <span class="nf">crop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Return the image for this chunk&quot;&quot;&quot;</span>
+        <span class="c1"># 1) The &quot;base&quot; image</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">chunk_slice</span><span class="p">]</span>
+        <span class="c1"># If a user-mapping is defined, apply it</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+
+        <span class="c1"># taking into account probes for scaling</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">probes_kind</span> <span class="o">==</span> <span class="s2">&quot;relative&quot;</span><span class="p">:</span>
+            <span class="n">probes</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">probe_z</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">max</span>
+                      <span class="o">+</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">probe_z</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">probes_kind</span> <span class="o">==</span> <span class="s2">&quot;absolute&quot;</span><span class="p">:</span>
+            <span class="n">probes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">probe_z</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">probes_kind</span><span class="p">,</span> <span class="s2">&quot;not in [relative, absolute]&quot;</span><span class="p">)</span>
+            
+        <span class="c1"># clip values in excess, rescale to [0, 1]</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">probes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">probes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="p">(</span><span class="n">arr</span> <span class="o">-</span> <span class="n">probes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">probes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">probes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="c1"># then apply the transfert curve if provided</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">curve</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curve</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+
+        <span class="c1"># export to image format</span>
+        <span class="n">grey</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_grey</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+        <span class="n">crop</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">np2PIL</span><span class="p">(</span><span class="n">grey</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_kind</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">crop</span>
+
+        <span class="c1"># Here we have a mask, apply it</span>
+        <span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">ixx</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">iyy</span><span class="p">)</span> <span class="o">=</span> <span class="n">chunk_slice</span>
+        <span class="n">crop_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">ixx</span><span class="o">-</span><span class="n">ix</span><span class="p">,</span> <span class="n">iyy</span><span class="o">-</span><span class="n">iy</span><span class="p">)</span>
+        <span class="n">mask_layer</span><span class="p">,</span> <span class="n">mask_color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apply_mask</span><span class="p">(</span><span class="n">crop</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">,</span>  <span class="n">mask_layer</span><span class="p">[</span><span class="n">chunk_slice</span><span class="p">],</span> <span class="n">mask_color</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">crop</span>
+
+    <span class="k">def</span> <span class="nf">get_grey</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="n">arr</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mask_kind</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; private - 3 possiblilities : </span>
+<span class="sd">                - no mask (returns None)</span>
+<span class="sd">                - boolean mask (return &quot;bool&quot;)</span>
+<span class="sd">                - greyscale i.e. float mask (return &quot;float) &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">layer</span><span class="p">,</span> <span class="n">mask_color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">Bool_layer</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;bool&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Mask layer type not allowed here&quot;</span>
+                             <span class="o">+</span> <span class="nb">type</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">apply_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">crop</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">,</span> <span class="n">mask_arr</span><span class="p">,</span> <span class="n">mask_color</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; private - apply the mask to the image</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_kind</span> <span class="o">==</span> <span class="s2">&quot;bool&quot;</span><span class="p">:</span>
+            <span class="n">crop_mask</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">np2PIL</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">get_grey</span><span class="p">(</span><span class="n">mask_arr</span><span class="p">)))</span>
+            <span class="n">lx</span><span class="p">,</span> <span class="n">ly</span> <span class="o">=</span> <span class="n">crop_size</span>
+            <span class="n">mask_colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mask_color</span><span class="p">),</span> <span class="n">crop_size</span>
+                                  <span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">lx</span><span class="p">,</span> <span class="n">ly</span><span class="p">])</span>
+            <span class="n">mask_colors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">np2PIL</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="mi">255</span> <span class="o">*</span> <span class="n">mask_colors</span><span class="p">))</span>
+            <span class="n">mask_colors</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">mask_colors</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+            <span class="n">crop</span><span class="o">.</span><span class="n">paste</span><span class="p">(</span><span class="n">mask_colors</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">crop_mask</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mask_kind</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Disp_layer"><a class="viewcode-back" href="../../../API/layers/Disp_layer.html#fractalshades.colors.layers.Disp_layer">[docs]</a><span class="k">class</span> <span class="nc">Disp_layer</span><span class="p">(</span><span class="n">Grey_layer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Grey layer with 32-bits precision.</span>
+<span class="sd">    </span>
+<span class="sd">    Same functionnality as a `Grey_layer` but the image export is with 32-bits</span>
+<span class="sd">    precision (useful when used as an height map for 3d processing like</span>
+<span class="sd">    Blender)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;I&quot;</span>
+    <span class="k">def</span> <span class="nf">get_grey</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">(</span><span class="n">arr</span> <span class="o">*</span> <span class="mi">65535</span><span class="p">)</span> <span class="c1"># 2**16-1</span></div>
+
+<div class="viewcode-block" id="Normal_map_layer"><a class="viewcode-back" href="../../../API/layers/Normal_map_layer.html#fractalshades.colors.layers.Normal_map_layer">[docs]</a><span class="k">class</span> <span class="nc">Normal_map_layer</span><span class="p">(</span><span class="n">Color_layer</span><span class="p">):</span>
+    <span class="n">default_mask_color</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Normal_map_layer.__init__"><a class="viewcode-back" href="../../../API/layers/Normal_map_layer.html#fractalshades.colors.layers.Normal_map_layer.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">postname</span><span class="p">,</span> <span class="n">max_slope</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;  </span>
+<span class="sd">        Defines a normal map layer</span>
+<span class="sd">        </span>
+<span class="sd">        This layer can be either:</span>
+
+<span class="sd">        - plotted directly (OpenGL normal map format)</span>
+<span class="sd">          and used in a post-processing Workflow - e.g. Blender </span>
+
+<span class="sd">        - or used to apply shading to a `Color_layer.shade`</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        postname : str</span>
+<span class="sd">            passed to `Virtual_layer` constructor</span>
+<span class="sd">        max_slope : float</span>
+<span class="sd">            maximal angle (in degree) of the normal map, will be used</span>
+<span class="sd">            for re-normalisation</span>
+<span class="sd">        output : bool</span>
+<span class="sd">            passed to `Virtual_layer` constructor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">postname</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_slope</span> <span class="o">=</span> <span class="n">max_slope</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span></div>
+    
+    <span class="k">def</span> <span class="nf">crop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Return the image for this chunk&quot;&quot;&quot;</span>
+        <span class="c1"># 1) The &quot;base&quot; image</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">chunk_slice</span><span class="p">]</span>
+        
+
+<span class="c1">#        print(&#39;crop bool&#39;, arr, arr.shape, arr.dtype, arr[0:100])</span>
+<span class="c1">#        rgb = np.uint8(rgb * 255)</span>
+        <span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">ixx</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">iyy</span><span class="p">)</span> <span class="o">=</span> <span class="n">chunk_slice</span>
+        <span class="n">rgb</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">ixx</span> <span class="o">-</span> <span class="n">ix</span><span class="p">,</span> <span class="n">iyy</span> <span class="o">-</span> <span class="n">iy</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        
+        <span class="c1"># max slope (from layer property) used for renormalisation</span>
+        <span class="n">coeff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_slope</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
+        <span class="n">rgb</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">coeff</span> <span class="c1"># nx component</span>
+        <span class="n">rgb</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">coeff</span> <span class="c1"># ny component</span>
+
+        <span class="c1"># The final normal field need to be of norm 1 </span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rgb</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">rgb</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">1.</span><span class="p">)</span>
+        <span class="n">rgb</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">rgb</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">k</span>
+        <span class="n">rgb</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rgb</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">k</span>
+        <span class="n">rgb</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">k</span>        
+
+        <span class="n">rgb</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">rgb</span> <span class="o">+</span> <span class="mf">1.</span><span class="p">)</span>
+        <span class="n">crop</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">np2PIL</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="mi">255</span> <span class="o">*</span> <span class="n">rgb</span><span class="p">)))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_kind</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Note : mask_color=(0.5, 0.5, 1) for this type of layer</span>
+            <span class="k">return</span> <span class="n">crop</span>
+
+        <span class="c1"># We have a mask, apply it</span>
+        <span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">ixx</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">iyy</span><span class="p">)</span> <span class="o">=</span> <span class="n">chunk_slice</span>
+        <span class="n">crop_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">ixx</span><span class="o">-</span><span class="n">ix</span><span class="p">,</span> <span class="n">iyy</span><span class="o">-</span><span class="n">iy</span><span class="p">)</span>
+        <span class="n">mask_layer</span><span class="p">,</span> <span class="n">mask_color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span>
+        <span class="n">mask_color</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apply_mask</span><span class="p">(</span><span class="n">crop</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">,</span>
+                        <span class="n">mask_layer</span><span class="p">[</span><span class="n">chunk_slice</span><span class="p">],</span> <span class="n">mask_color</span><span class="p">)</span> <span class="c1">#, self.mask_kind)</span>
+        <span class="k">return</span> <span class="n">crop</span></div>
+
+
+<div class="viewcode-block" id="Bool_layer"><a class="viewcode-back" href="../../../API/layers/Bool_layer.html#fractalshades.colors.layers.Bool_layer">[docs]</a><span class="k">class</span> <span class="nc">Bool_layer</span><span class="p">(</span><span class="n">Virtual_layer</span><span class="p">):</span>
+<div class="viewcode-block" id="Bool_layer.__init__"><a class="viewcode-back" href="../../../API/layers/Bool_layer.html#fractalshades.colors.layers.Bool_layer.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">postname</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Defines a boolean mask array.</span>
+<span class="sd">        Where is 1 or True, the attached masked layer values are considered</span>
+<span class="sd">        masked.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">postname</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span></div>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">):</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">chunk_slice</span><span class="p">)</span>
+        <span class="n">bool_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">bool_arr</span>
+
+    <span class="k">def</span> <span class="nf">crop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Return the image for this bool layer chunk&quot;&quot;&quot;</span>
+        <span class="c1"># 1) The &quot;base&quot; image</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">chunk_slice</span><span class="p">]</span>
+        <span class="n">crop_mask</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">np2PIL</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">crop_mask</span></div>
+
+
+<span class="k">def</span> <span class="nf">_2d_rgb_to_XYZ</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">fscolors</span><span class="o">.</span><span class="n">Color_tools</span><span class="o">.</span><span class="n">rgb_to_XYZ</span><span class="p">(</span><span class="n">rgb</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nx</span> <span class="o">*</span> <span class="n">ny</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="n">rgb</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># restaure original shape</span>
+    <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_2d_XYZ_to_rgb</span><span class="p">(</span><span class="n">XYZ</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">fscolors</span><span class="o">.</span><span class="n">Color_tools</span><span class="o">.</span><span class="n">XYZ_to_rgb</span><span class="p">(</span><span class="n">XYZ</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nx</span> <span class="o">*</span> <span class="n">ny</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_2d_XYZ_to_CIELab</span><span class="p">(</span><span class="n">XYZ</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">fscolors</span><span class="o">.</span><span class="n">Color_tools</span><span class="o">.</span><span class="n">XYZ_to_CIELab</span><span class="p">(</span><span class="n">XYZ</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nx</span> <span class="o">*</span> <span class="n">ny</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_2d_CIELab_to_XYZ</span><span class="p">(</span><span class="n">Lab</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">fscolors</span><span class="o">.</span><span class="n">Color_tools</span><span class="o">.</span><span class="n">CIELab_to_XYZ</span><span class="p">(</span><span class="n">Lab</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nx</span> <span class="o">*</span> <span class="n">ny</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    
+
+<div class="viewcode-block" id="Blinn_lighting"><a class="viewcode-back" href="../../../API/layers/Blinn_lighting.html#fractalshades.colors.layers.Blinn_lighting">[docs]</a><span class="k">class</span> <span class="nc">Blinn_lighting</span><span class="p">:</span>
+<div class="viewcode-block" id="Blinn_lighting.__init__"><a class="viewcode-back" href="../../../API/layers/Blinn_lighting.html#fractalshades.colors.layers.Blinn_lighting.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k_Ambient</span><span class="p">,</span> <span class="n">color_ambient</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This class holds the properties for the scene lightsources. Its</span>
+<span class="sd">        instances can be passed as a parameter to `Color_layer.shade`.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ==========</span>
+<span class="sd">        k_Ambient : </span>
+<span class="sd">            ambient lighting coefficient. A typical value is 0.2</span>
+<span class="sd">        color_ambient: 3-uplet float</span>
+<span class="sd">            a RGB 3-tuple, channels values in [0, 1] : the ambient lighting</span>
+<span class="sd">            color. Usually white (1., 1., 1.)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># ref : https://en.wikipedia.org/wiki/Blinn%E2%80%93Phong_reflection_model</span>
+        <span class="c1"># http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_Ambient</span> <span class="o">=</span> <span class="n">k_Ambient</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color_ambient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">color_ambient</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">light_sources</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+<div class="viewcode-block" id="Blinn_lighting.add_light_source"><a class="viewcode-back" href="../../../API/layers/Blinn_lighting.html#fractalshades.colors.layers.Blinn_lighting.add_light_source">[docs]</a>    <span class="k">def</span> <span class="nf">add_light_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k_diffuse</span><span class="p">,</span> <span class="n">k_specular</span><span class="p">,</span> <span class="n">shininess</span><span class="p">,</span>
+                         <span class="n">angles</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]),</span>
+                         <span class="n">material_specular_color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds a lightsource to the scene</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ==========</span>
+<span class="sd">        k_diffuse : 3-uplet float</span>
+<span class="sd">            diffuse lighting coefficients, as RGB</span>
+<span class="sd">        k_specular : 3-uplet float</span>
+<span class="sd">            diffuse lighting pourcentage, as RGB</span>
+<span class="sd">        shininess : float</span>
+<span class="sd">            Phong exponent for specular model</span>
+<span class="sd">        angles : 2-uplet float</span>
+<span class="sd">            angles (theta, phi) of light source at infinity, in degree</span>
+<span class="sd">            theta = 0 : aligned to x</span>
+<span class="sd">            phi = 0 : normal to z (= in xy plane) </span>
+<span class="sd">        coords : 2-uplet float</span>
+<span class="sd">            position of lightsource from image center,</span>
+<span class="sd">            in pourcentage of current image</span>
+<span class="sd">            (if None (default), source is at infinity ; </span>
+<span class="sd">            if non-null, LS_angle has no effect)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">light_sources</span> <span class="o">+=</span> <span class="p">[{</span>
+            <span class="s2">&quot;k_diffuse&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">k_diffuse</span><span class="p">),</span>
+            <span class="s2">&quot;k_specular&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">k_specular</span><span class="p">),</span>
+            <span class="s2">&quot;shininess&quot;</span><span class="p">:</span> <span class="n">shininess</span><span class="p">,</span>
+            <span class="s2">&quot;_angles&quot;</span><span class="p">:</span> <span class="n">angles</span><span class="p">,</span> 
+            <span class="s2">&quot;angles&quot;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">angles</span><span class="p">),</span>
+            <span class="s2">&quot;coords&quot;</span><span class="p">:</span> <span class="n">coords</span><span class="p">,</span>
+            <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">color</span><span class="p">),</span>
+            <span class="s2">&quot;material_specular_color&quot;</span><span class="p">:</span> <span class="n">material_specular_color</span>
+        <span class="p">}]</span></div>
+
+    <span class="k">def</span> <span class="nf">shade</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rgb</span><span class="p">,</span> <span class="n">normal</span><span class="p">):</span>
+        <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">rgb</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">XYZ</span> <span class="o">=</span> <span class="n">_2d_rgb_to_XYZ</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+        <span class="n">XYZ_shaded</span> <span class="o">=</span> <span class="n">XYZ</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_Ambient</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_ambient</span>
+        <span class="k">for</span> <span class="n">ls</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">light_sources</span><span class="p">:</span>
+            <span class="n">XYZ_shaded</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">partial_shade</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">XYZ</span><span class="p">,</span> <span class="n">normal</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_2d_XYZ_to_rgb</span><span class="p">(</span><span class="n">XYZ_shaded</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">partial_shade</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ls</span><span class="p">,</span> <span class="n">XYZ</span><span class="p">,</span> <span class="n">normal</span><span class="p">):</span>
+        <span class="n">theta_LS</span><span class="p">,</span> <span class="n">phi_LS</span> <span class="o">=</span> <span class="n">ls</span><span class="p">[</span><span class="s1">&#39;angles&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Light source coordinates</span>
+        <span class="n">LSx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_LS</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_LS</span><span class="p">)</span>
+        <span class="n">LSy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_LS</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_LS</span><span class="p">)</span>
+        <span class="n">LSz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi_LS</span><span class="p">)</span> 
+
+        <span class="c1"># Normal vector coordinates</span>
+        <span class="n">nx</span> <span class="o">=</span> <span class="n">normal</span><span class="o">.</span><span class="n">real</span>
+        <span class="n">ny</span> <span class="o">=</span> <span class="n">normal</span><span class="o">.</span><span class="n">imag</span>
+        <span class="n">nz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">nx</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">ny</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># sin of max_slope</span>
+        <span class="n">lambert</span> <span class="o">=</span> <span class="n">LSx</span> <span class="o">*</span> <span class="n">nx</span> <span class="o">+</span> <span class="n">LSy</span> <span class="o">*</span> <span class="n">ny</span> <span class="o">+</span> <span class="n">LSz</span> <span class="o">*</span> <span class="n">nz</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">lambert</span><span class="p">,</span> <span class="n">lambert</span> <span class="o">&lt;</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span>
+        
+        <span class="c1"># half-way vector coordinates - Blinn Phong shading</span>
+        <span class="n">specular</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">lambert</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ls</span><span class="p">[</span><span class="s2">&quot;k_specular&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="mf">0.</span><span class="p">:</span>
+            <span class="n">phi_half</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">phi_LS</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span>
+            <span class="n">half_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_LS</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_half</span><span class="p">)</span>
+            <span class="n">half_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_LS</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_half</span><span class="p">)</span>
+            <span class="n">half_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi_half</span><span class="p">)</span>
+            <span class="n">spec_angle</span> <span class="o">=</span> <span class="n">half_x</span> <span class="o">*</span> <span class="n">nx</span> <span class="o">+</span> <span class="n">half_y</span> <span class="o">*</span> <span class="n">ny</span> <span class="o">+</span> <span class="n">half_z</span> <span class="o">*</span> <span class="n">nz</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">spec_angle</span><span class="p">,</span> <span class="n">spec_angle</span> <span class="o">&lt;</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span>
+            <span class="n">specular</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">spec_angle</span><span class="p">,</span> <span class="n">ls</span><span class="p">[</span><span class="s2">&quot;shininess&quot;</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">ls</span><span class="p">[</span><span class="s2">&quot;material_specular_color&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span>  <span class="p">(</span><span class="n">ls</span><span class="p">[</span><span class="s2">&quot;k_diffuse&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">lambert</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">*</span> <span class="n">XYZ</span>
+                    <span class="o">+</span> <span class="n">ls</span><span class="p">[</span><span class="s2">&quot;k_specular&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">specular</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>  <span class="o">*</span> <span class="n">XYZ</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">XYZ_sp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">ls</span><span class="p">[</span><span class="s2">&quot;material_specular_color&quot;</span><span class="p">])</span>
+            <span class="n">res</span> <span class="o">=</span>  <span class="p">(</span><span class="n">ls</span><span class="p">[</span><span class="s2">&quot;k_diffuse&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">lambert</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">*</span> <span class="n">XYZ</span>
+                    <span class="o">+</span> <span class="n">ls</span><span class="p">[</span><span class="s2">&quot;k_specular&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">specular</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>  <span class="o">*</span> <span class="n">XYZ_sp</span><span class="p">)</span>
+                   
+        <span class="k">return</span> <span class="n">res</span> <span class="o">*</span> <span class="n">ls</span><span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">]</span></div>
+
+        
+<div class="viewcode-block" id="Overlay_mode"><a class="viewcode-back" href="../../../API/layers/Overlay_mode.html#fractalshades.colors.layers.Overlay_mode">[docs]</a><span class="k">class</span> <span class="nc">Overlay_mode</span><span class="p">:</span>
+<div class="viewcode-block" id="Overlay_mode.__init__"><a class="viewcode-back" href="../../../API/layers/Overlay_mode.html#fractalshades.colors.layers.Overlay_mode.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="o">**</span><span class="n">mode_options</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This class holds the properties for overlaying. Its instances can be</span>
+<span class="sd">        passed as a parameter to `Color_layer.overlay` method.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        mode:   &quot;alpha_composite&quot; | &quot;tint_or_shade&quot;</span>
+<span class="sd">                the kind of overlay  applied</span>
+<span class="sd">                </span>
+<span class="sd">                - alpha_composite :</span>
+<span class="sd">                    alpha-compositing of 2 color layers (its is</span>
+<span class="sd">                    the mask of the upper layer which will be considered for</span>
+<span class="sd">                    compositing)</span>
+<span class="sd">                - tint_or_shade : </span>
+<span class="sd">                    the color of the lower layer will be adjusted</span>
+<span class="sd">                    (tinted of shaded) depending of the upper layer value</span>
+<span class="sd">                    (tinted above 0.5, shaded below 0.5). The upper layer in</span>
+<span class="sd">                    this case shall be a `Grey_layer` instance.</span>
+
+<span class="sd">        Other Parameters</span>
+<span class="sd">        ----------------</span>
+<span class="sd">        ref_white: 3-uplet float</span>
+<span class="sd">            reference white light RGB coeff for ``mode`` &quot;tint_or_shade&quot;</span>
+<span class="sd">             Default to CIE LAB constants Illuminant D65</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mode_options</span> <span class="o">=</span> <span class="n">mode_options</span></div>
+
+    <span class="k">def</span> <span class="nf">overlay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rgb</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;alpha_composite&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha_composite</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;tint_or_shade&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tint_or_shade</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">alpha_composite</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rgb</span><span class="p">,</span> <span class="n">overlay</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Paste a &quot;masked layer&quot; over a standard layer</span>
+<span class="sd">        layer should be a colored layer with a mask </span>
+<span class="sd">        The base layer should not have a mask as otherwise it could be applied</span>
+<span class="sd">        later in postprocessing</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">overlay</span><span class="p">,</span> <span class="n">Color_layer</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> not allowed for alpha compositing&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                             <span class="nb">type</span><span class="p">(</span><span class="n">overlay</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span> <span class="p">))</span>
+        <span class="c1"># For alpha compositing, we obviously need an alpha channel</span>
+        <span class="k">if</span> <span class="n">overlay</span><span class="o">.</span><span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;alpha_composite called with non-masked overlay &quot;</span>
+                             <span class="s2">&quot;layer&quot;</span><span class="p">)</span>
+        <span class="c1"># This is safer than using the A-channel from the image</span>
+        <span class="n">mask_arr</span> <span class="o">=</span> <span class="n">overlay</span><span class="o">.</span><span class="n">mask</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">chunk_slice</span><span class="p">][:,</span> <span class="p">:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+
+        <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">rgb</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">XYZ</span> <span class="o">=</span> <span class="n">_2d_rgb_to_XYZ</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+
+        <span class="c1"># overlay crop : first get the raw image than convert to numpy</span>
+        <span class="c1"># dumping the alpha channel</span>
+        <span class="n">crop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">overlay</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">chunk_slice</span><span class="p">))</span>
+        <span class="n">rgb2</span> <span class="o">=</span> <span class="n">Virtual_layer</span><span class="o">.</span><span class="n">PIL2np</span><span class="p">(</span><span class="n">crop</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">/</span> <span class="mf">255.</span>
+        <span class="n">XYZ_2</span> <span class="o">=</span> <span class="n">_2d_rgb_to_XYZ</span><span class="p">(</span><span class="n">rgb2</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+        
+        <span class="c1"># Apply the alpha_composite</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">mask_arr</span> <span class="o">*</span> <span class="n">XYZ</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">mask_arr</span><span class="p">)</span> <span class="o">*</span> <span class="n">XYZ_2</span>
+        <span class="c1"># Second pass needed to handle Nan values</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask_arr</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="n">XYZ_2</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask_arr</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="n">XYZ</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+        <span class="n">alpha_composite</span> <span class="o">=</span> <span class="n">_2d_XYZ_to_rgb</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">alpha_composite</span>
+
+
+    <span class="k">def</span> <span class="nf">tint_or_shade</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rgb</span><span class="p">,</span> <span class="n">overlay</span><span class="p">,</span> <span class="n">chunk_slice</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">overlay</span><span class="p">,</span> <span class="n">Grey_layer</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> not allowed for tint_and_shade &quot;</span>
+                <span class="s2">&quot;overlay&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">overlay</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span> <span class="p">))</span>
+
+        <span class="n">opt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode_options</span>
+        <span class="n">ref_white</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ref_white&quot;</span><span class="p">,</span> <span class="n">fscolors</span><span class="o">.</span><span class="n">Color_tools</span><span class="o">.</span><span class="n">Lab_ref_white</span><span class="p">)</span>
+        <span class="n">k_pegtop</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pegtop&quot;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span>
+        <span class="n">k_Lch</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Lch&quot;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span>
+        <span class="n">blend_T</span> <span class="o">=</span> <span class="n">k_pegtop</span> <span class="o">+</span> <span class="n">k_Lch</span>
+        <span class="c1"># Default if nothing is provided</span>
+        <span class="k">if</span> <span class="n">blend_T</span> <span class="o">==</span> <span class="mf">0.</span><span class="p">:</span>
+            <span class="n">k_pegtop</span> <span class="o">=</span> <span class="mf">4.0</span>
+            <span class="n">k_Lch</span> <span class="o">=</span> <span class="mf">1.0</span>
+            <span class="n">blend_T</span> <span class="o">=</span> <span class="n">k_pegtop</span> <span class="o">+</span> <span class="n">k_Lch</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">k_pegtop</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">k_Lch</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">k_pegtop</span><span class="p">,</span> <span class="n">k_Lch</span><span class="p">)</span>
+
+        <span class="n">blend_T</span> <span class="o">=</span> <span class="n">k_pegtop</span> <span class="o">+</span> <span class="n">k_Lch</span>
+        <span class="c1"># This is safer than using the A-channel from the image</span>
+        <span class="n">mask_arr</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">overlay</span><span class="o">.</span><span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">mask_arr</span> <span class="o">=</span> <span class="n">overlay</span><span class="o">.</span><span class="n">mask</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">chunk_slice</span><span class="p">][:,</span> <span class="p">:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Still in TODO&quot;</span><span class="p">,</span> <span class="n">mask_arr</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+        <span class="c1"># overlay crop : first get the raw image than convert to numpy</span>
+        <span class="n">crop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">overlay</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">chunk_slice</span><span class="p">))</span>
+        <span class="n">shade</span> <span class="o">=</span> <span class="n">Virtual_layer</span><span class="o">.</span><span class="n">PIL2np</span><span class="p">(</span><span class="n">crop</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.</span>
+        <span class="n">shade</span> <span class="o">=</span> <span class="n">shade</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+        
+        <span class="c1"># shade = overlay[chunk_slice][:, :, np.newaxis]</span>
+<span class="c1">#        if np.any(shade &gt; 1.):</span>
+<span class="c1">#            print(np.max(shade), np.min(shade))</span>
+<span class="c1">#            raise ValueError()</span>
+        
+        <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">rgb</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">XYZ</span> <span class="o">=</span> <span class="n">_2d_rgb_to_XYZ</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">rgb</span> <span class="o">&gt;</span> <span class="mf">1.</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">()</span>
+        <span class="n">XYZ_pegtop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+        <span class="n">XYZ_Lch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+
+        <span class="k">if</span> <span class="n">k_pegtop</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">XYZ_pegtop</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">shade</span> <span class="o">*</span> <span class="n">XYZ</span> 
+                          <span class="o">+</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">shade</span><span class="p">)</span> <span class="o">*</span> <span class="n">XYZ</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">ref_white</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">k_Lch</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">XYZ_Lch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shade_Lch</span><span class="p">(</span><span class="n">XYZ</span><span class="p">,</span> <span class="n">shade</span><span class="p">)</span>
+        <span class="n">XYZ</span> <span class="o">=</span> <span class="p">(</span><span class="n">XYZ_pegtop</span> <span class="o">*</span> <span class="n">k_pegtop</span> <span class="o">+</span> <span class="n">XYZ_Lch</span> <span class="o">*</span> <span class="n">k_Lch</span><span class="p">)</span> <span class="o">/</span> <span class="n">blend_T</span>
+
+        <span class="c1"># Convert modified hsv back to rgb.</span>
+        <span class="n">blend</span> <span class="o">=</span> <span class="n">_2d_XYZ_to_rgb</span><span class="p">(</span><span class="n">XYZ</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">blend</span> <span class="o">&gt;</span> <span class="mf">1.</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">blend</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">shade_Lch</span><span class="p">(</span><span class="n">XYZ</span><span class="p">,</span> <span class="n">shade</span><span class="p">):</span>
+        <span class="c1"># Only if Greyscale shade</span>
+        <span class="n">shade</span> <span class="o">=</span> <span class="n">shade</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">shade</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">shade</span> <span class="o">-</span> <span class="mf">1.</span>
+        <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">XYZ</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">Lab</span> <span class="o">=</span> <span class="n">_2d_XYZ_to_CIELab</span><span class="p">(</span><span class="n">XYZ</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="n">Lab</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">Lab</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">Lab</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span>
+        <span class="n">lighten</span> <span class="o">=</span> <span class="n">shade</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+        <span class="n">Lab</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">lighten</span><span class="p">,</span>
+                                <span class="n">L</span>  <span class="o">+</span> <span class="n">shade</span> <span class="o">*</span> <span class="p">(</span><span class="mf">100.</span> <span class="o">-</span> <span class="n">L</span><span class="p">),</span>  <span class="n">L</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">+</span>  <span class="n">shade</span><span class="p">))</span>
+        <span class="n">Lab</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">lighten</span><span class="p">,</span>
+                                <span class="n">a</span>  <span class="o">-</span> <span class="n">shade</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span>  <span class="n">shade</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">Lab</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">lighten</span><span class="p">,</span>
+                                <span class="n">b</span>  <span class="o">-</span> <span class="n">shade</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">b</span><span class="p">,</span> <span class="n">b</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span>  <span class="n">shade</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">_2d_CIELab_to_XYZ</span><span class="p">(</span><span class="n">Lab</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span></div>
+        
+</pre></div>
+
+           </div>
+          </div>
+<div class="ribbon">
+  <a href="https://github.com/GBillotey/Fractalshades">Fork me on GitHub</a>
+</div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Geoffroy Billotey.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<style>
+  .wy-nav-content { max-width: 1250px !important; }
+</style>
+
+
+</body>
+</html>

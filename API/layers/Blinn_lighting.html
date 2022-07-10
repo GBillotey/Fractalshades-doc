@@ -1,0 +1,319 @@
+<!== Adding "Fork me on Github" ribbon ==>
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blinn_lighting &mdash; Fractalshades 0.5.6 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/rtd_dark.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/math.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Overlay_mode" href="Overlay_mode.html" />
+    <link rel="prev" title="Disp_layer" href="Disp_layer.html" />
+    <link href="../../_static/ribbon.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Fractalshades
+            <img src="../../_static/logo3.jpg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.5.6
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#installing">Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#a-5-minutes-guide-to-fractalshades">A 5-minutes guide to fractalshades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#graphical-user-interface">Graphical user interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#finding-areas-of-interest">Finding areas of interest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#unskewing-streched-areas">Unskewing streched areas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../math.html">Mathematical background</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../math.html#zoom-level-and-native-floating-point-precision">Zoom level and native floating-point precision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math.html#perturbation-theory">Perturbation Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math.html#avoiding-loss-of-precision">Avoiding loss of precision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math.html#billinear-approximations">Billinear approximations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math.html#extended-range-floating-points">Extended range floating points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math.html#finding-minibrots">Finding minibrots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math.html#going-further-a-few-references">Going further: a few references</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/index.html#batch-mode-gallery">Batch mode gallery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/01-full_basic.html">01 - Full Mandelbrot basic example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/02-bulb_fieldlines1.html">02 - Bulb fieldlines example “tint_or_shade”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/03-bulb_fieldlines2.html">03 - Bulb fieldlines example “twinfield”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/04-seahorse_shaded.html">04 - Seahorse shaded example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/05-seahorse_shaded_colored.html">05 - Seahorse shaded and colored example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/06-seahorse_interior.html">06 - Seahorse interior example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/07-seahorse_DEM.html">07 - Seahorse DEM example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/08-run_perturb_DEM.html">08 - DEM example with perturbation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/09-run_flake_DEM.html">09 - A deeper DEM example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/10-double_embedded_julia.html">10 - Double embedded Julia set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/11-run_perturbdeep.html">11- Ultra-deep embedded Julia set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/12-burning_ship_deep.html">12 - Burning Ship deep zoom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/13-burning_ship.html">13 - Burning ship DEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/14-burning_ship-deeper_DEM.html">14 - Burning ship deeper DEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/15-burning_ship-deepJulia_DEM.html">15 - Burning Ship ultra-deep embedded Julia set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/16-tetration_spring.html">16 - Tetration (power tower) zoom: “Spring”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/17-perpendicular_burning_ship_DEM.html">17 - “Perpendicular” Burning Ship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/18-perpendicular_burning_ship_glynn.html">18 - “Perpendicular” Burning Ship: hidden Glynn spiral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/19-perpendicular_burning_ship_Koch.html">19 - “Perpendicular” Burning Ship: hidden Koch snowflakes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/20-perpendicular_burning_ship_Sierpinski.html">20 - “Perpendicular” Burning Ship: hidden Sierpinski carpets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/21-perpendicular_burning_ship_trees.html">21 - “Perpendicular” Burning Ship: tree structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/22-shark_fin_deep.html">22 - “Shark Fin” escape-time fractal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/batch_mode/23-deep_min.html">23 - A deep mini</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/index.html#colormaps-template-gallery">Colormaps template gallery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/colormaps/plot_cmaps.html">Colormaps: available templates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/index.html#gui-mode-arbitrary-precision-implementations">GUI-mode: arbitrary precision implementations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/interactive_deepzoom/D01_run_interactive.html">D01 - Mandelbrot arbitrary-precision explorer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/interactive_deepzoom/D02_run_BS_interactive.html">D02 - Burning Ship arbitrary-precision explorer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/interactive_deepzoom/D03_run_perpendicular_BS_interactive.html">D03 - Perpendicular Burning Ship arbitrary-precision explorer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/interactive_deepzoom/D04_run_shark_fin_interactive.html">D04 - Shark Fin arbitrary-precision explorer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/index.html#gui-mode-standard-implementation-examples">GUI-mode: standard implementation examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/interactive_standard/S01_run_interactive_shallow.html">S01 - Mandelbrot explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/interactive_standard/S02_run_BS_shallow.html">S02 - Burning ship explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/interactive_standard/S03_run_interactive_Mn_shallow.html">S03 - Mandelbrot power n explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/interactive_standard/S04_run_collatz.html">S04 - Collatz explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/interactive_standard/S05_run_power_tower_shallow.html">S05 - Tetration fractal explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/interactive_standard/S06_run_perpendicular_BS_shallow.html">S06 - Perpendicular Burning Ship explorer - Standard precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/interactive_standard/S07_run_shark_fin_shallow.html">S07 - Shark fin  explorer - Standard precision</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../API.html">Application Programming Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../core.html">Core components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../core/Fractal.html">Fractal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../core/PerturbationFractal.html">PerturbationFractal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../core/Fractal_plotter.html">Fractal_plotter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../core/decorators.html">Decorators</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../settings.html">Application-level settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models.html">Fractal models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../models/Perturbation_mandelbrot.html">Arbitrary-precision Mandelbrot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../models/Perturbation_burning_ship.html">Arbitrary-precision Burning Ship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../models/Perturbation_perpendicular_burning_ship.html">Arbitrary-precision Perpendicular Burning Ship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../models/Perturbation_shark_fin.html">Arbitrary-precision Shark fin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../models/Mandelbrot.html">Mandelbrot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../models/Burning_ship.html">Burning Ship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../models/Perpendicular_burning_ship.html">Perpendicular Burning Ship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../models/Shark_fin.html">Shark fin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../models/Mandelbrot_N.html">Mandelbrot power n &gt; 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../models/Collatz.html">Collatz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../models/Power_tower.html">Power tower (aka Tetration) fractal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../postproc.html">Postprocessing fields</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../postproc/Postproc.html">Postproc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../postproc/Raw_pp.html">Raw_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../postproc/Continuous_iter_pp.html">Continuous_iter_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../postproc/Fieldlines_pp.html">Fieldlines_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../postproc/DEM_normal_pp.html">DEM_normal_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../postproc/DEM_pp.html">DEM_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../postproc/Attr_normal_pp.html">Attr_normal_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../postproc/Attr_pp.html">Attr_pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../postproc/Postproc_batch.html">Postproc_batch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../postproc/Fractal_array.html">Fractal_array</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../layers.html">Image layers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Virtual_layer.html">Virtual_layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Bool_layer.html">Bool_layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Color_layer.html">Color_layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Normal_map_layer.html">Normal_map_layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Grey_layer.html">Grey_layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Disp_layer.html">Disp_layer</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Blinn_lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Overlay_mode.html">Overlay_mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../colors.html">Color mapping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../colors/Fractal_colormap.html">Fractal_colormap</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../GUI.html">GUI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gui/Fractal_GUI.html">Fractal_GUI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#rev-0-5-6">Rev 0.5.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#rev-0-5-5">Rev 0.5.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#rev-0-5-4">Rev 0.5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#rev-0-5-3">Rev 0.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#rev-0-5-2">Rev 0.5.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#rev-0-5-0">Rev 0.5.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#rev-0-4-3">Rev 0.4.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#rev-0-4-2">Rev 0.4.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#rev-0-4-1">Rev 0.4.1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgment.html">Acknowledgment</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Fractalshades</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../API.html">Application Programming Interface</a> &raquo;</li>
+          <li><a href="../layers.html">Image layers</a> &raquo;</li>
+      <li>Blinn_lighting</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/API/layers/Blinn_lighting.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+           <div itemprop="articleBody">
+             
+  <section id="blinn-lighting">
+<h1>Blinn_lighting<a class="headerlink" href="#blinn-lighting" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="fractalshades.colors.layers.Blinn_lighting">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fractalshades.colors.layers.</span></span><span class="sig-name descname"><span class="pre">Blinn_lighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k_Ambient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_ambient</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/fractalshades/colors/layers.html#Blinn_lighting"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fractalshades.colors.layers.Blinn_lighting" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="fractalshades.colors.layers.Blinn_lighting.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k_Ambient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_ambient</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/fractalshades/colors/layers.html#Blinn_lighting.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fractalshades.colors.layers.Blinn_lighting.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>This class holds the properties for the scene lightsources. Its
+instances can be passed as a parameter to <a class="reference internal" href="Color_layer.html#fractalshades.colors.layers.Color_layer.shade" title="fractalshades.colors.layers.Color_layer.shade"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color_layer.shade</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>k_Ambient</strong></dt><dd><p>ambient lighting coefficient. A typical value is 0.2</p>
+</dd>
+<dt><strong>color_ambient: 3-uplet float</strong></dt><dd><p>a RGB 3-tuple, channels values in [0, 1] : the ambient lighting
+color. Usually white (1., 1., 1.)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fractalshades.colors.layers.Blinn_lighting.add_light_source">
+<span class="sig-name descname"><span class="pre">add_light_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k_diffuse</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_specular</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shininess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([1.,</span> <span class="pre">1.,</span> <span class="pre">1.])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material_specular_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/fractalshades/colors/layers.html#Blinn_lighting.add_light_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fractalshades.colors.layers.Blinn_lighting.add_light_source" title="Permalink to this definition"></a></dt>
+<dd><p>Adds a lightsource to the scene</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>k_diffuse</strong><span class="classifier">3-uplet float</span></dt><dd><p>diffuse lighting coefficients, as RGB</p>
+</dd>
+<dt><strong>k_specular</strong><span class="classifier">3-uplet float</span></dt><dd><p>diffuse lighting pourcentage, as RGB</p>
+</dd>
+<dt><strong>shininess</strong><span class="classifier">float</span></dt><dd><p>Phong exponent for specular model</p>
+</dd>
+<dt><strong>angles</strong><span class="classifier">2-uplet float</span></dt><dd><p>angles (theta, phi) of light source at infinity, in degree
+theta = 0 : aligned to x
+phi = 0 : normal to z (= in xy plane)</p>
+</dd>
+<dt><strong>coords</strong><span class="classifier">2-uplet float</span></dt><dd><p>position of lightsource from image center,
+in pourcentage of current image
+(if None (default), source is at infinity ; 
+if non-null, LS_angle has no effect)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+<div class="ribbon">
+  <a href="https://github.com/GBillotey/Fractalshades">Fork me on GitHub</a>
+</div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Disp_layer.html" class="btn btn-neutral float-left" title="Disp_layer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Overlay_mode.html" class="btn btn-neutral float-right" title="Overlay_mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Geoffroy Billotey.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<style>
+  .wy-nav-content { max-width: 1250px !important; }
+</style>
+
+
+</body>
+</html>
