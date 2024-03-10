@@ -1,0 +1,739 @@
+<!== Adding "Fork me on Github" ribbon ==>
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fractal models: Arbitrary-precision implementations &mdash; Fractalshades 1.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/rtd_dark.css?v=e3debd14" />
+      <link rel="stylesheet" type="text/css" href="../_static/math.css?v=7fc59cab" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=58fbf978"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script>window.MathJax = {"chtml": {"displayAlign": "left", "displayIndent": "2em"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Fractal models: Standard-precision implementations" href="standard_models.html" />
+    <link rel="prev" title="Projections" href="projection.html" />
+    <link href="../_static/ribbon.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Fractalshades
+              <img src="../_static/logo3.jpg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.1.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#installing">Installing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#installing-gmp-mpfr-mpc-windows-users">Installing GMP / MPFR / MPC: Windows users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#installing-gmp-mpfr-mpc-unix-linux-users">Installing GMP / MPFR / MPC: Unix / Linux users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#installing-gmp-mpfr-mpc-mac-users">Installing GMP / MPFR / MPC: Mac users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#a-5-minutes-guide-to-fractalshades">A 5-minutes guide to fractalshades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#graphical-user-interface">Graphical user interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#finding-areas-of-interest">Finding areas of interest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#unskewing-streched-areas">Unskewing streched areas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../math.html">Mathematical background</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../math.html#zoom-level-and-native-floating-point-precision">Zoom level and native floating-point precision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math.html#perturbation-theory">Perturbation Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math.html#avoiding-loss-of-precision">Avoiding loss of precision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math.html#billinear-approximations">Billinear approximations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math.html#extended-range-floating-points">Extended range floating points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math.html#finding-minibrots">Finding minibrots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math.html#going-further-a-few-references">Going further: a few references</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/index.html#batch-mode-gallery">Batch mode gallery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/index.html#colormaps-template-gallery">Colormaps template gallery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/index.html#gui-mode-arbitrary-precision-implementations">GUI-mode: arbitrary precision implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/index.html#gui-mode-standard-implementation-examples">GUI-mode: standard implementation examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/index.html#lighting-examples-gallery">Lighting examples gallery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/index.html#projections">Projections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/batch_mode/index.html">Batch mode gallery</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/01-full_basic.html">01 - Full Mandelbrot basic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/02-bulb_fieldlines1.html">02 - Bulb fieldlines example “tint_or_shade”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/03-bulb_fieldlines2.html">03 - Bulb fieldlines example “twinfield”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/04-seahorse_shaded.html">04 - Seahorse shaded example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/05-seahorse_shaded_colored.html">05 - Seahorse shaded and colored example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/06-seahorse_interior.html">06 - Seahorse interior example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/07-seahorse_DEM.html">07 - Seahorse DEM example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/08-run_perturb_DEM.html">08 - DEM example with perturbation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/09-run_flake_DEM.html">09 - A deeper DEM example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/10-double_embedded_julia.html">10 - Double embedded Julia set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/11-run_perturbdeep.html">11- Ultra-deep embedded Julia set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/12-burning_ship_deep.html">12 - Burning Ship deep zoom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/13-burning_ship.html">13 - Burning ship DEM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/14-burning_ship-deeper_DEM.html">14 - Burning ship deeper DEM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/15-burning_ship-deepJulia_DEM.html">15 - Burning Ship ultra-deep embedded Julia set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/16-tetration_spring.html">16 - Tetration (power tower) zoom: “Spring”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/17-perpendicular_burning_ship_DEM.html">17 - “Perpendicular” Burning Ship</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/18-perpendicular_burning_ship_glynn.html">18 - “Perpendicular” Burning Ship: hidden Glynn spiral</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/19-perpendicular_burning_ship_Koch.html">19 - “Perpendicular” Burning Ship: hidden Koch snowflakes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/20-perpendicular_burning_ship_Sierpinski.html">20 - “Perpendicular” Burning Ship: hidden Sierpinski carpets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/21-perpendicular_burning_ship_trees.html">21 - “Perpendicular” Burning Ship: tree structures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/22-shark_fin_deep.html">22 - “Shark Fin” escape-time fractal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/batch_mode/23-deep_min.html">23 - A deep mini</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/colormaps/index.html">Colormaps template gallery</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/colormaps/plot_cmaps.html">Colormaps: available templates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/interactive_deepzoom/index.html">GUI-mode: arbitrary precision implementations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/interactive_deepzoom/D01_run_interactive.html">D01 - Mandelbrot arbitrary-precision explorer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/interactive_deepzoom/D02_run_BS_interactive.html">D02 - Burning Ship arbitrary-precision explorer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/interactive_deepzoom/D03_run_interactive_Mn.html">D03 - Mandelbrot arbitrary-precision explorer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/interactive_standard/index.html">GUI-mode: standard implementation examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/interactive_standard/S01_run_interactive_shallow.html">S01 - Mandelbrot explorer - Standard precision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/interactive_standard/S02_run_BS_shallow.html">S02 - Burning ship explorer - Standard precision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/interactive_standard/S03_run_interactive_Mn_shallow.html">S03 - Mandelbrot power n explorer - Standard precision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/interactive_standard/S04_run_collatz.html">S04 - Collatz explorer - Standard precision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/interactive_standard/S05_run_power_tower_shallow.html">S05 - Tetration fractal explorer - Standard precision</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/lighting/index.html">Lighting examples gallery</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/lighting/plot_lighting.html">Ligthings: available effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/projections/index.html">Projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/projections/P01-feigenbaum_expmap.html">P01 - Exponential mapping: Feigenbaum point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/projections/P02-inversion.html">P02 - Inversion of the Mandelbrot set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/projections/P03-Elephant_valley_moebius.html">P03 - Moebius mapping: Elephant and Seahorse valleys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/projections/P04-deep_expmap.html">P04 - Exponential mapping for deep zoom</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../API.html">Application Programming Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="settings.html">Application-level settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#fractalshades.settings.enable_multithreading"><code class="docutils literal notranslate"><span class="pre">enable_multithreading</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#fractalshades.settings.skip_calc"><code class="docutils literal notranslate"><span class="pre">skip_calc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#fractalshades.settings.newton_zoom_level"><code class="docutils literal notranslate"><span class="pre">newton_zoom_level</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#fractalshades.settings.no_newton"><code class="docutils literal notranslate"><span class="pre">no_newton</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#fractalshades.settings.inspect_calc"><code class="docutils literal notranslate"><span class="pre">inspect_calc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#fractalshades.settings.chunk_size"><code class="docutils literal notranslate"><span class="pre">chunk_size</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#fractalshades.settings.verbosity"><code class="docutils literal notranslate"><span class="pre">verbosity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#fractalshades.settings.postproc_dtype"><code class="docutils literal notranslate"><span class="pre">postproc_dtype</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#fractalshades.settings.log_directory"><code class="docutils literal notranslate"><span class="pre">log_directory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#fractalshades.settings.disable_decompression_size_check"><code class="docutils literal notranslate"><span class="pre">disable_decompression_size_check()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#fractalshades.settings.BLA_compression"><code class="docutils literal notranslate"><span class="pre">BLA_compression</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings.html#fractalshades.settings.GUI_image_Mblimit"><code class="docutils literal notranslate"><span class="pre">GUI_image_Mblimit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core.html">Core components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core.html#fractalshades.Fractal"><code class="docutils literal notranslate"><span class="pre">Fractal</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#fractalshades.Fractal.__init__"><code class="docutils literal notranslate"><span class="pre">Fractal.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core.html#fractalshades.Fractal.clean_up"><code class="docutils literal notranslate"><span class="pre">Fractal.clean_up()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core.html#fractalshades.Fractal.zoom"><code class="docutils literal notranslate"><span class="pre">Fractal.zoom()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#fractalshades.PerturbationFractal"><code class="docutils literal notranslate"><span class="pre">PerturbationFractal</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#fractalshades.PerturbationFractal.__init__"><code class="docutils literal notranslate"><span class="pre">PerturbationFractal.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core.html#fractalshades.PerturbationFractal.zoom"><code class="docutils literal notranslate"><span class="pre">PerturbationFractal.zoom()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#fractalshades.Fractal_plotter"><code class="docutils literal notranslate"><span class="pre">Fractal_plotter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#fractalshades.Fractal_plotter.__init__"><code class="docutils literal notranslate"><span class="pre">Fractal_plotter.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core.html#fractalshades.Fractal_plotter.add_layer"><code class="docutils literal notranslate"><span class="pre">Fractal_plotter.add_layer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core.html#fractalshades.Fractal_plotter.plot"><code class="docutils literal notranslate"><span class="pre">Fractal_plotter.plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core.html#fractalshades.Fractal_plotter.save_db"><code class="docutils literal notranslate"><span class="pre">Fractal_plotter.save_db()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#fractalshades.zoom_options"><code class="docutils literal notranslate"><span class="pre">zoom_options()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#fractalshades.calc_options"><code class="docutils literal notranslate"><span class="pre">calc_options()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#fractalshades.interactive_options"><code class="docutils literal notranslate"><span class="pre">interactive_options()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="projection.html">Projections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="projection.html#fractalshades.projection.Projection"><code class="docutils literal notranslate"><span class="pre">Projection</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="projection.html#fractalshades.projection.Projection.__init__"><code class="docutils literal notranslate"><span class="pre">Projection.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="projection.html#fractalshades.projection.Cartesian"><code class="docutils literal notranslate"><span class="pre">Cartesian</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="projection.html#fractalshades.projection.Cartesian.__init__"><code class="docutils literal notranslate"><span class="pre">Cartesian.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="projection.html#fractalshades.projection.Expmap"><code class="docutils literal notranslate"><span class="pre">Expmap</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="projection.html#fractalshades.projection.Expmap.__init__"><code class="docutils literal notranslate"><span class="pre">Expmap.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="projection.html#fractalshades.projection.Generic_mapping"><code class="docutils literal notranslate"><span class="pre">Generic_mapping</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="projection.html#fractalshades.projection.Generic_mapping.__init__"><code class="docutils literal notranslate"><span class="pre">Generic_mapping.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Fractal models: Arbitrary-precision implementations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fractalshades.models.Perturbation_mandelbrot"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fractalshades.models.Perturbation_mandelbrot.__init__"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fractalshades.models.Perturbation_mandelbrot.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot.calc_std_div()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fractalshades.models.Perturbation_mandelbrot_N"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot_N</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fractalshades.models.Perturbation_mandelbrot_N.__init__"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot_N.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fractalshades.models.Perturbation_mandelbrot_N.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot_N.calc_std_div()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fractalshades.models.Perturbation_burning_ship"><code class="docutils literal notranslate"><span class="pre">Perturbation_burning_ship</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fractalshades.models.Perturbation_burning_ship.__init__"><code class="docutils literal notranslate"><span class="pre">Perturbation_burning_ship.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fractalshades.models.Perturbation_burning_ship.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Perturbation_burning_ship.calc_std_div()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="standard_models.html">Fractal models: Standard-precision implementations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="standard_models.html#fractalshades.models.Mandelbrot"><code class="docutils literal notranslate"><span class="pre">Mandelbrot</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="standard_models.html#fractalshades.models.Mandelbrot.__init__"><code class="docutils literal notranslate"><span class="pre">Mandelbrot.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="standard_models.html#fractalshades.models.Mandelbrot.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Mandelbrot.calc_std_div()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="standard_models.html#fractalshades.models.Mandelbrot.newton_calc"><code class="docutils literal notranslate"><span class="pre">Mandelbrot.newton_calc()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="standard_models.html#fractalshades.models.Mandelbrot_N"><code class="docutils literal notranslate"><span class="pre">Mandelbrot_N</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="standard_models.html#fractalshades.models.Mandelbrot_N.__init__"><code class="docutils literal notranslate"><span class="pre">Mandelbrot_N.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="standard_models.html#fractalshades.models.Mandelbrot_N.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Mandelbrot_N.calc_std_div()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="standard_models.html#fractalshades.models.Mandelbrot_N.newton_calc"><code class="docutils literal notranslate"><span class="pre">Mandelbrot_N.newton_calc()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="standard_models.html#fractalshades.models.Burning_ship"><code class="docutils literal notranslate"><span class="pre">Burning_ship</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="standard_models.html#fractalshades.models.Burning_ship.__init__"><code class="docutils literal notranslate"><span class="pre">Burning_ship.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="standard_models.html#fractalshades.models.Burning_ship.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Burning_ship.calc_std_div()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="standard_models.html#fractalshades.models.Power_tower"><code class="docutils literal notranslate"><span class="pre">Power_tower</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="standard_models.html#fractalshades.models.Power_tower.__init__"><code class="docutils literal notranslate"><span class="pre">Power_tower.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="standard_models.html#fractalshades.models.Power_tower.newton_calc"><code class="docutils literal notranslate"><span class="pre">Power_tower.newton_calc()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="standard_models.html#fractalshades.models.Collatz"><code class="docutils literal notranslate"><span class="pre">Collatz</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="standard_models.html#fractalshades.models.Collatz.__init__"><code class="docutils literal notranslate"><span class="pre">Collatz.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="standard_models.html#fractalshades.models.Collatz.base_calc"><code class="docutils literal notranslate"><span class="pre">Collatz.base_calc()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="postproc.html">Postprocessing fields</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="postproc.html#fractalshades.postproc.Postproc_batch"><code class="docutils literal notranslate"><span class="pre">Postproc_batch</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="postproc.html#fractalshades.postproc.Postproc_batch.__init__"><code class="docutils literal notranslate"><span class="pre">Postproc_batch.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="postproc.html#fractalshades.postproc.Postproc_batch.add_postproc"><code class="docutils literal notranslate"><span class="pre">Postproc_batch.add_postproc()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="postproc.html#fractalshades.postproc.Postproc"><code class="docutils literal notranslate"><span class="pre">Postproc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="postproc.html#fractalshades.postproc.Raw_pp"><code class="docutils literal notranslate"><span class="pre">Raw_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="postproc.html#fractalshades.postproc.Raw_pp.__init__"><code class="docutils literal notranslate"><span class="pre">Raw_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="postproc.html#fractalshades.postproc.Continuous_iter_pp"><code class="docutils literal notranslate"><span class="pre">Continuous_iter_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="postproc.html#fractalshades.postproc.Continuous_iter_pp.__init__"><code class="docutils literal notranslate"><span class="pre">Continuous_iter_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="postproc.html#fractalshades.postproc.Fieldlines_pp"><code class="docutils literal notranslate"><span class="pre">Fieldlines_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="postproc.html#fractalshades.postproc.Fieldlines_pp.__init__"><code class="docutils literal notranslate"><span class="pre">Fieldlines_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="postproc.html#fractalshades.postproc.DEM_pp"><code class="docutils literal notranslate"><span class="pre">DEM_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="postproc.html#fractalshades.postproc.DEM_pp.__init__"><code class="docutils literal notranslate"><span class="pre">DEM_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="postproc.html#fractalshades.postproc.DEM_normal_pp"><code class="docutils literal notranslate"><span class="pre">DEM_normal_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="postproc.html#fractalshades.postproc.DEM_normal_pp.__init__"><code class="docutils literal notranslate"><span class="pre">DEM_normal_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="postproc.html#fractalshades.postproc.Attr_pp"><code class="docutils literal notranslate"><span class="pre">Attr_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="postproc.html#fractalshades.postproc.Attr_pp.__init__"><code class="docutils literal notranslate"><span class="pre">Attr_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="postproc.html#fractalshades.postproc.Attr_normal_pp"><code class="docutils literal notranslate"><span class="pre">Attr_normal_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="postproc.html#fractalshades.postproc.Attr_normal_pp.__init__"><code class="docutils literal notranslate"><span class="pre">Attr_normal_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="postproc.html#fractalshades.postproc.Fractal_array"><code class="docutils literal notranslate"><span class="pre">Fractal_array</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="postproc.html#fractalshades.postproc.Fractal_array.__init__"><code class="docutils literal notranslate"><span class="pre">Fractal_array.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="layers.html">Image layers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Virtual_layer"><code class="docutils literal notranslate"><span class="pre">Virtual_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Virtual_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Virtual_layer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Virtual_layer.set_mask"><code class="docutils literal notranslate"><span class="pre">Virtual_layer.set_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Bool_layer"><code class="docutils literal notranslate"><span class="pre">Bool_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Bool_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Bool_layer.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Color_layer"><code class="docutils literal notranslate"><span class="pre">Color_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Color_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Color_layer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Color_layer.overlay"><code class="docutils literal notranslate"><span class="pre">Color_layer.overlay()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Color_layer.set_mask"><code class="docutils literal notranslate"><span class="pre">Color_layer.set_mask()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Color_layer.set_twin_field"><code class="docutils literal notranslate"><span class="pre">Color_layer.set_twin_field()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Color_layer.shade"><code class="docutils literal notranslate"><span class="pre">Color_layer.shade()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Normal_map_layer"><code class="docutils literal notranslate"><span class="pre">Normal_map_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Normal_map_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Normal_map_layer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Normal_map_layer.set_mask"><code class="docutils literal notranslate"><span class="pre">Normal_map_layer.set_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Grey_layer"><code class="docutils literal notranslate"><span class="pre">Grey_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Grey_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Grey_layer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Grey_layer.set_mask"><code class="docutils literal notranslate"><span class="pre">Grey_layer.set_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Disp_layer"><code class="docutils literal notranslate"><span class="pre">Disp_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Disp_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Disp_layer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Disp_layer.set_mask"><code class="docutils literal notranslate"><span class="pre">Disp_layer.set_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Blinn_lighting"><code class="docutils literal notranslate"><span class="pre">Blinn_lighting</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Blinn_lighting.__init__"><code class="docutils literal notranslate"><span class="pre">Blinn_lighting.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Blinn_lighting.add_light_source"><code class="docutils literal notranslate"><span class="pre">Blinn_lighting.add_light_source()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Overlay_mode"><code class="docutils literal notranslate"><span class="pre">Overlay_mode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="layers.html#fractalshades.colors.layers.Overlay_mode.__init__"><code class="docutils literal notranslate"><span class="pre">Overlay_mode.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="colors.html">Color mapping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="colors.html#fractalshades.colors.Fractal_colormap"><code class="docutils literal notranslate"><span class="pre">Fractal_colormap</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="colors.html#fractalshades.colors.Fractal_colormap.__init__"><code class="docutils literal notranslate"><span class="pre">Fractal_colormap.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="GUI.html#fractalshades.gui.guimodel.Fractal_GUI"><code class="docutils literal notranslate"><span class="pre">Fractal_GUI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="GUI.html#fractalshades.gui.guimodel.Fractal_GUI.__init__"><code class="docutils literal notranslate"><span class="pre">Fractal_GUI.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="GUI.html#fractalshades.gui.guimodel.Fractal_GUI.connect_image"><code class="docutils literal notranslate"><span class="pre">Fractal_GUI.connect_image()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="GUI.html#fractalshades.gui.guimodel.Fractal_GUI.connect_mouse"><code class="docutils literal notranslate"><span class="pre">Fractal_GUI.connect_mouse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="GUI.html#fractalshades.gui.guimodel.Fractal_GUI.show"><code class="docutils literal notranslate"><span class="pre">Fractal_GUI.show()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="GUI.html#fractalshades.gui.guitemplates.std_zooming"><code class="docutils literal notranslate"><span class="pre">std_zooming</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="GUI.html#fractalshades.gui.guitemplates.std_zooming.__init__"><code class="docutils literal notranslate"><span class="pre">std_zooming.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Logging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#fractalshades.log.set_log_handlers"><code class="docutils literal notranslate"><span class="pre">set_log_handlers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="db.html">Databases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="db.html#fractalshades.db.Db"><code class="docutils literal notranslate"><span class="pre">Db</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="db.html#fractalshades.db.Db.__init__"><code class="docutils literal notranslate"><span class="pre">Db.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="db.html#fractalshades.db.Db.plot"><code class="docutils literal notranslate"><span class="pre">Db.plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="db.html#fractalshades.db.Db.set_plotter"><code class="docutils literal notranslate"><span class="pre">Db.set_plotter()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#fractalshades.db.Frame"><code class="docutils literal notranslate"><span class="pre">Frame</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="db.html#fractalshades.db.Frame.__init__"><code class="docutils literal notranslate"><span class="pre">Frame.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#fractalshades.db.Exp_db"><code class="docutils literal notranslate"><span class="pre">Exp_db</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="db.html#fractalshades.db.Exp_db.__init__"><code class="docutils literal notranslate"><span class="pre">Exp_db.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="db.html#fractalshades.db.Exp_db.plot"><code class="docutils literal notranslate"><span class="pre">Exp_db.plot()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="db.html#fractalshades.db.Exp_frame"><code class="docutils literal notranslate"><span class="pre">Exp_frame</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="db.html#fractalshades.db.Exp_frame.__init__"><code class="docutils literal notranslate"><span class="pre">Exp_frame.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="movie.html">Movie module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="movie.html#fractalshades.movie.Movie"><code class="docutils literal notranslate"><span class="pre">Movie</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="movie.html#fractalshades.movie.Movie.__init__"><code class="docutils literal notranslate"><span class="pre">Movie.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="movie.html#fractalshades.movie.Movie.add_sequence"><code class="docutils literal notranslate"><span class="pre">Movie.add_sequence()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="movie.html#fractalshades.movie.Movie.export_frame"><code class="docutils literal notranslate"><span class="pre">Movie.export_frame()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="movie.html#fractalshades.movie.Movie.make"><code class="docutils literal notranslate"><span class="pre">Movie.make()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="movie.html#fractalshades.movie.Camera_pan"><code class="docutils literal notranslate"><span class="pre">Camera_pan</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="movie.html#fractalshades.movie.Camera_pan.__init__"><code class="docutils literal notranslate"><span class="pre">Camera_pan.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="movie.html#fractalshades.movie.Camera_zoom"><code class="docutils literal notranslate"><span class="pre">Camera_zoom</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="movie.html#fractalshades.movie.Camera_zoom.__init__"><code class="docutils literal notranslate"><span class="pre">Camera_zoom.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="movie.html#fractalshades.movie.Custom_sequence"><code class="docutils literal notranslate"><span class="pre">Custom_sequence</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="movie.html#fractalshades.movie.Custom_sequence.__init__"><code class="docutils literal notranslate"><span class="pre">Custom_sequence.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../making_movies.html">Making movies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../making_movies.html#example-pan-sequence">Example: pan sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../making_movies.html#example-zoom-sequence">Example: zoom sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../making_movies.html#example-custom-zoom-sequence">Example: “Custom” zoom sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../making_movies.html#example-using-distance-estimation-plots">Example: Using Distance Estimation plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#rev-1-1">Rev 1.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#rev-1-1-0">Rev 1.1.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#rev-1-1-1">Rev 1.1.1</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#rev-1-0">Rev 1.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#rev-1-0-3">Rev 1.0.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#rev-1-0-2">Rev 1.0.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#rev-1-0-1">Rev 1.0.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#rev-1-0-0">Rev 1.0.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#rev-0-5">Rev 0.5</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#rev-0-5-6">Rev 0.5.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#rev-0-5-5">Rev 0.5.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#rev-0-5-4">Rev 0.5.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#rev-0-5-3">Rev 0.5.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#rev-0-5-2">Rev 0.5.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#rev-0-5-0">Rev 0.5.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#rev-0-4">Rev 0.4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#rev-0-4-3">Rev 0.4.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#rev-0-4-2">Rev 0.4.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#rev-0-4-1">Rev 0.4.1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgment.html">Acknowledgment</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fractalshades</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../API.html">Application Programming Interface</a></li>
+      <li class="breadcrumb-item active">Fractal models: Arbitrary-precision implementations</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/API/arbitrary_models.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+           <div itemprop="articleBody">
+             
+  <section id="fractal-models-arbitrary-precision-implementations">
+<span id="module-fractalshades.models"></span><h1>Fractal models: Arbitrary-precision implementations<a class="headerlink" href="#fractal-models-arbitrary-precision-implementations" title="Link to this heading"></a></h1>
+<p>Concrete implementations of the base class
+<a class="reference internal" href="core.html#fractalshades.PerturbationFractal" title="fractalshades.PerturbationFractal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fractalshades.PerturbationFractal</span></code></a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fractalshades.models.Perturbation_mandelbrot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fractalshades.models.</span></span><span class="sig-name descname"><span class="pre">Perturbation_mandelbrot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fractalshades/models/mandelbrot_M2.html#Perturbation_mandelbrot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fractalshades.models.Perturbation_mandelbrot" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="fractalshades.models.Perturbation_mandelbrot.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fractalshades/models/mandelbrot_M2.html#Perturbation_mandelbrot.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fractalshades.models.Perturbation_mandelbrot.__init__" title="Link to this definition"></a></dt>
+<dd><p>An arbitrary precision power-2 Mandelbrot Fractal.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}z_0 &amp;= 0 \\
+z_{n+1} &amp;= z_{n}^2 + c\end{split}\]</div>
+<p>This class implements arbitrary precision for the reference orbit, ball method
+period search, newton search, perturbation method, chained billinear
+approximations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>directory</strong><span class="classifier">str</span></dt><dd><p>Path for the working base directory</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fractalshades.models.Perturbation_mandelbrot.calc_std_div">
+<span class="sig-name descname"><span class="pre">calc_std_div</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_divergence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon_stationnary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BLA_eps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interior_detect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_dzndc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_orbit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backshift</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fractalshades/models/mandelbrot_M2.html#Perturbation_mandelbrot.calc_std_div"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fractalshades.models.Perturbation_mandelbrot.calc_std_div" title="Link to this definition"></a></dt>
+<dd><p>Perturbation iterations (arbitrary precision) for Mandelbrot standard set
+(power 2).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>calc_name</strong><span class="classifier">str</span></dt><dd><p>The string identifier for this calculation</p>
+</dd>
+<dt><strong>subset</strong></dt><dd><p>A boolean array-like, where False no calculation is performed
+If <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, all points are calculated. Defaults to <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>max_iter</strong><span class="classifier">int</span></dt><dd><p>the maximum iteration number. If reached, the loop is exited with
+exit code “max_iter”.</p>
+</dd>
+<dt><strong>M_divergence</strong><span class="classifier">float</span></dt><dd><p>The diverging radius. If reached, the loop is exited with exit code
+“divergence”</p>
+</dd>
+<dt><strong>epsilon_stationnary</strong><span class="classifier">float</span></dt><dd><p>Used only if <code class="xref py py-obj docutils literal notranslate"><span class="pre">interior_detect</span></code> parameter is set to True
+A small criteria (typical range 0.01 to 0.001) used to detect earlier
+points belonging to a minibrot, based on dzndz1 value.
+If reached, the loop is exited with exit code “stationnary”</p>
+</dd>
+<dt><strong>BLA_eps</strong><span class="classifier">None | float</span></dt><dd><p>Relative error criteriafor BiLinear Approximation (default: 1.e-6)
+if <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code> BLA is not activated.</p>
+</dd>
+<dt><strong>interior_detect</strong><span class="classifier">bool</span></dt><dd><p>If True, activates interior points early detection.
+This will trigger the computation of an additionnal quantity (<code class="xref py py-obj docutils literal notranslate"><span class="pre">dzndz</span></code>), so
+shall be activated only when a mini fills a significative part of the view.</p>
+</dd>
+<dt><strong>calc_dzndc: bool</strong></dt><dd><p>If True, activates the computation of an additionnal quantities (<code class="xref py py-obj docutils literal notranslate"><span class="pre">dzndc</span></code>),
+used for distance estimation plots and for shading (normal map calculation)</p>
+</dd>
+<dt><strong>calc_orbit: bool</strong></dt><dd><p>If True, stores the value of an orbit point &#64; exit - backshift</p>
+</dd>
+<dt><strong>backshift: int (&gt; 0)</strong></dt><dd><p>The number of iteration backward for the stored orbit starting point</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fractalshades.models.Perturbation_mandelbrot_N">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fractalshades.models.</span></span><span class="sig-name descname"><span class="pre">Perturbation_mandelbrot_N</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fractalshades/models/mandelbrot_Mn.html#Perturbation_mandelbrot_N"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fractalshades.models.Perturbation_mandelbrot_N" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="fractalshades.models.Perturbation_mandelbrot_N.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fractalshades/models/mandelbrot_Mn.html#Perturbation_mandelbrot_N.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fractalshades.models.Perturbation_mandelbrot_N.__init__" title="Link to this definition"></a></dt>
+<dd><p>An arbitrary precision power-N Mandelbrot Fractal.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}z_0 &amp;= 0 \\
+z_{n+1} &amp;= {z_{n}}^N + c\end{split}\]</div>
+<p>This class implements arbitrary precision for the reference orbit, ball method
+period search, newton search, perturbation method, chained billinear
+approximations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>directory</strong><span class="classifier">str</span></dt><dd><p>Path for the working base directory</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fractalshades.models.Perturbation_mandelbrot_N.calc_std_div">
+<span class="sig-name descname"><span class="pre">calc_std_div</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_divergence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon_stationnary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BLA_eps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interior_detect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_dzndc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_orbit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backshift</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fractalshades/models/mandelbrot_Mn.html#Perturbation_mandelbrot_N.calc_std_div"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fractalshades.models.Perturbation_mandelbrot_N.calc_std_div" title="Link to this definition"></a></dt>
+<dd><p>Perturbation iterations (arbitrary precision) for Mandelbrot standard set
+(power N).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>calc_name</strong><span class="classifier">str</span></dt><dd><p>The string identifier for this calculation</p>
+</dd>
+<dt><strong>subset: Optional `fractalshades.postproc.Fractal_array`</strong></dt><dd><p>A boolean array-like, where False no calculation is performed
+If <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, all points are calculated. Defaults to <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>max_iter: int</strong></dt><dd><p>the maximum iteration number. If reached, the loop is exited with
+exit code “max_iter”.</p>
+</dd>
+<dt><strong>M_divergence: float</strong></dt><dd><p>The diverging radius. If reached, the loop is exited with exit code
+“divergence”</p>
+</dd>
+<dt><strong>epsilon_stationnary: float</strong></dt><dd><p>Used only if <code class="xref py py-obj docutils literal notranslate"><span class="pre">interior_detect</span></code> parameter is set to True
+A small criteria (typical range 0.01 to 0.001) used to detect earlier
+points belonging to a minibrot, based on dzndz1 value.
+If reached, the loop is exited with exit code “stationnary”</p>
+</dd>
+<dt><strong>BLA_eps: None | float</strong></dt><dd><p>Relative error criteria for Bilinear Approximation (default: 1.e-6)
+if <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code> BLA is not activated.</p>
+</dd>
+<dt><strong>interior_detect: bool</strong></dt><dd><p>If True, activates interior points early detection.
+This will trigger the computation of additionnal quantities (<code class="xref py py-obj docutils literal notranslate"><span class="pre">dzndz</span></code>), so
+shall be activated only when a mini fills a significative part of the view.</p>
+</dd>
+<dt><strong>calc_dzndc: bool</strong></dt><dd><p>If True, activates the computation of an additionnal quantities (<code class="xref py py-obj docutils literal notranslate"><span class="pre">dzndc</span></code>),
+used for distance estimation plots and for shading (normal map calculation)</p>
+</dd>
+<dt><strong>calc_orbit: bool</strong></dt><dd><p>If True, stores the value of an orbit point &#64; exit - backshift</p>
+</dd>
+<dt><strong>backshift: int (&gt; 0)</strong></dt><dd><p>The number of iteration backward for the stored orbit starting point</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fractalshades.models.Perturbation_burning_ship">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fractalshades.models.</span></span><span class="sig-name descname"><span class="pre">Perturbation_burning_ship</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flavor:</span> <span class="pre">~typing.Literal[&lt;enum</span> <span class="pre">'BS_flavor_enum'&gt;]</span> <span class="pre">=</span> <span class="pre">'Burning</span> <span class="pre">ship'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fractalshades/models/burning_ship.html#Perturbation_burning_ship"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fractalshades.models.Perturbation_burning_ship" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="fractalshades.models.Perturbation_burning_ship.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flavor:</span> <span class="pre">~typing.Literal[&lt;enum</span> <span class="pre">'BS_flavor_enum'&gt;]</span> <span class="pre">=</span> <span class="pre">'Burning</span> <span class="pre">ship'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fractalshades/models/burning_ship.html#Perturbation_burning_ship.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fractalshades.models.Perturbation_burning_ship.__init__" title="Link to this definition"></a></dt>
+<dd><p>Arbitrary-precision class for the Burning ship and other “abs variations”.</p>
+<p>The Burning Ship fractal, first described by Michael Michelitsch
+and Otto E. Rössler in 1992, is a variant of the mandelbrot fractal which 
+involve the absolute value function, making the formula non-analytic:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x_0 &amp;= 0 \\
+y_0 &amp;= 0 \\
+x_{n+1} &amp;= x_n^2 - y_n^2 + a \\
+y_{n+1} &amp;= 2 |x_n y_n| - b\end{split}\]</div>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}z_n &amp;= x_n + i y_n \\
+c &amp;= a + i b\end{split}\]</div>
+<p>For a more comprehensive introduction, we recommend the paper 
+<em>At the Helm of the Burning Ship</em> <span id="id1">[<a class="reference internal" href="../math.html#id9" title="Claude Heiland-Allen. At the helm of the burning ship. In Proceedings of EVA London 2019. 2019. http://dx.doi.org/10.14236/ewic/EVA2019.74.">HA19</a>]</span>.</p>
+<p>This class implements arbitrary precision for the reference orbit, ball method
+period search, newton search, perturbation method, chained billinear
+approximations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>directory: str</strong></dt><dd><p>Path for the working base directory</p>
+</dd>
+<dt><strong>flavor: str</strong></dt><dd><p>The variant of Burning Ship detailed implementation, defaults to
+“Burning Ship”. Acceptable values and iteration formula are detailed in the
+notes of <a class="reference internal" href="standard_models.html#fractalshades.models.Burning_ship" title="fractalshades.models.Burning_ship"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fractalshades.models.Burning_ship</span></code></a> documentation.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fractalshades.models.Perturbation_burning_ship.calc_std_div">
+<span class="sig-name descname"><span class="pre">calc_std_div</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_divergence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BLA_eps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_hessian</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_orbit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backshift</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fractalshades/models/burning_ship.html#Perturbation_burning_ship.calc_std_div"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fractalshades.models.Perturbation_burning_ship.calc_std_div" title="Link to this definition"></a></dt>
+<dd><p>Perturbation iterations (arbitrary precision) for this class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>calc_name</strong><span class="classifier">str</span></dt><dd><p>The string identifier for this calculation</p>
+</dd>
+<dt><strong>subset</strong></dt><dd><p>A boolean array-like, where False no calculation is performed
+If <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, all points are calculated. Defaults to <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>max_iter</strong><span class="classifier">int</span></dt><dd><p>the maximum iteration number. If reached, the loop is exited with
+exit code “max_iter”.</p>
+</dd>
+<dt><strong>M_divergence</strong><span class="classifier">float</span></dt><dd><p>The diverging radius. If reached, the loop is exited with exit code
+“divergence”</p>
+</dd>
+<dt><strong>BLA_eps: float</strong></dt><dd><p>Relative error criteria for BLA (default: 1.e-6)
+If <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, BLA is not activated.</p>
+</dd>
+<dt><strong>calc_hessian: bool</strong></dt><dd><p>if True, the derivatives will be caculated allowing distance
+estimation and shading.</p>
+</dd>
+<dt><strong>calc_orbit: bool</strong></dt><dd><p>If True, stores the value of an orbit point &#64; exit - orbit_shift</p>
+</dd>
+<dt><strong>backshift: int (&gt; 0)</strong></dt><dd><p>The count of iterations backward for the stored orbit starting point</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+<div class="ribbon">
+  <a href="https://github.com/GBillotey/Fractalshades">Fork me on GitHub</a>
+</div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="projection.html" class="btn btn-neutral float-left" title="Projections" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="standard_models.html" class="btn btn-neutral float-right" title="Fractal models: Standard-precision implementations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Fractalshades development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<style>
+  .wy-nav-content { max-width: 1250px !important; }
+</style>
+
+
+</body>
+</html>

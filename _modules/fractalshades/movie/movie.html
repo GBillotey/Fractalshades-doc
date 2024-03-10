@@ -1,0 +1,1036 @@
+<!== Adding "Fork me on Github" ribbon ==>
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fractalshades.movie.movie &mdash; Fractalshades 1.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/rtd_dark.css?v=e3debd14" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/math.css?v=7fc59cab" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=58fbf978"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link href="../../../_static/ribbon.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Fractalshades
+              <img src="../../../_static/logo3.jpg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.1.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#installing">Installing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting_started.html#installing-gmp-mpfr-mpc-windows-users">Installing GMP / MPFR / MPC: Windows users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting_started.html#installing-gmp-mpfr-mpc-unix-linux-users">Installing GMP / MPFR / MPC: Unix / Linux users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting_started.html#installing-gmp-mpfr-mpc-mac-users">Installing GMP / MPFR / MPC: Mac users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#a-5-minutes-guide-to-fractalshades">A 5-minutes guide to fractalshades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#graphical-user-interface">Graphical user interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#finding-areas-of-interest">Finding areas of interest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#unskewing-streched-areas">Unskewing streched areas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../math.html">Mathematical background</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#zoom-level-and-native-floating-point-precision">Zoom level and native floating-point precision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#perturbation-theory">Perturbation Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#avoiding-loss-of-precision">Avoiding loss of precision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#billinear-approximations">Billinear approximations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#extended-range-floating-points">Extended range floating points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#finding-minibrots">Finding minibrots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#going-further-a-few-references">Going further: a few references</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#batch-mode-gallery">Batch mode gallery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#colormaps-template-gallery">Colormaps template gallery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#gui-mode-arbitrary-precision-implementations">GUI-mode: arbitrary precision implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#gui-mode-standard-implementation-examples">GUI-mode: standard implementation examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#lighting-examples-gallery">Lighting examples gallery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#projections">Projections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/index.html">Batch mode gallery</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/01-full_basic.html">01 - Full Mandelbrot basic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/02-bulb_fieldlines1.html">02 - Bulb fieldlines example “tint_or_shade”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/03-bulb_fieldlines2.html">03 - Bulb fieldlines example “twinfield”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/04-seahorse_shaded.html">04 - Seahorse shaded example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/05-seahorse_shaded_colored.html">05 - Seahorse shaded and colored example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/06-seahorse_interior.html">06 - Seahorse interior example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/07-seahorse_DEM.html">07 - Seahorse DEM example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/08-run_perturb_DEM.html">08 - DEM example with perturbation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/09-run_flake_DEM.html">09 - A deeper DEM example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/10-double_embedded_julia.html">10 - Double embedded Julia set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/11-run_perturbdeep.html">11- Ultra-deep embedded Julia set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/12-burning_ship_deep.html">12 - Burning Ship deep zoom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/13-burning_ship.html">13 - Burning ship DEM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/14-burning_ship-deeper_DEM.html">14 - Burning ship deeper DEM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/15-burning_ship-deepJulia_DEM.html">15 - Burning Ship ultra-deep embedded Julia set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/16-tetration_spring.html">16 - Tetration (power tower) zoom: “Spring”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/17-perpendicular_burning_ship_DEM.html">17 - “Perpendicular” Burning Ship</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/18-perpendicular_burning_ship_glynn.html">18 - “Perpendicular” Burning Ship: hidden Glynn spiral</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/19-perpendicular_burning_ship_Koch.html">19 - “Perpendicular” Burning Ship: hidden Koch snowflakes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/20-perpendicular_burning_ship_Sierpinski.html">20 - “Perpendicular” Burning Ship: hidden Sierpinski carpets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/21-perpendicular_burning_ship_trees.html">21 - “Perpendicular” Burning Ship: tree structures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/22-shark_fin_deep.html">22 - “Shark Fin” escape-time fractal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/23-deep_min.html">23 - A deep mini</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/colormaps/index.html">Colormaps template gallery</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/colormaps/plot_cmaps.html">Colormaps: available templates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_deepzoom/index.html">GUI-mode: arbitrary precision implementations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/interactive_deepzoom/D01_run_interactive.html">D01 - Mandelbrot arbitrary-precision explorer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/interactive_deepzoom/D02_run_BS_interactive.html">D02 - Burning Ship arbitrary-precision explorer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/interactive_deepzoom/D03_run_interactive_Mn.html">D03 - Mandelbrot arbitrary-precision explorer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_standard/index.html">GUI-mode: standard implementation examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/interactive_standard/S01_run_interactive_shallow.html">S01 - Mandelbrot explorer - Standard precision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/interactive_standard/S02_run_BS_shallow.html">S02 - Burning ship explorer - Standard precision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/interactive_standard/S03_run_interactive_Mn_shallow.html">S03 - Mandelbrot power n explorer - Standard precision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/interactive_standard/S04_run_collatz.html">S04 - Collatz explorer - Standard precision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/interactive_standard/S05_run_power_tower_shallow.html">S05 - Tetration fractal explorer - Standard precision</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/lighting/index.html">Lighting examples gallery</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/lighting/plot_lighting.html">Ligthings: available effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/projections/index.html">Projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/projections/P01-feigenbaum_expmap.html">P01 - Exponential mapping: Feigenbaum point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/projections/P02-inversion.html">P02 - Inversion of the Mandelbrot set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/projections/P03-Elephant_valley_moebius.html">P03 - Moebius mapping: Elephant and Seahorse valleys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/projections/P04-deep_expmap.html">P04 - Exponential mapping for deep zoom</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../API.html">Application Programming Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/settings.html">Application-level settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.enable_multithreading"><code class="docutils literal notranslate"><span class="pre">enable_multithreading</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.skip_calc"><code class="docutils literal notranslate"><span class="pre">skip_calc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.newton_zoom_level"><code class="docutils literal notranslate"><span class="pre">newton_zoom_level</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.no_newton"><code class="docutils literal notranslate"><span class="pre">no_newton</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.inspect_calc"><code class="docutils literal notranslate"><span class="pre">inspect_calc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.chunk_size"><code class="docutils literal notranslate"><span class="pre">chunk_size</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.verbosity"><code class="docutils literal notranslate"><span class="pre">verbosity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.postproc_dtype"><code class="docutils literal notranslate"><span class="pre">postproc_dtype</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.log_directory"><code class="docutils literal notranslate"><span class="pre">log_directory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.disable_decompression_size_check"><code class="docutils literal notranslate"><span class="pre">disable_decompression_size_check()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.BLA_compression"><code class="docutils literal notranslate"><span class="pre">BLA_compression</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.GUI_image_Mblimit"><code class="docutils literal notranslate"><span class="pre">GUI_image_Mblimit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/core.html">Core components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal"><code class="docutils literal notranslate"><span class="pre">Fractal</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal.__init__"><code class="docutils literal notranslate"><span class="pre">Fractal.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal.clean_up"><code class="docutils literal notranslate"><span class="pre">Fractal.clean_up()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal.zoom"><code class="docutils literal notranslate"><span class="pre">Fractal.zoom()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core.html#fractalshades.PerturbationFractal"><code class="docutils literal notranslate"><span class="pre">PerturbationFractal</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.PerturbationFractal.__init__"><code class="docutils literal notranslate"><span class="pre">PerturbationFractal.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.PerturbationFractal.zoom"><code class="docutils literal notranslate"><span class="pre">PerturbationFractal.zoom()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal_plotter"><code class="docutils literal notranslate"><span class="pre">Fractal_plotter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal_plotter.__init__"><code class="docutils literal notranslate"><span class="pre">Fractal_plotter.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal_plotter.add_layer"><code class="docutils literal notranslate"><span class="pre">Fractal_plotter.add_layer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal_plotter.plot"><code class="docutils literal notranslate"><span class="pre">Fractal_plotter.plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal_plotter.save_db"><code class="docutils literal notranslate"><span class="pre">Fractal_plotter.save_db()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core.html#fractalshades.zoom_options"><code class="docutils literal notranslate"><span class="pre">zoom_options()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core.html#fractalshades.calc_options"><code class="docutils literal notranslate"><span class="pre">calc_options()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core.html#fractalshades.interactive_options"><code class="docutils literal notranslate"><span class="pre">interactive_options()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/projection.html">Projections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/projection.html#fractalshades.projection.Projection"><code class="docutils literal notranslate"><span class="pre">Projection</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/projection.html#fractalshades.projection.Projection.__init__"><code class="docutils literal notranslate"><span class="pre">Projection.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/projection.html#fractalshades.projection.Cartesian"><code class="docutils literal notranslate"><span class="pre">Cartesian</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/projection.html#fractalshades.projection.Cartesian.__init__"><code class="docutils literal notranslate"><span class="pre">Cartesian.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/projection.html#fractalshades.projection.Expmap"><code class="docutils literal notranslate"><span class="pre">Expmap</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/projection.html#fractalshades.projection.Expmap.__init__"><code class="docutils literal notranslate"><span class="pre">Expmap.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/projection.html#fractalshades.projection.Generic_mapping"><code class="docutils literal notranslate"><span class="pre">Generic_mapping</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/projection.html#fractalshades.projection.Generic_mapping.__init__"><code class="docutils literal notranslate"><span class="pre">Generic_mapping.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/arbitrary_models.html">Fractal models: Arbitrary-precision implementations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_mandelbrot"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_mandelbrot.__init__"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_mandelbrot.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot.calc_std_div()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_mandelbrot_N"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot_N</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_mandelbrot_N.__init__"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot_N.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_mandelbrot_N.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot_N.calc_std_div()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_burning_ship"><code class="docutils literal notranslate"><span class="pre">Perturbation_burning_ship</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_burning_ship.__init__"><code class="docutils literal notranslate"><span class="pre">Perturbation_burning_ship.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_burning_ship.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Perturbation_burning_ship.calc_std_div()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/standard_models.html">Fractal models: Standard-precision implementations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot"><code class="docutils literal notranslate"><span class="pre">Mandelbrot</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot.__init__"><code class="docutils literal notranslate"><span class="pre">Mandelbrot.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Mandelbrot.calc_std_div()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot.newton_calc"><code class="docutils literal notranslate"><span class="pre">Mandelbrot.newton_calc()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot_N"><code class="docutils literal notranslate"><span class="pre">Mandelbrot_N</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot_N.__init__"><code class="docutils literal notranslate"><span class="pre">Mandelbrot_N.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot_N.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Mandelbrot_N.calc_std_div()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot_N.newton_calc"><code class="docutils literal notranslate"><span class="pre">Mandelbrot_N.newton_calc()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Burning_ship"><code class="docutils literal notranslate"><span class="pre">Burning_ship</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Burning_ship.__init__"><code class="docutils literal notranslate"><span class="pre">Burning_ship.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Burning_ship.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Burning_ship.calc_std_div()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Power_tower"><code class="docutils literal notranslate"><span class="pre">Power_tower</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Power_tower.__init__"><code class="docutils literal notranslate"><span class="pre">Power_tower.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Power_tower.newton_calc"><code class="docutils literal notranslate"><span class="pre">Power_tower.newton_calc()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Collatz"><code class="docutils literal notranslate"><span class="pre">Collatz</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Collatz.__init__"><code class="docutils literal notranslate"><span class="pre">Collatz.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Collatz.base_calc"><code class="docutils literal notranslate"><span class="pre">Collatz.base_calc()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/postproc.html">Postprocessing fields</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Postproc_batch"><code class="docutils literal notranslate"><span class="pre">Postproc_batch</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Postproc_batch.__init__"><code class="docutils literal notranslate"><span class="pre">Postproc_batch.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Postproc_batch.add_postproc"><code class="docutils literal notranslate"><span class="pre">Postproc_batch.add_postproc()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Postproc"><code class="docutils literal notranslate"><span class="pre">Postproc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Raw_pp"><code class="docutils literal notranslate"><span class="pre">Raw_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Raw_pp.__init__"><code class="docutils literal notranslate"><span class="pre">Raw_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Continuous_iter_pp"><code class="docutils literal notranslate"><span class="pre">Continuous_iter_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Continuous_iter_pp.__init__"><code class="docutils literal notranslate"><span class="pre">Continuous_iter_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Fieldlines_pp"><code class="docutils literal notranslate"><span class="pre">Fieldlines_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Fieldlines_pp.__init__"><code class="docutils literal notranslate"><span class="pre">Fieldlines_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.DEM_pp"><code class="docutils literal notranslate"><span class="pre">DEM_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.DEM_pp.__init__"><code class="docutils literal notranslate"><span class="pre">DEM_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.DEM_normal_pp"><code class="docutils literal notranslate"><span class="pre">DEM_normal_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.DEM_normal_pp.__init__"><code class="docutils literal notranslate"><span class="pre">DEM_normal_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Attr_pp"><code class="docutils literal notranslate"><span class="pre">Attr_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Attr_pp.__init__"><code class="docutils literal notranslate"><span class="pre">Attr_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Attr_normal_pp"><code class="docutils literal notranslate"><span class="pre">Attr_normal_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Attr_normal_pp.__init__"><code class="docutils literal notranslate"><span class="pre">Attr_normal_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Fractal_array"><code class="docutils literal notranslate"><span class="pre">Fractal_array</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Fractal_array.__init__"><code class="docutils literal notranslate"><span class="pre">Fractal_array.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/layers.html">Image layers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Virtual_layer"><code class="docutils literal notranslate"><span class="pre">Virtual_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Virtual_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Virtual_layer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Virtual_layer.set_mask"><code class="docutils literal notranslate"><span class="pre">Virtual_layer.set_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Bool_layer"><code class="docutils literal notranslate"><span class="pre">Bool_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Bool_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Bool_layer.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Color_layer"><code class="docutils literal notranslate"><span class="pre">Color_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Color_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Color_layer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Color_layer.overlay"><code class="docutils literal notranslate"><span class="pre">Color_layer.overlay()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Color_layer.set_mask"><code class="docutils literal notranslate"><span class="pre">Color_layer.set_mask()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Color_layer.set_twin_field"><code class="docutils literal notranslate"><span class="pre">Color_layer.set_twin_field()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Color_layer.shade"><code class="docutils literal notranslate"><span class="pre">Color_layer.shade()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Normal_map_layer"><code class="docutils literal notranslate"><span class="pre">Normal_map_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Normal_map_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Normal_map_layer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Normal_map_layer.set_mask"><code class="docutils literal notranslate"><span class="pre">Normal_map_layer.set_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Grey_layer"><code class="docutils literal notranslate"><span class="pre">Grey_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Grey_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Grey_layer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Grey_layer.set_mask"><code class="docutils literal notranslate"><span class="pre">Grey_layer.set_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Disp_layer"><code class="docutils literal notranslate"><span class="pre">Disp_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Disp_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Disp_layer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Disp_layer.set_mask"><code class="docutils literal notranslate"><span class="pre">Disp_layer.set_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Blinn_lighting"><code class="docutils literal notranslate"><span class="pre">Blinn_lighting</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Blinn_lighting.__init__"><code class="docutils literal notranslate"><span class="pre">Blinn_lighting.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Blinn_lighting.add_light_source"><code class="docutils literal notranslate"><span class="pre">Blinn_lighting.add_light_source()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Overlay_mode"><code class="docutils literal notranslate"><span class="pre">Overlay_mode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Overlay_mode.__init__"><code class="docutils literal notranslate"><span class="pre">Overlay_mode.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/colors.html">Color mapping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/colors.html#fractalshades.colors.Fractal_colormap"><code class="docutils literal notranslate"><span class="pre">Fractal_colormap</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/colors.html#fractalshades.colors.Fractal_colormap.__init__"><code class="docutils literal notranslate"><span class="pre">Fractal_colormap.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/GUI.html">GUI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/GUI.html#fractalshades.gui.guimodel.Fractal_GUI"><code class="docutils literal notranslate"><span class="pre">Fractal_GUI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/GUI.html#fractalshades.gui.guimodel.Fractal_GUI.__init__"><code class="docutils literal notranslate"><span class="pre">Fractal_GUI.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/GUI.html#fractalshades.gui.guimodel.Fractal_GUI.connect_image"><code class="docutils literal notranslate"><span class="pre">Fractal_GUI.connect_image()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/GUI.html#fractalshades.gui.guimodel.Fractal_GUI.connect_mouse"><code class="docutils literal notranslate"><span class="pre">Fractal_GUI.connect_mouse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/GUI.html#fractalshades.gui.guimodel.Fractal_GUI.show"><code class="docutils literal notranslate"><span class="pre">Fractal_GUI.show()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/GUI.html#fractalshades.gui.guitemplates.std_zooming"><code class="docutils literal notranslate"><span class="pre">std_zooming</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/GUI.html#fractalshades.gui.guitemplates.std_zooming.__init__"><code class="docutils literal notranslate"><span class="pre">std_zooming.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/logging.html">Logging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/logging.html#fractalshades.log.set_log_handlers"><code class="docutils literal notranslate"><span class="pre">set_log_handlers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/db.html">Databases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Db"><code class="docutils literal notranslate"><span class="pre">Db</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Db.__init__"><code class="docutils literal notranslate"><span class="pre">Db.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Db.plot"><code class="docutils literal notranslate"><span class="pre">Db.plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Db.set_plotter"><code class="docutils literal notranslate"><span class="pre">Db.set_plotter()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Frame"><code class="docutils literal notranslate"><span class="pre">Frame</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Frame.__init__"><code class="docutils literal notranslate"><span class="pre">Frame.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Exp_db"><code class="docutils literal notranslate"><span class="pre">Exp_db</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Exp_db.__init__"><code class="docutils literal notranslate"><span class="pre">Exp_db.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Exp_db.plot"><code class="docutils literal notranslate"><span class="pre">Exp_db.plot()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Exp_frame"><code class="docutils literal notranslate"><span class="pre">Exp_frame</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Exp_frame.__init__"><code class="docutils literal notranslate"><span class="pre">Exp_frame.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/movie.html">Movie module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Movie"><code class="docutils literal notranslate"><span class="pre">Movie</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Movie.__init__"><code class="docutils literal notranslate"><span class="pre">Movie.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Movie.add_sequence"><code class="docutils literal notranslate"><span class="pre">Movie.add_sequence()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Movie.export_frame"><code class="docutils literal notranslate"><span class="pre">Movie.export_frame()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Movie.make"><code class="docutils literal notranslate"><span class="pre">Movie.make()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Camera_pan"><code class="docutils literal notranslate"><span class="pre">Camera_pan</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Camera_pan.__init__"><code class="docutils literal notranslate"><span class="pre">Camera_pan.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Camera_zoom"><code class="docutils literal notranslate"><span class="pre">Camera_zoom</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Camera_zoom.__init__"><code class="docutils literal notranslate"><span class="pre">Camera_zoom.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Custom_sequence"><code class="docutils literal notranslate"><span class="pre">Custom_sequence</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Custom_sequence.__init__"><code class="docutils literal notranslate"><span class="pre">Custom_sequence.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../making_movies.html">Making movies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../making_movies.html#example-pan-sequence">Example: pan sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../making_movies.html#example-zoom-sequence">Example: zoom sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../making_movies.html#example-custom-zoom-sequence">Example: “Custom” zoom sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../making_movies.html#example-using-distance-estimation-plots">Example: Using Distance Estimation plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-1-1">Rev 1.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-1-1-0">Rev 1.1.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-1-1-1">Rev 1.1.1</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-1-0">Rev 1.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-1-0-3">Rev 1.0.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-1-0-2">Rev 1.0.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-1-0-1">Rev 1.0.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-1-0-0">Rev 1.0.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-5">Rev 0.5</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-5-6">Rev 0.5.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-5-5">Rev 0.5.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-5-4">Rev 0.5.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-5-3">Rev 0.5.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-5-2">Rev 0.5.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-5-0">Rev 0.5.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-4">Rev 0.4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-4-3">Rev 0.4.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-4-2">Rev 0.4.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-4-1">Rev 0.4.1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../acknowledgment.html">Acknowledgment</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Fractalshades</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">fractalshades.movie.movie</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+           <div itemprop="articleBody">
+             
+  <h1>Source code for fractalshades.movie.movie</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#import copy</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">concurrent.futures</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">PIL</span>
+<span class="kn">from</span> <span class="nn">numpy.lib.format</span> <span class="kn">import</span> <span class="n">open_memmap</span>
+
+<span class="kn">import</span> <span class="nn">fractalshades</span> <span class="k">as</span> <span class="nn">fs</span>
+<span class="kn">import</span> <span class="nn">fractalshades.db</span>
+<span class="kn">import</span> <span class="nn">fractalshades.utils</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">PchipInterpolator</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Scipy is needed for movie maker, install with: &quot;</span>
+                       <span class="s2">&quot;&#39;pip install scipy&#39;&quot;</span><span class="p">)</span>
+<span class="c1"># Note: Scipy is used only for its monotonic cubic interpolant, we could remove</span>
+<span class="c1"># this dependency if we reimplement it:</span>
+<span class="c1"># https://math.stackexchange.com/questions/45218/implementation-of-monotone-cubic-interpolation</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">av</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;PyAV is needed for movie maker- please install with: &quot;</span>
+                       <span class="s2">&quot;&#39;pip install av&#39;&quot;</span><span class="p">)</span>
+<span class="c1"># PyAV is a Pythonic binding for the FFmpeg libraries. We aim to provide all of</span>
+<span class="c1"># the power and control of the underlying library, but manage the gritty</span>
+<span class="c1"># details as much as possible.</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Movie">
+<a class="viewcode-back" href="../../../API/movie.html#fractalshades.movie.Movie">[docs]</a>
+<span class="k">class</span> <span class="nc">Movie</span><span class="p">():</span>
+
+<div class="viewcode-block" id="Movie.__init__">
+<a class="viewcode-back" href="../../../API/movie.html#fractalshades.movie.Movie.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">720</span><span class="p">,</span> <span class="mi">480</span><span class="p">),</span> <span class="n">fps</span><span class="o">=</span><span class="mi">24</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A movie-making class.</span>
+<span class="sd">        To implement an actual movie use `add_sequence` and then `make` the</span>
+<span class="sd">        movie.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        size: (int, int)</span>
+<span class="sd">            Movie screen size in pixels. Default to 720 x 480 </span>
+<span class="sd">        fps: int</span>
+<span class="sd">            movie frame-count per second</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The `movie` submodule relies on the following dependencies:</span>
+<span class="sd">            - scipy</span>
+<span class="sd">            - pyAV</span>
+
+<span class="sd">        They will not be installed automatically with pip and shall be</span>
+<span class="sd">        installed by the user:</span>
+<span class="sd">            </span>
+<span class="sd">        .. code-block:: console</span>
+<span class="sd">        </span>
+<span class="sd">            pip install scipy</span>
+<span class="sd">            pip install av</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Note:</span>
+        <span class="c1"># Standard 16:9 resolutions can be:</span>
+        <span class="c1"># - 3200 x 1800 (QHD+) (*)</span>
+        <span class="c1"># - 2560 × 1440 (1440p, QHD) (*)</span>
+        <span class="c1"># - 1920 × 1080 (1080p, FHD) (*)</span>
+        <span class="c1"># -     1600 × 900 (HD+)</span>
+        <span class="c1"># -     1366 × 768 (WXGA)</span>
+        <span class="c1"># - 1280 × 720 (720p, HD) (*)</span>
+        <span class="c1"># -     960 × 540 (qHD)</span>
+        <span class="c1"># - 720 × 480 (480p, SD) (*)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fps</span> <span class="o">=</span> <span class="n">fps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cam_moves</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+
+
+<div class="viewcode-block" id="Movie.add_sequence">
+<a class="viewcode-back" href="../../../API/movie.html#fractalshades.movie.Movie.add_sequence">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_sequence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seq</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a sequence (or &#39;Camera move&#39; describing several frames) to this</span>
+<span class="sd">        movie</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        seq: `Sequence`</span>
+<span class="sd">            The sequence to be added</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">seq</span><span class="o">.</span><span class="n">movie</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Can only add a Camera move to one Movie_maker&quot;</span><span class="p">)</span>
+        <span class="n">seq</span><span class="o">.</span><span class="n">set_movie</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cam_moves</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span></div>
+
+
+
+    <span class="k">def</span> <span class="nf">picture</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+        <span class="n">acc_frames</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">cm</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cam_moves</span><span class="p">:</span>
+            <span class="n">cm_nframe</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">nframe</span>
+            <span class="n">local_i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">acc_frames</span>
+            <span class="k">if</span> <span class="n">local_i</span> <span class="o">&lt;</span> <span class="n">cm_nframe</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">cm</span><span class="o">.</span><span class="n">picture</span><span class="p">(</span><span class="n">local_i</span><span class="p">)</span>
+            <span class="n">acc_frames</span> <span class="o">+=</span> <span class="n">cm_nframe</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No frame at </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">pictures</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Iterator for the movie frames - as PIL.Image</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">cm</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cam_moves</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">pic</span> <span class="ow">in</span> <span class="n">cm</span><span class="o">.</span><span class="n">pictures</span><span class="p">():</span>
+                <span class="k">yield</span> <span class="n">pic</span>
+
+
+<div class="viewcode-block" id="Movie.make">
+<a class="viewcode-back" href="../../../API/movie.html#fractalshades.movie.Movie.make">[docs]</a>
+    <span class="k">def</span> <span class="nf">make</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out_file</span><span class="p">,</span> <span class="n">pix_fmt</span><span class="o">=</span><span class="s2">&quot;yuv420p&quot;</span><span class="p">,</span> <span class="n">crf</span><span class="o">=</span><span class="mi">22</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Make a .mp4 movie - Uses Codec AVC standard (H.264)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        out_file: str</span>
+<span class="sd">            The path to output file</span>
+<span class="sd">        pix_fmt: &quot;yuv444p&quot; | &quot;yuv420p&quot;</span>
+<span class="sd">            The pixel format’s name - default: &quot;yuv420p&quot;</span>
+<span class="sd">        crf: int, 0 - 51</span>
+<span class="sd">            The &quot;Constant Rate Factor&quot; - default: 22 (51 = lowest quality)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># See several examples:</span>
+<span class="c1"># https://stackoverflow.com/questions/73609006/how-to-create-a-video-out-of-frames-without-saving-it-to-disk-using-python</span>
+<span class="c1"># https://github.com/PyAV-Org/PyAV/blob/develop/scratchpad/encode_frames.py</span>
+<span class="c1"># https://stackoverflow.com/questions/61260182/how-to-output-x265-compressed-video-with-cv2-videowriter</span>
+<span class="c1"># https://github.com/kkroening/ffmpeg-python</span>
+<span class="c1"># https://github.com/NVIDIA/cuda-python</span>
+<span class="c1"># https://github.com/AiueoABC/CompressedVideoGenerationExample/issues/1</span>
+        <span class="n">fs</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">mkdir_p</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">out_file</span><span class="p">))</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="c1"># Use PyAV to open out_file as MP4 video</span>
+            <span class="c1"># output_memory_file = io.BytesIO()</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">av</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;mp4&quot;</span><span class="p">)</span>
+            <span class="n">codec_name</span> <span class="o">=</span> <span class="s1">&#39;h264&#39;</span>
+    
+            <span class="c1"># Advanced Video Coding (AVC), also referred to as H.264 or</span>
+            <span class="c1"># MPEG-4 Part 10, is a video compression standard based on</span>
+            <span class="c1"># block-oriented, motion-compensated coding.</span>
+            <span class="n">stream</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">add_stream</span><span class="p">(</span><span class="n">codec_name</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fps</span><span class="p">))</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">pix_fmt</span> <span class="o">=</span> <span class="n">pix_fmt</span>
+            <span class="c1"># https://ffmpeg.org/ffmpeg.html#Video-Options</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;crf&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">crf</span><span class="p">)}</span>
+
+            <span class="c1"># Iterate the PIL images, convert image to PyAV VideoFrame, encode,</span>
+            <span class="c1"># and &quot;Mux&quot;:</span>
+            <span class="k">for</span> <span class="n">pic</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pictures</span><span class="p">():</span>
+                <span class="n">frame</span> <span class="o">=</span> <span class="n">av</span><span class="o">.</span><span class="n">VideoFrame</span><span class="o">.</span><span class="n">from_image</span><span class="p">(</span><span class="n">pic</span><span class="p">)</span>
+                <span class="n">packet</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+                <span class="n">output</span><span class="o">.</span><span class="n">mux</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+
+            <span class="c1"># Flush the encoder and close the output file</span>
+            <span class="n">packet</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">mux</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="Movie.export_frame">
+<a class="viewcode-back" href="../../../API/movie.html#fractalshades.movie.Movie.export_frame">[docs]</a>
+    <span class="k">def</span> <span class="nf">export_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out_file</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Output a single frame to .png format (mainly for debuging purposes).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        out_file: str</span>
+<span class="sd">            The path to output file will be out_file_%i%.png where i is the </span>
+<span class="sd">            frame number</span>
+<span class="sd">        index: int</span>
+<span class="sd">            The saved frame index, if not provided then `time` shall be. </span>
+<span class="sd">        time: float</span>
+<span class="sd">            The time for the saved frame index.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span><span class="p">((</span><span class="n">index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;index and time parameters cannot be specified simultaneously&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">time</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">fps</span><span class="p">)</span>
+
+        <span class="n">head</span><span class="p">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">out_file</span><span class="p">)</span>
+        <span class="n">fs</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">mkdir_p</span><span class="p">(</span><span class="n">head</span><span class="p">)</span>
+
+        <span class="n">pic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">picture</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+        <span class="n">suffixed</span> <span class="o">=</span> <span class="n">tail</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.png&quot;</span>
+        <span class="n">pic</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">suffixed</span><span class="p">))</span></div>
+</div>
+
+
+
+<span class="k">class</span> <span class="nc">Sequence</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Base class for classes implementing a movie sequence.</span>
+<span class="sd">        </span>
+<span class="sd">        Time is relative to the whole movie</span>
+<span class="sd">        Frame index is relative to this sequence only.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">db</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tmin</span> <span class="o">=</span> <span class="n">tmin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tmax</span> <span class="o">=</span> <span class="n">tmax</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="n">tmax</span> <span class="o">-</span> <span class="n">tmin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">movie</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># add to a movie with movie.add_frame</span>
+
+
+    <span class="k">def</span> <span class="nf">set_movie</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">movie</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Link this camera move to a movie objects and adjust its internals</span>
+<span class="sd">        properties accordingly.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        movie: fs.movie.Movie</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">movie</span> <span class="o">=</span> <span class="n">movie</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">movie</span><span class="o">.</span><span class="n">fps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nframe</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">tmax</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">tmin</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">fps</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">movie</span><span class="o">.</span><span class="n">width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xy_ratio</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">movie</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">movie</span><span class="o">.</span><span class="n">height</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">make_grids</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">picture</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iframe</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Returns the ith-frame as a PIL.Image object &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frame</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_frame</span><span class="p">(</span><span class="n">iframe</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">async_picture</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iframe</span><span class="p">):</span>
+        <span class="c1"># keeps trac of the frame index for async accumulation &amp; flushing</span>
+        <span class="k">return</span> <span class="n">iframe</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">picture</span><span class="p">(</span><span class="n">iframe</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">pictures</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">istart</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">istop</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        yields successively the Camera_pan images.</span>
+<span class="sd">        If provided, starts at frame istart and stops at istop otherwise yields</span>
+<span class="sd">        the full frame range</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">istart</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">istart</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">istop</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">istop</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nframe</span>
+
+        <span class="n">frame_iterable</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span> <span class="n">istop</span><span class="p">)</span>
+        <span class="n">fig_cache</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">awaited</span> <span class="o">=</span> <span class="n">istart</span>
+        <span class="n">max_workers</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span> <span class="c1"># Leave one CPU for encoding ?</span>
+
+        <span class="k">with</span> <span class="n">concurrent</span><span class="o">.</span><span class="n">futures</span><span class="o">.</span><span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span>
+        <span class="p">)</span> <span class="k">as</span> <span class="n">threadpool</span><span class="p">:</span>
+            <span class="n">futures</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">threadpool</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">async_picture</span><span class="p">,</span> <span class="n">iframe</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">iframe</span> <span class="ow">in</span> <span class="n">frame_iterable</span>
+            <span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">fut</span> <span class="ow">in</span> <span class="n">concurrent</span><span class="o">.</span><span class="n">futures</span><span class="o">.</span><span class="n">as_completed</span><span class="p">(</span><span class="n">futures</span><span class="p">):</span>
+                <span class="n">iframe</span><span class="p">,</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">fut</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+                <span class="n">fig_cache</span><span class="p">[</span><span class="n">iframe</span><span class="p">]</span> <span class="o">=</span> <span class="n">fig</span>
+
+                <span class="c1"># Flushing the cache to the video maker</span>
+                <span class="n">can_flush</span> <span class="o">=</span> <span class="p">(</span><span class="n">awaited</span> <span class="ow">in</span> <span class="n">fig_cache</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+                <span class="k">while</span> <span class="n">can_flush</span><span class="p">:</span>
+                    <span class="k">yield</span> <span class="n">fig_cache</span><span class="p">[</span><span class="n">awaited</span><span class="p">]</span>
+                    <span class="k">del</span> <span class="n">fig_cache</span><span class="p">[</span><span class="n">awaited</span><span class="p">]</span>
+                    <span class="n">awaited</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">can_flush</span> <span class="o">=</span> <span class="p">(</span><span class="n">awaited</span> <span class="ow">in</span> <span class="n">fig_cache</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+
+<div class="viewcode-block" id="Camera_pan">
+<a class="viewcode-back" href="../../../API/movie.html#fractalshades.movie.Camera_pan">[docs]</a>
+<span class="k">class</span> <span class="nc">Camera_pan</span><span class="p">(</span><span class="n">Sequence</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Camera_pan.__init__">
+<a class="viewcode-back" href="../../../API/movie.html#fractalshades.movie.Camera_pan.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">x_evol</span><span class="p">,</span> <span class="n">y_evol</span><span class="p">,</span> <span class="n">dx_evol</span><span class="p">,</span> <span class="n">plotting_modifier</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A movie sequence described as a rectangular frame trajectory in a</span>
+<span class="sd">        database.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        db: `fractalshades.db.Db`</span>
+<span class="sd">            The underlying database. It can be either a \*.postdb or a \*.db</span>
+<span class="sd">            format. Using \*.db opens more possibilities but is also much</span>
+<span class="sd">            more computer-intensive.</span>
+<span class="sd">        x: couple of 1d array-like - (x_t, x)</span>
+<span class="sd">            trajectory of x in db screen coordinates. (Time is the full movie</span>
+<span class="sd">            time point, not relative to this sequence)</span>
+<span class="sd">        y: couple of 1d array-like - (y_t, y)</span>
+<span class="sd">            trajectory of y in db screen coordinates (Time is the full movie</span>
+<span class="sd">            time point, not relative to this sequence)</span>
+<span class="sd">        dx: couple of 1d array-like - (dx_t, dx)</span>
+<span class="sd">            trajectory of dx in db screen coordinates (Time is the full movie</span>
+<span class="sd">            time point, not relative to this sequence)</span>
+<span class="sd">        plotting_modifier: Optional, callable(plotter, time)</span>
+<span class="sd">            A callback which will modify the db plotter instance before each</span>
+<span class="sd">            time step.</span>
+<span class="sd">            To be used only for a &quot;.db&quot; database format</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x_t</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x_evol</span>
+        <span class="n">y_t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y_evol</span>
+        <span class="n">dx_t</span><span class="p">,</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">dx_evol</span>
+
+        <span class="n">x_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x_t</span><span class="p">)</span>
+        <span class="n">y_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_t</span><span class="p">)</span>
+        <span class="n">dx_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">dx_t</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span>
+
+        <span class="n">tmin</span> <span class="o">=</span> <span class="n">x_t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">tmax</span> <span class="o">=</span> <span class="n">x_t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">y_t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">tmin</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">y_t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">tmax</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unexpected t span for y_t&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">dx_t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">tmin</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">dx_t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">tmax</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unexpected t span for dx_t&quot;</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_func</span> <span class="o">=</span> <span class="n">PchipInterpolator</span><span class="p">(</span><span class="n">x_t</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_func</span> <span class="o">=</span> <span class="n">PchipInterpolator</span><span class="p">(</span><span class="n">y_t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dx_func</span> <span class="o">=</span> <span class="n">PchipInterpolator</span><span class="p">(</span><span class="n">dx_t</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">is_postdb</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">plotting_modifier</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;Parameter `plotting_modifier` cannot be provided for &quot;</span>
+                    <span class="s2">&quot;a .postdb database format&quot;</span>
+                <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">plotting_modifier</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">plotting_modifier</span> <span class="o">=</span> <span class="n">plotting_modifier</span></div>
+
+
+
+    <span class="k">def</span> <span class="nf">get_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iframe</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Parameter for the ith-frame frame to be interpolated &quot;&quot;&quot;</span>
+        <span class="n">t_frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tmin</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">*</span> <span class="n">iframe</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">nframe</span>
+        <span class="n">frame_x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_func</span><span class="p">(</span><span class="n">t_frame</span><span class="p">)</span>
+        <span class="n">frame_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_func</span><span class="p">(</span><span class="n">t_frame</span><span class="p">)</span>
+        <span class="n">frame_dx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dx_func</span><span class="p">(</span><span class="n">t_frame</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">fs</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">frame_x</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">frame_y</span><span class="p">,</span>
+            <span class="n">dx</span><span class="o">=</span><span class="n">frame_dx</span><span class="p">,</span>
+            <span class="n">nx</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span>
+            <span class="n">xy_ratio</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">xy_ratio</span><span class="p">,</span>
+            <span class="n">t</span><span class="o">=</span><span class="n">t_frame</span><span class="p">,</span>
+            <span class="n">plotting_modifier</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plotting_modifier</span>
+        <span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">make_grids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># No added value here, faster to recompute</span>
+        <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="Camera_zoom">
+<a class="viewcode-back" href="../../../API/movie.html#fractalshades.movie.Camera_zoom">[docs]</a>
+<span class="k">class</span> <span class="nc">Camera_zoom</span><span class="p">(</span><span class="n">Sequence</span><span class="p">):</span>
+    
+<div class="viewcode-block" id="Camera_zoom.__init__">
+<a class="viewcode-back" href="../../../API/movie.html#fractalshades.movie.Camera_zoom.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">h_evol</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A movie zooming sequence described as a frame trajectory in an</span>
+<span class="sd">        exponential mapping.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        db: `fs.db.Exp_Db`</span>
+<span class="sd">            The underlying database. It shall be a \*.postdb format, and will be</span>
+<span class="sd">            unwraped at different depth to form the movie layers</span>
+<span class="sd">        h_evol: couple of 1d array-like - (h_t, h)</span>
+<span class="sd">            Trajectory of zoom logarithmic factor h</span>
+<span class="sd">            The screen is scaled by np.exp(h)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">fs</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">Exp_db</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Camera_zoom shall be used with fs.db.Exp_Db&quot;</span><span class="p">)</span>
+
+        <span class="n">h_t</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">h_evol</span>
+        <span class="n">h_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">h_t</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+        <span class="n">tmin</span> <span class="o">=</span> <span class="n">h_t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">tmax</span> <span class="o">=</span> <span class="n">h_t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">h_func</span> <span class="o">=</span> <span class="n">PchipInterpolator</span><span class="p">(</span><span class="n">h_t</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span></div>
+
+
+
+    <span class="k">def</span> <span class="nf">get_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iframe</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Parameter for the ith-frame frame to be interpolated &quot;&quot;&quot;</span>
+        <span class="n">t_frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tmin</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">*</span> <span class="n">iframe</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">nframe</span>
+        <span class="n">frame_h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">h_func</span><span class="p">(</span><span class="n">t_frame</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fs</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">Exp_frame</span><span class="p">(</span>
+            <span class="n">h</span><span class="o">=</span><span class="n">frame_h</span><span class="p">,</span>
+            <span class="n">nx</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span>
+            <span class="n">xy_ratio</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">xy_ratio</span><span class="p">,</span>
+            <span class="n">pts</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pts</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">make_grids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Precompute the frame pts, which are always the same for expzoom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pts</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">Exp_frame</span><span class="o">.</span><span class="n">make_exp_grid</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">xy_ratio</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Custom_sequence">
+<a class="viewcode-back" href="../../../API/movie.html#fractalshades.movie.Custom_sequence">[docs]</a>
+<span class="k">class</span> <span class="nc">Custom_sequence</span><span class="p">(</span><span class="n">Sequence</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Custom_sequence.__init__">
+<a class="viewcode-back" href="../../../API/movie.html#fractalshades.movie.Custom_sequence.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">plotter_from_time</span><span class="p">,</span> <span class="n">scratch_name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A Sequence for which each frame is computed from scratch.</span>
+<span class="sd">        </span>
+<span class="sd">        This offers maximal flexibility but shall be used only for very short</span>
+<span class="sd">        sequences as processing time is very high.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        tmin: float</span>
+<span class="sd">            The starting time for this sequence</span>
+<span class="sd">        tmax: float</span>
+<span class="sd">            The end time for this sequence </span>
+<span class="sd">        plotter_from_time: t -&gt; (`fractalshades.Fractal_plotter`, layer)</span>
+<span class="sd">            Function which takes a time value and returns a plotter object and</span>
+<span class="sd">            the layer to plot (by its name)</span>
+<span class="sd">        scratch_name: str</span>
+<span class="sd">            The (relative path) name for the temporary db files directory.</span>
+<span class="sd">            Note that this folder shall be cleaned manually, should you</span>
+<span class="sd">            modifify the parameters for this custom sequence.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plotter_from_time</span> <span class="o">=</span> <span class="n">plotter_from_time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scratch_name</span> <span class="o">=</span> <span class="n">scratch_name</span></div>
+
+
+
+    <span class="k">def</span> <span class="nf">picture</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iframe</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Returns the ith-frame as a PIL.Image object &quot;&quot;&quot;</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tmin</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">*</span> <span class="n">iframe</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">nframe</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&gt;&gt;&gt;&gt; Computing custom frame </span><span class="si">{</span><span class="n">iframe</span><span class="si">}</span><span class="s2"> for t </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">plotter</span><span class="p">,</span> <span class="n">layer_postname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plotter_from_time</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+        <span class="n">im_layer</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">plotter</span><span class="o">.</span><span class="n">layers</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">layer</span><span class="o">.</span><span class="n">postname</span> <span class="o">==</span> <span class="n">layer_postname</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">layer</span><span class="o">.</span><span class="n">output</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No output for this layer: </span><span class="si">{</span><span class="n">layer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">img</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">layer</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">plotter</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+                <span class="n">im_layer</span> <span class="o">=</span> <span class="n">layer</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="n">im_layer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;No layer found with this name </span><span class="si">{</span><span class="n">layer_postname</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Create a temporary db</span>
+        <span class="n">temp_db_path</span> <span class="o">=</span> <span class="n">plotter</span><span class="o">.</span><span class="n">save_db</span><span class="p">(</span>
+            <span class="n">relpath</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scratch_name</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;temp_</span><span class="si">{</span><span class="n">iframe</span><span class="si">}</span><span class="s2">.postdb&quot;</span><span class="p">),</span>
+            <span class="n">postdb_layer</span><span class="o">=</span><span class="n">layer</span><span class="o">.</span><span class="n">postname</span><span class="p">,</span>
+            <span class="n">recovery_mode</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+
+        <span class="n">img</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">im_layer</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">plotter</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">mmap</span> <span class="o">=</span> <span class="n">open_memmap</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">temp_db_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r+&quot;</span><span class="p">)</span>
+        <span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">nchannels</span> <span class="o">=</span> <span class="n">mmap</span><span class="o">.</span><span class="n">shape</span>
+
+        <span class="k">assert</span> <span class="n">nx</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">movie</span><span class="o">.</span><span class="n">width</span>
+        <span class="k">assert</span> <span class="n">ny</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">movie</span><span class="o">.</span><span class="n">height</span>
+
+        <span class="n">crop_slice</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+        <span class="n">im_crop</span> <span class="o">=</span>  <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">mmap</span><span class="p">[:])</span>
+
+        <span class="n">img</span><span class="o">.</span><span class="n">paste</span><span class="p">(</span><span class="n">im_crop</span><span class="p">,</span> <span class="n">box</span><span class="o">=</span><span class="n">crop_slice</span><span class="p">)</span>
+        <span class="k">del</span> <span class="n">mmap</span>
+        <span class="k">return</span> <span class="n">img</span>
+
+
+    <span class="k">def</span> <span class="nf">make_grids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">pictures</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">istart</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">istop</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        yields successively the Camera_pan images, unparallel version</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">istart</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">istart</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">istop</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">istop</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nframe</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">istart</span><span class="p">,</span> <span class="n">istop</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">picture</span><span class="p">(</span><span class="n">i</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+<div class="ribbon">
+  <a href="https://github.com/GBillotey/Fractalshades">Fork me on GitHub</a>
+</div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Fractalshades development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<style>
+  .wy-nav-content { max-width: 1250px !important; }
+</style>
+
+
+</body>
+</html>

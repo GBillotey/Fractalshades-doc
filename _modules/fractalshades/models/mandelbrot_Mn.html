@@ -1,0 +1,1414 @@
+<!== Adding "Fork me on Github" ribbon ==>
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fractalshades.models.mandelbrot_Mn &mdash; Fractalshades 1.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/rtd_dark.css?v=e3debd14" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/math.css?v=7fc59cab" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=58fbf978"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link href="../../../_static/ribbon.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Fractalshades
+              <img src="../../../_static/logo3.jpg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.1.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#installing">Installing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting_started.html#installing-gmp-mpfr-mpc-windows-users">Installing GMP / MPFR / MPC: Windows users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting_started.html#installing-gmp-mpfr-mpc-unix-linux-users">Installing GMP / MPFR / MPC: Unix / Linux users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting_started.html#installing-gmp-mpfr-mpc-mac-users">Installing GMP / MPFR / MPC: Mac users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#a-5-minutes-guide-to-fractalshades">A 5-minutes guide to fractalshades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#graphical-user-interface">Graphical user interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#finding-areas-of-interest">Finding areas of interest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#unskewing-streched-areas">Unskewing streched areas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../math.html">Mathematical background</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#zoom-level-and-native-floating-point-precision">Zoom level and native floating-point precision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#perturbation-theory">Perturbation Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#avoiding-loss-of-precision">Avoiding loss of precision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#billinear-approximations">Billinear approximations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#extended-range-floating-points">Extended range floating points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#finding-minibrots">Finding minibrots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math.html#going-further-a-few-references">Going further: a few references</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#batch-mode-gallery">Batch mode gallery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#colormaps-template-gallery">Colormaps template gallery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#gui-mode-arbitrary-precision-implementations">GUI-mode: arbitrary precision implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#gui-mode-standard-implementation-examples">GUI-mode: standard implementation examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#lighting-examples-gallery">Lighting examples gallery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#projections">Projections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/batch_mode/index.html">Batch mode gallery</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/01-full_basic.html">01 - Full Mandelbrot basic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/02-bulb_fieldlines1.html">02 - Bulb fieldlines example “tint_or_shade”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/03-bulb_fieldlines2.html">03 - Bulb fieldlines example “twinfield”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/04-seahorse_shaded.html">04 - Seahorse shaded example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/05-seahorse_shaded_colored.html">05 - Seahorse shaded and colored example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/06-seahorse_interior.html">06 - Seahorse interior example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/07-seahorse_DEM.html">07 - Seahorse DEM example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/08-run_perturb_DEM.html">08 - DEM example with perturbation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/09-run_flake_DEM.html">09 - A deeper DEM example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/10-double_embedded_julia.html">10 - Double embedded Julia set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/11-run_perturbdeep.html">11- Ultra-deep embedded Julia set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/12-burning_ship_deep.html">12 - Burning Ship deep zoom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/13-burning_ship.html">13 - Burning ship DEM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/14-burning_ship-deeper_DEM.html">14 - Burning ship deeper DEM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/15-burning_ship-deepJulia_DEM.html">15 - Burning Ship ultra-deep embedded Julia set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/16-tetration_spring.html">16 - Tetration (power tower) zoom: “Spring”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/17-perpendicular_burning_ship_DEM.html">17 - “Perpendicular” Burning Ship</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/18-perpendicular_burning_ship_glynn.html">18 - “Perpendicular” Burning Ship: hidden Glynn spiral</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/19-perpendicular_burning_ship_Koch.html">19 - “Perpendicular” Burning Ship: hidden Koch snowflakes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/20-perpendicular_burning_ship_Sierpinski.html">20 - “Perpendicular” Burning Ship: hidden Sierpinski carpets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/21-perpendicular_burning_ship_trees.html">21 - “Perpendicular” Burning Ship: tree structures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/22-shark_fin_deep.html">22 - “Shark Fin” escape-time fractal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/batch_mode/23-deep_min.html">23 - A deep mini</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/colormaps/index.html">Colormaps template gallery</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/colormaps/plot_cmaps.html">Colormaps: available templates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_deepzoom/index.html">GUI-mode: arbitrary precision implementations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/interactive_deepzoom/D01_run_interactive.html">D01 - Mandelbrot arbitrary-precision explorer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/interactive_deepzoom/D02_run_BS_interactive.html">D02 - Burning Ship arbitrary-precision explorer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/interactive_deepzoom/D03_run_interactive_Mn.html">D03 - Mandelbrot arbitrary-precision explorer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/interactive_standard/index.html">GUI-mode: standard implementation examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/interactive_standard/S01_run_interactive_shallow.html">S01 - Mandelbrot explorer - Standard precision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/interactive_standard/S02_run_BS_shallow.html">S02 - Burning ship explorer - Standard precision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/interactive_standard/S03_run_interactive_Mn_shallow.html">S03 - Mandelbrot power n explorer - Standard precision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/interactive_standard/S04_run_collatz.html">S04 - Collatz explorer - Standard precision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/interactive_standard/S05_run_power_tower_shallow.html">S05 - Tetration fractal explorer - Standard precision</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/lighting/index.html">Lighting examples gallery</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/lighting/plot_lighting.html">Ligthings: available effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/projections/index.html">Projections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/projections/P01-feigenbaum_expmap.html">P01 - Exponential mapping: Feigenbaum point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/projections/P02-inversion.html">P02 - Inversion of the Mandelbrot set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/projections/P03-Elephant_valley_moebius.html">P03 - Moebius mapping: Elephant and Seahorse valleys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../examples/projections/P04-deep_expmap.html">P04 - Exponential mapping for deep zoom</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../API.html">Application Programming Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/settings.html">Application-level settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.enable_multithreading"><code class="docutils literal notranslate"><span class="pre">enable_multithreading</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.skip_calc"><code class="docutils literal notranslate"><span class="pre">skip_calc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.newton_zoom_level"><code class="docutils literal notranslate"><span class="pre">newton_zoom_level</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.no_newton"><code class="docutils literal notranslate"><span class="pre">no_newton</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.inspect_calc"><code class="docutils literal notranslate"><span class="pre">inspect_calc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.chunk_size"><code class="docutils literal notranslate"><span class="pre">chunk_size</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.verbosity"><code class="docutils literal notranslate"><span class="pre">verbosity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.postproc_dtype"><code class="docutils literal notranslate"><span class="pre">postproc_dtype</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.log_directory"><code class="docutils literal notranslate"><span class="pre">log_directory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.disable_decompression_size_check"><code class="docutils literal notranslate"><span class="pre">disable_decompression_size_check()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.BLA_compression"><code class="docutils literal notranslate"><span class="pre">BLA_compression</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/settings.html#fractalshades.settings.GUI_image_Mblimit"><code class="docutils literal notranslate"><span class="pre">GUI_image_Mblimit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/core.html">Core components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal"><code class="docutils literal notranslate"><span class="pre">Fractal</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal.__init__"><code class="docutils literal notranslate"><span class="pre">Fractal.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal.clean_up"><code class="docutils literal notranslate"><span class="pre">Fractal.clean_up()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal.zoom"><code class="docutils literal notranslate"><span class="pre">Fractal.zoom()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core.html#fractalshades.PerturbationFractal"><code class="docutils literal notranslate"><span class="pre">PerturbationFractal</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.PerturbationFractal.__init__"><code class="docutils literal notranslate"><span class="pre">PerturbationFractal.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.PerturbationFractal.zoom"><code class="docutils literal notranslate"><span class="pre">PerturbationFractal.zoom()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal_plotter"><code class="docutils literal notranslate"><span class="pre">Fractal_plotter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal_plotter.__init__"><code class="docutils literal notranslate"><span class="pre">Fractal_plotter.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal_plotter.add_layer"><code class="docutils literal notranslate"><span class="pre">Fractal_plotter.add_layer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal_plotter.plot"><code class="docutils literal notranslate"><span class="pre">Fractal_plotter.plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/core.html#fractalshades.Fractal_plotter.save_db"><code class="docutils literal notranslate"><span class="pre">Fractal_plotter.save_db()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core.html#fractalshades.zoom_options"><code class="docutils literal notranslate"><span class="pre">zoom_options()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core.html#fractalshades.calc_options"><code class="docutils literal notranslate"><span class="pre">calc_options()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/core.html#fractalshades.interactive_options"><code class="docutils literal notranslate"><span class="pre">interactive_options()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/projection.html">Projections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/projection.html#fractalshades.projection.Projection"><code class="docutils literal notranslate"><span class="pre">Projection</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/projection.html#fractalshades.projection.Projection.__init__"><code class="docutils literal notranslate"><span class="pre">Projection.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/projection.html#fractalshades.projection.Cartesian"><code class="docutils literal notranslate"><span class="pre">Cartesian</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/projection.html#fractalshades.projection.Cartesian.__init__"><code class="docutils literal notranslate"><span class="pre">Cartesian.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/projection.html#fractalshades.projection.Expmap"><code class="docutils literal notranslate"><span class="pre">Expmap</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/projection.html#fractalshades.projection.Expmap.__init__"><code class="docutils literal notranslate"><span class="pre">Expmap.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/projection.html#fractalshades.projection.Generic_mapping"><code class="docutils literal notranslate"><span class="pre">Generic_mapping</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/projection.html#fractalshades.projection.Generic_mapping.__init__"><code class="docutils literal notranslate"><span class="pre">Generic_mapping.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/arbitrary_models.html">Fractal models: Arbitrary-precision implementations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_mandelbrot"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_mandelbrot.__init__"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_mandelbrot.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot.calc_std_div()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_mandelbrot_N"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot_N</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_mandelbrot_N.__init__"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot_N.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_mandelbrot_N.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Perturbation_mandelbrot_N.calc_std_div()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_burning_ship"><code class="docutils literal notranslate"><span class="pre">Perturbation_burning_ship</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_burning_ship.__init__"><code class="docutils literal notranslate"><span class="pre">Perturbation_burning_ship.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_burning_ship.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Perturbation_burning_ship.calc_std_div()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/standard_models.html">Fractal models: Standard-precision implementations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot"><code class="docutils literal notranslate"><span class="pre">Mandelbrot</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot.__init__"><code class="docutils literal notranslate"><span class="pre">Mandelbrot.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Mandelbrot.calc_std_div()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot.newton_calc"><code class="docutils literal notranslate"><span class="pre">Mandelbrot.newton_calc()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot_N"><code class="docutils literal notranslate"><span class="pre">Mandelbrot_N</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot_N.__init__"><code class="docutils literal notranslate"><span class="pre">Mandelbrot_N.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot_N.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Mandelbrot_N.calc_std_div()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot_N.newton_calc"><code class="docutils literal notranslate"><span class="pre">Mandelbrot_N.newton_calc()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Burning_ship"><code class="docutils literal notranslate"><span class="pre">Burning_ship</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Burning_ship.__init__"><code class="docutils literal notranslate"><span class="pre">Burning_ship.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Burning_ship.calc_std_div"><code class="docutils literal notranslate"><span class="pre">Burning_ship.calc_std_div()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Power_tower"><code class="docutils literal notranslate"><span class="pre">Power_tower</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Power_tower.__init__"><code class="docutils literal notranslate"><span class="pre">Power_tower.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Power_tower.newton_calc"><code class="docutils literal notranslate"><span class="pre">Power_tower.newton_calc()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Collatz"><code class="docutils literal notranslate"><span class="pre">Collatz</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Collatz.__init__"><code class="docutils literal notranslate"><span class="pre">Collatz.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/standard_models.html#fractalshades.models.Collatz.base_calc"><code class="docutils literal notranslate"><span class="pre">Collatz.base_calc()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/postproc.html">Postprocessing fields</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Postproc_batch"><code class="docutils literal notranslate"><span class="pre">Postproc_batch</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Postproc_batch.__init__"><code class="docutils literal notranslate"><span class="pre">Postproc_batch.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Postproc_batch.add_postproc"><code class="docutils literal notranslate"><span class="pre">Postproc_batch.add_postproc()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Postproc"><code class="docutils literal notranslate"><span class="pre">Postproc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Raw_pp"><code class="docutils literal notranslate"><span class="pre">Raw_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Raw_pp.__init__"><code class="docutils literal notranslate"><span class="pre">Raw_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Continuous_iter_pp"><code class="docutils literal notranslate"><span class="pre">Continuous_iter_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Continuous_iter_pp.__init__"><code class="docutils literal notranslate"><span class="pre">Continuous_iter_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Fieldlines_pp"><code class="docutils literal notranslate"><span class="pre">Fieldlines_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Fieldlines_pp.__init__"><code class="docutils literal notranslate"><span class="pre">Fieldlines_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.DEM_pp"><code class="docutils literal notranslate"><span class="pre">DEM_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.DEM_pp.__init__"><code class="docutils literal notranslate"><span class="pre">DEM_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.DEM_normal_pp"><code class="docutils literal notranslate"><span class="pre">DEM_normal_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.DEM_normal_pp.__init__"><code class="docutils literal notranslate"><span class="pre">DEM_normal_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Attr_pp"><code class="docutils literal notranslate"><span class="pre">Attr_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Attr_pp.__init__"><code class="docutils literal notranslate"><span class="pre">Attr_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Attr_normal_pp"><code class="docutils literal notranslate"><span class="pre">Attr_normal_pp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Attr_normal_pp.__init__"><code class="docutils literal notranslate"><span class="pre">Attr_normal_pp.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Fractal_array"><code class="docutils literal notranslate"><span class="pre">Fractal_array</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/postproc.html#fractalshades.postproc.Fractal_array.__init__"><code class="docutils literal notranslate"><span class="pre">Fractal_array.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/layers.html">Image layers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Virtual_layer"><code class="docutils literal notranslate"><span class="pre">Virtual_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Virtual_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Virtual_layer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Virtual_layer.set_mask"><code class="docutils literal notranslate"><span class="pre">Virtual_layer.set_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Bool_layer"><code class="docutils literal notranslate"><span class="pre">Bool_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Bool_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Bool_layer.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Color_layer"><code class="docutils literal notranslate"><span class="pre">Color_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Color_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Color_layer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Color_layer.overlay"><code class="docutils literal notranslate"><span class="pre">Color_layer.overlay()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Color_layer.set_mask"><code class="docutils literal notranslate"><span class="pre">Color_layer.set_mask()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Color_layer.set_twin_field"><code class="docutils literal notranslate"><span class="pre">Color_layer.set_twin_field()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Color_layer.shade"><code class="docutils literal notranslate"><span class="pre">Color_layer.shade()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Normal_map_layer"><code class="docutils literal notranslate"><span class="pre">Normal_map_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Normal_map_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Normal_map_layer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Normal_map_layer.set_mask"><code class="docutils literal notranslate"><span class="pre">Normal_map_layer.set_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Grey_layer"><code class="docutils literal notranslate"><span class="pre">Grey_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Grey_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Grey_layer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Grey_layer.set_mask"><code class="docutils literal notranslate"><span class="pre">Grey_layer.set_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Disp_layer"><code class="docutils literal notranslate"><span class="pre">Disp_layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Disp_layer.__init__"><code class="docutils literal notranslate"><span class="pre">Disp_layer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Disp_layer.set_mask"><code class="docutils literal notranslate"><span class="pre">Disp_layer.set_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Blinn_lighting"><code class="docutils literal notranslate"><span class="pre">Blinn_lighting</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Blinn_lighting.__init__"><code class="docutils literal notranslate"><span class="pre">Blinn_lighting.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Blinn_lighting.add_light_source"><code class="docutils literal notranslate"><span class="pre">Blinn_lighting.add_light_source()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Overlay_mode"><code class="docutils literal notranslate"><span class="pre">Overlay_mode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/layers.html#fractalshades.colors.layers.Overlay_mode.__init__"><code class="docutils literal notranslate"><span class="pre">Overlay_mode.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/colors.html">Color mapping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/colors.html#fractalshades.colors.Fractal_colormap"><code class="docutils literal notranslate"><span class="pre">Fractal_colormap</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/colors.html#fractalshades.colors.Fractal_colormap.__init__"><code class="docutils literal notranslate"><span class="pre">Fractal_colormap.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/GUI.html">GUI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/GUI.html#fractalshades.gui.guimodel.Fractal_GUI"><code class="docutils literal notranslate"><span class="pre">Fractal_GUI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/GUI.html#fractalshades.gui.guimodel.Fractal_GUI.__init__"><code class="docutils literal notranslate"><span class="pre">Fractal_GUI.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/GUI.html#fractalshades.gui.guimodel.Fractal_GUI.connect_image"><code class="docutils literal notranslate"><span class="pre">Fractal_GUI.connect_image()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/GUI.html#fractalshades.gui.guimodel.Fractal_GUI.connect_mouse"><code class="docutils literal notranslate"><span class="pre">Fractal_GUI.connect_mouse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/GUI.html#fractalshades.gui.guimodel.Fractal_GUI.show"><code class="docutils literal notranslate"><span class="pre">Fractal_GUI.show()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/GUI.html#fractalshades.gui.guitemplates.std_zooming"><code class="docutils literal notranslate"><span class="pre">std_zooming</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/GUI.html#fractalshades.gui.guitemplates.std_zooming.__init__"><code class="docutils literal notranslate"><span class="pre">std_zooming.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/logging.html">Logging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/logging.html#fractalshades.log.set_log_handlers"><code class="docutils literal notranslate"><span class="pre">set_log_handlers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/db.html">Databases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Db"><code class="docutils literal notranslate"><span class="pre">Db</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Db.__init__"><code class="docutils literal notranslate"><span class="pre">Db.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Db.plot"><code class="docutils literal notranslate"><span class="pre">Db.plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Db.set_plotter"><code class="docutils literal notranslate"><span class="pre">Db.set_plotter()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Frame"><code class="docutils literal notranslate"><span class="pre">Frame</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Frame.__init__"><code class="docutils literal notranslate"><span class="pre">Frame.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Exp_db"><code class="docutils literal notranslate"><span class="pre">Exp_db</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Exp_db.__init__"><code class="docutils literal notranslate"><span class="pre">Exp_db.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Exp_db.plot"><code class="docutils literal notranslate"><span class="pre">Exp_db.plot()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Exp_frame"><code class="docutils literal notranslate"><span class="pre">Exp_frame</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/db.html#fractalshades.db.Exp_frame.__init__"><code class="docutils literal notranslate"><span class="pre">Exp_frame.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../API/movie.html">Movie module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Movie"><code class="docutils literal notranslate"><span class="pre">Movie</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Movie.__init__"><code class="docutils literal notranslate"><span class="pre">Movie.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Movie.add_sequence"><code class="docutils literal notranslate"><span class="pre">Movie.add_sequence()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Movie.export_frame"><code class="docutils literal notranslate"><span class="pre">Movie.export_frame()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Movie.make"><code class="docutils literal notranslate"><span class="pre">Movie.make()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Camera_pan"><code class="docutils literal notranslate"><span class="pre">Camera_pan</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Camera_pan.__init__"><code class="docutils literal notranslate"><span class="pre">Camera_pan.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Camera_zoom"><code class="docutils literal notranslate"><span class="pre">Camera_zoom</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Camera_zoom.__init__"><code class="docutils literal notranslate"><span class="pre">Camera_zoom.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Custom_sequence"><code class="docutils literal notranslate"><span class="pre">Custom_sequence</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../API/movie.html#fractalshades.movie.Custom_sequence.__init__"><code class="docutils literal notranslate"><span class="pre">Custom_sequence.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../making_movies.html">Making movies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../making_movies.html#example-pan-sequence">Example: pan sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../making_movies.html#example-zoom-sequence">Example: zoom sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../making_movies.html#example-custom-zoom-sequence">Example: “Custom” zoom sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../making_movies.html#example-using-distance-estimation-plots">Example: Using Distance Estimation plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-1-1">Rev 1.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-1-1-0">Rev 1.1.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-1-1-1">Rev 1.1.1</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-1-0">Rev 1.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-1-0-3">Rev 1.0.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-1-0-2">Rev 1.0.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-1-0-1">Rev 1.0.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-1-0-0">Rev 1.0.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-5">Rev 0.5</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-5-6">Rev 0.5.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-5-5">Rev 0.5.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-5-4">Rev 0.5.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-5-3">Rev 0.5.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-5-2">Rev 0.5.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-5-0">Rev 0.5.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#rev-0-4">Rev 0.4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-4-3">Rev 0.4.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-4-2">Rev 0.4.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#rev-0-4-1">Rev 0.4.1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../acknowledgment.html">Acknowledgment</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Fractalshades</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">fractalshades.models.mandelbrot_Mn</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+           <div itemprop="articleBody">
+             
+  <h1>Source code for fractalshades.models.mandelbrot_Mn</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numba</span>
+<span class="kn">import</span> <span class="nn">mpmath</span>
+
+<span class="kn">import</span> <span class="nn">fractalshades</span> <span class="k">as</span> <span class="nn">fs</span>
+<span class="kn">import</span> <span class="nn">fractalshades.mpmath_utils.FP_loop</span> <span class="k">as</span> <span class="nn">fsFP</span>
+<span class="kn">from</span> <span class="nn">fractalshades.postproc</span> <span class="kn">import</span> <span class="n">Fractal_array</span>
+
+<span class="k">def</span> <span class="nf">Mn_iterate</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span>
+    <span class="k">def</span> <span class="nf">numba_impl</span><span class="p">(</span><span class="n">zn</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">zn</span> <span class="o">**</span> <span class="n">n</span> <span class="o">+</span> <span class="n">c</span>
+    <span class="k">return</span> <span class="n">numba_impl</span>
+
+
+<div class="viewcode-block" id="Mandelbrot_N">
+<a class="viewcode-back" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot_N">[docs]</a>
+<span class="k">class</span> <span class="nc">Mandelbrot_N</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">Fractal</span><span class="p">):</span>
+<div class="viewcode-block" id="Mandelbrot_N.__init__">
+<a class="viewcode-back" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot_N.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">exponent</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A standard power-N Mandelbrot Fractal set implementation.</span>
+
+<span class="sd">.. math::</span>
+
+<span class="sd">    z_0 &amp;= 0 \\\\</span>
+<span class="sd">    z_{n+1} &amp;= {z_{n}}^N + c</span>
+
+<span class="sd">Parameters</span>
+<span class="sd">==========</span>
+<span class="sd">directory : str</span>
+<span class="sd">    Path for the working base directory</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exponent</span> <span class="o">=</span> <span class="n">exponent</span> <span class="c1"># Needed for serialization</span>
+
+        <span class="c1"># default values used for postprocessing (potential)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">potential_kind</span> <span class="o">=</span> <span class="s2">&quot;infinity&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">potential_d</span> <span class="o">=</span> <span class="n">exponent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">potential_a_d</span> <span class="o">=</span> <span class="mf">1.</span>
+        
+        <span class="c1"># GUI &#39;badges&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">holomorphic</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">implements_dzndc</span> <span class="o">=</span> <span class="s2">&quot;always&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">implements_fieldlines</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">implements_newton</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">implements_Milnor</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">implements_interior_detection</span> <span class="o">=</span> <span class="s2">&quot;always&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">implements_deepzoom</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">zn_iterate</span> <span class="o">=</span> <span class="n">Mn_iterate</span><span class="p">(</span><span class="n">exponent</span><span class="p">)</span>
+
+        <span class="c1"># Cache for numba compiled implementations</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_numba_cache</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_numba_iterate_cache</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;calc_std_div&quot;</span><span class="p">:</span> <span class="p">((),</span> <span class="kc">None</span><span class="p">),</span>
+            <span class="s2">&quot;newton_calc&quot;</span><span class="p">:</span> <span class="p">((),</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="p">}</span> <span class="c1"># args, numba_impl</span></div>
+
+
+
+<div class="viewcode-block" id="Mandelbrot_N.calc_std_div">
+<a class="viewcode-back" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot_N.calc_std_div">[docs]</a>
+    <span class="nd">@fs</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">calc_options</span>
+    <span class="k">def</span> <span class="nf">calc_std_div</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+            <span class="n">calc_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">subset</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Fractal_array</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">max_iter</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">M_divergence</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">epsilon_stationnary</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">calc_d2zndc2</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">calc_orbit</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">backshift</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Basic iterations for the Mandelbrot standard set (power n).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ==========</span>
+<span class="sd">    calc_name : str</span>
+<span class="sd">         The string identifier for this calculation</span>
+<span class="sd">    subset : Optional `fractalshades.postproc.Fractal_array`</span>
+<span class="sd">        A boolean array-like, where False no calculation is performed</span>
+<span class="sd">        If `None`, all points are calculated. Defaults to `None`.</span>
+<span class="sd">    max_iter : int</span>
+<span class="sd">        the maximum iteration number. If reached, the loop is exited with</span>
+<span class="sd">        exit code &quot;max_iter&quot;.</span>
+<span class="sd">    M_divergence : float</span>
+<span class="sd">        The diverging radius. If reached, the loop is exited with exit code</span>
+<span class="sd">        &quot;divergence&quot;</span>
+<span class="sd">    epsilon_stationnary : float</span>
+<span class="sd">        A small float to early exit non-divergent cycles (based on</span>
+<span class="sd">        cumulated dzndz product). If reached, the loop is exited with exit</span>
+<span class="sd">        code &quot;stationnary&quot; (Those points should belong to Mandelbrot set</span>
+<span class="sd">        interior). A typical value is 1.e-3</span>
+<span class="sd">    calc_d2zndc2: bool</span>
+<span class="sd">        If True, activates the additional computation of *d2zndz2*, needed </span>
+<span class="sd">        only for the alternative normal map shading &#39;Milnor&#39;.</span>
+<span class="sd">    calc_orbit: bool</span>
+<span class="sd">        If True, stores the value of an orbit point @ n of exit - backshift</span>
+<span class="sd">    backshift: (&gt; 0)</span>
+<span class="sd">        The number of iteration backward for the stored orbit starting point </span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    =====</span>
+<span class="sd">    The following complex fields will be calculated: *zn* and its</span>
+<span class="sd">    derivatives (*dzndz*, *dzndc*).</span>
+<span class="sd">    If calc_orbit is activated, *zn_orbit* will also be stored</span>
+<span class="sd">    Exit codes are *max_iter*, *divergence*, *stationnary*.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">complex_codes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;zn&quot;</span><span class="p">,</span> <span class="s2">&quot;dzndz&quot;</span><span class="p">,</span> <span class="s2">&quot;dzndc&quot;</span><span class="p">]</span>
+        <span class="n">zn</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">dzndz</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">dzndc</span> <span class="o">=</span> <span class="mi">2</span>
+
+        <span class="c1"># Optionnal output fields</span>
+        <span class="n">icode</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="n">d2zndc2</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> 
+        <span class="k">if</span> <span class="n">calc_d2zndc2</span><span class="p">:</span>
+            <span class="n">complex_codes</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;d2zndc2&quot;</span><span class="p">]</span>
+            <span class="n">d2zndc2</span> <span class="o">=</span> <span class="n">icode</span>
+            <span class="n">icode</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">i_znorbit</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="n">calc_orbit</span><span class="p">:</span>
+            <span class="n">complex_codes</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;zn_orbit&quot;</span><span class="p">]</span>
+            <span class="n">i_znorbit</span> <span class="o">=</span> <span class="n">icode</span>
+            <span class="n">icode</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">int_codes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">stop_codes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;max_iter&quot;</span><span class="p">,</span> <span class="s2">&quot;divergence&quot;</span><span class="p">,</span> <span class="s2">&quot;stationnary&quot;</span><span class="p">]</span>
+
+        <span class="k">def</span> <span class="nf">set_state</span><span class="p">():</span>
+            <span class="k">def</span> <span class="nf">impl</span><span class="p">(</span><span class="n">instance</span><span class="p">):</span>
+                <span class="n">instance</span><span class="o">.</span><span class="n">codes</span> <span class="o">=</span> <span class="p">(</span><span class="n">complex_codes</span><span class="p">,</span> <span class="n">int_codes</span><span class="p">,</span> <span class="n">stop_codes</span><span class="p">)</span>
+                <span class="n">instance</span><span class="o">.</span><span class="n">complex_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span>
+                <span class="n">instance</span><span class="o">.</span><span class="n">potential_M</span> <span class="o">=</span> <span class="n">M_divergence</span>
+                <span class="k">if</span> <span class="n">calc_orbit</span><span class="p">:</span>
+                    <span class="n">instance</span><span class="o">.</span><span class="n">backshift</span> <span class="o">=</span> <span class="n">backshift</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">instance</span><span class="o">.</span><span class="n">backshift</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">return</span> <span class="n">impl</span>
+
+        <span class="k">def</span> <span class="nf">initialize</span><span class="p">():</span>
+            <span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span>
+            <span class="k">def</span> <span class="nf">numba_init_impl</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+                <span class="c1"># Not much to do here</span>
+                <span class="k">pass</span>
+            <span class="k">return</span> <span class="n">numba_init_impl</span>
+
+        <span class="n">Mdiv_sq</span> <span class="o">=</span> <span class="n">M_divergence</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="n">epscv_sq</span> <span class="o">=</span> <span class="n">epsilon_stationnary</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="n">deg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exponent</span> 
+
+        <span class="n">iterate_once</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_numba_cache</span><span class="p">(</span>
+            <span class="s2">&quot;iterate_once&quot;</span><span class="p">,</span> <span class="n">deg</span><span class="p">,</span>
+            <span class="n">zn</span><span class="p">,</span> <span class="n">dzndz</span><span class="p">,</span> <span class="n">dzndc</span><span class="p">,</span> <span class="n">d2zndc2</span><span class="p">,</span> <span class="n">calc_d2zndc2</span><span class="p">,</span>
+            <span class="n">max_iter</span><span class="p">,</span> <span class="n">Mdiv_sq</span><span class="p">,</span> <span class="n">epscv_sq</span>
+        <span class="p">)</span>
+        <span class="n">zn_iterate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">zn_iterate</span>
+
+        <span class="k">def</span> <span class="nf">iterate</span><span class="p">():</span>
+            <span class="n">new_args</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">calc_orbit</span><span class="p">,</span> <span class="n">i_znorbit</span><span class="p">,</span> <span class="n">backshift</span><span class="p">,</span> <span class="n">zn</span><span class="p">,</span>
+                <span class="n">iterate_once</span><span class="p">,</span> <span class="n">zn_iterate</span>
+            <span class="p">)</span>
+            <span class="n">args</span><span class="p">,</span> <span class="n">numba_impl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_numba_iterate_cache</span><span class="p">[</span><span class="s2">&quot;calc_std_div&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">new_args</span> <span class="o">==</span> <span class="n">args</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">numba_impl</span>
+
+            <span class="n">numba_impl</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">numba_iterate</span><span class="p">(</span><span class="o">*</span><span class="n">new_args</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_numba_iterate_cache</span><span class="p">[</span><span class="s2">&quot;calc_std_div&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">new_args</span><span class="p">,</span> <span class="n">numba_impl</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">numba_impl</span>
+
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;set_state&quot;</span><span class="p">:</span> <span class="n">set_state</span><span class="p">,</span>
+            <span class="s2">&quot;initialize&quot;</span><span class="p">:</span> <span class="n">initialize</span><span class="p">,</span>
+            <span class="s2">&quot;iterate&quot;</span><span class="p">:</span> <span class="n">iterate</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="Mandelbrot_N.newton_calc">
+<a class="viewcode-back" href="../../../API/standard_models.html#fractalshades.models.Mandelbrot_N.newton_calc">[docs]</a>
+    <span class="nd">@fs</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">calc_options</span>
+    <span class="k">def</span> <span class="nf">newton_calc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+            <span class="n">calc_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;newton_calc&quot;</span><span class="p">,</span>
+            <span class="n">subset</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Fractal_array</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">known_orders</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">max_order</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+            <span class="n">max_newton</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
+            <span class="n">eps_newton_cv</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.e-12</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Newton iterations for Mandelbrot standard set interior (power N).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ==========</span>
+<span class="sd">    calc_name : str</span>
+<span class="sd">         The string identifier for this calculation</span>
+<span class="sd">    subset : Optional `fractalshades.postproc.Fractal_array`</span>
+<span class="sd">        A boolean array-like, where False no calculation is performed</span>
+<span class="sd">        If `None`, all points are calculated. Defaults to `None`.</span>
+<span class="sd">    known_orders : None | int list </span>
+<span class="sd">        If not `None`, only the integer listed of their multiples will be </span>
+<span class="sd">        candidates for the cycle order, the other rwill be disregarded.</span>
+<span class="sd">        If `None` all order between 1 and `max_order` will be considered.</span>
+<span class="sd">    max_order : int</span>
+<span class="sd">        The maximum value tested for cycle order</span>
+<span class="sd">    eps_newton_cv : float</span>
+<span class="sd">        A small float to qualify the convergence of the Newton iteration</span>
+<span class="sd">        Usually a fraction of a view pixel.</span>
+<span class="sd">        </span>
+<span class="sd">    Notes</span>
+<span class="sd">    =====</span>
+<span class="sd">    </span>
+<span class="sd">    .. note::</span>
+
+<span class="sd">        The following complex fields will be calculated:</span>
+
+<span class="sd">        *zr*</span>
+<span class="sd">            A (any) point belonging to the attracting cycle</span>
+<span class="sd">        *attractivity*</span>
+<span class="sd">            The cycle attractivity (for a convergent cycle it is a complex</span>
+<span class="sd">            of norm &lt; 1.)</span>
+<span class="sd">        *dzrdc*</span>
+<span class="sd">            Derivative of *zr*</span>
+<span class="sd">        *dattrdc*</span>
+<span class="sd">            Derivative of *attractivity*</span>
+
+<span class="sd">        The following integer field will be calculated:</span>
+
+<span class="sd">        *order*</span>
+<span class="sd">            The cycle order</span>
+<span class="sd">    </span>
+<span class="sd">        Exit codes are 0: *max_order*, 1: *order_confirmed*.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ==========</span>
+<span class="sd">    .. [1] &lt;https://mathr.co.uk/blog/2013-04-01_interior_coordinates_in_the_mandelbrot_set.html&gt;</span>
+
+<span class="sd">    .. [2] &lt;https://mathr.co.uk/blog/2014-11-02_practical_interior_distance_rendering.html&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">complex_codes</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;zr&quot;</span><span class="p">,</span> <span class="s2">&quot;attractivity&quot;</span><span class="p">,</span> <span class="s2">&quot;dzrdc&quot;</span><span class="p">,</span> <span class="s2">&quot;dattrdc&quot;</span><span class="p">,</span> <span class="s2">&quot;_partial&quot;</span><span class="p">,</span> <span class="s2">&quot;_zn&quot;</span>
+        <span class="p">]</span>
+        <span class="n">int_codes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;order&quot;</span><span class="p">]</span>
+        <span class="n">stop_codes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;max_order&quot;</span><span class="p">,</span> <span class="s2">&quot;order_confirmed&quot;</span><span class="p">]</span>
+        
+        <span class="n">deg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exponent</span> 
+<span class="c1">#        deg_m1 = deg - 1 </span>
+<span class="c1">#        deg_m2 = deg - 2</span>
+
+        <span class="n">izr</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">idzrdz</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># attractivity</span>
+        <span class="n">idzrdc</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">id2zrdzdc</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># dattrdc</span>
+        <span class="n">i_partial</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="n">i_zn</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="n">iorder</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="n">reason_max_order</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">reason_order_confirmed</span> <span class="o">=</span> <span class="mi">2</span>
+
+        <span class="k">def</span> <span class="nf">set_state</span><span class="p">():</span>
+            <span class="k">def</span> <span class="nf">impl</span><span class="p">(</span><span class="n">instance</span><span class="p">):</span>
+                <span class="n">instance</span><span class="o">.</span><span class="n">codes</span> <span class="o">=</span> <span class="p">(</span><span class="n">complex_codes</span><span class="p">,</span> <span class="n">int_codes</span><span class="p">,</span> <span class="n">stop_codes</span><span class="p">)</span>
+                <span class="n">instance</span><span class="o">.</span><span class="n">complex_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span>
+            <span class="k">return</span> <span class="n">impl</span>
+
+        <span class="k">def</span> <span class="nf">initialize</span><span class="p">():</span>
+            <span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span>
+            <span class="k">def</span> <span class="nf">numba_init_impl</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+                <span class="n">Z</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.e6</span> <span class="c1"># Partial, bigger than any reasonnable np.abs(zn)</span>
+            <span class="k">return</span> <span class="n">numba_init_impl</span>
+
+        <span class="n">zn_iterate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">zn_iterate</span>
+        <span class="n">iterate_newton_search</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_numba_cache</span><span class="p">(</span>
+            <span class="s2">&quot;iterate_newton_search&quot;</span><span class="p">,</span> <span class="n">deg</span><span class="p">,</span>
+            <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">iterate</span><span class="p">():</span>
+            <span class="n">new_args</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">known_orders</span><span class="p">,</span> <span class="n">max_order</span><span class="p">,</span> <span class="n">max_newton</span><span class="p">,</span> <span class="n">eps_newton_cv</span><span class="p">,</span>
+                <span class="n">reason_max_order</span><span class="p">,</span> <span class="n">reason_order_confirmed</span><span class="p">,</span>
+                <span class="n">izr</span><span class="p">,</span> <span class="n">idzrdz</span><span class="p">,</span> <span class="n">idzrdc</span><span class="p">,</span>  <span class="n">id2zrdzdc</span><span class="p">,</span> <span class="n">i_partial</span><span class="p">,</span>  <span class="n">i_zn</span><span class="p">,</span> <span class="n">iorder</span><span class="p">,</span>
+                <span class="n">zn_iterate</span><span class="p">,</span> <span class="n">iterate_newton_search</span>
+            <span class="p">)</span>
+            <span class="n">args</span><span class="p">,</span> <span class="n">numba_impl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_numba_iterate_cache</span><span class="p">[</span><span class="s2">&quot;calc_std_div&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">new_args</span> <span class="o">==</span> <span class="n">args</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">numba_impl</span>
+
+            <span class="n">numba_impl</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">numba_Newton</span><span class="p">(</span><span class="o">*</span><span class="n">new_args</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_numba_iterate_cache</span><span class="p">[</span><span class="s2">&quot;calc_std_div&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">new_args</span><span class="p">,</span> <span class="n">numba_impl</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">numba_impl</span>
+
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;set_state&quot;</span><span class="p">:</span> <span class="n">set_state</span><span class="p">,</span>
+            <span class="s2">&quot;initialize&quot;</span><span class="p">:</span> <span class="n">initialize</span><span class="p">,</span>
+            <span class="s2">&quot;iterate&quot;</span><span class="p">:</span> <span class="n">iterate</span>
+        <span class="p">}</span></div>
+
+
+
+    <span class="k">def</span> <span class="nf">from_numba_cache</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">deg</span><span class="p">,</span> <span class="n">zn</span><span class="p">,</span> <span class="n">dzndz</span><span class="p">,</span> <span class="n">dzndc</span><span class="p">,</span> <span class="n">d2zndc2</span><span class="p">,</span> <span class="n">calc_d2zndc2</span><span class="p">,</span>
+        <span class="n">max_iter</span><span class="p">,</span> <span class="n">Mdiv_sq</span><span class="p">,</span> <span class="n">epscv_sq</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Returns the numba implementation if exists to avoid unnecessary</span>
+<span class="sd">        recompilation&quot;&quot;&quot;</span>
+        <span class="n">cache</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_numba_cache</span>
+        <span class="n">full_key</span> <span class="o">=</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">deg</span><span class="p">,</span> <span class="n">zn</span><span class="p">,</span> <span class="n">dzndz</span><span class="p">,</span> <span class="n">dzndc</span><span class="p">,</span> <span class="n">d2zndc2</span><span class="p">,</span> <span class="n">calc_d2zndc2</span><span class="p">,</span>
+                    <span class="n">max_iter</span><span class="p">,</span> <span class="n">Mdiv_sq</span><span class="p">,</span> <span class="n">epscv_sq</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">full_key</span><span class="p">]</span>
+
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="n">deg_m1</span> <span class="o">=</span> <span class="n">deg</span> <span class="o">-</span> <span class="mi">1</span> 
+            <span class="n">deg_m2</span> <span class="o">=</span> <span class="n">deg</span> <span class="o">-</span> <span class="mi">2</span>
+
+            <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;iterate_once&quot;</span><span class="p">:</span>
+                <span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span>
+                <span class="k">def</span> <span class="nf">numba_impl</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">stop_reason</span><span class="p">,</span> <span class="n">n_iter</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">n_iter</span> <span class="o">&gt;=</span> <span class="n">max_iter</span><span class="p">:</span>
+                        <span class="n">stop_reason</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="k">return</span> <span class="mi">1</span>
+        
+                    <span class="n">_zn</span> <span class="o">=</span> <span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">calc_d2zndc2</span><span class="p">:</span>
+                        <span class="n">zn_m2</span> <span class="o">=</span> <span class="n">_zn</span> <span class="o">**</span> <span class="n">deg_m2</span>
+                        <span class="n">zn_m1</span> <span class="o">=</span> <span class="n">zn_m2</span> <span class="o">*</span> <span class="n">_zn</span>
+                        <span class="n">zn_m</span> <span class="o">=</span> <span class="n">zn_m1</span> <span class="o">*</span> <span class="n">_zn</span>
+                        <span class="n">Z</span><span class="p">[</span><span class="n">d2zndc2</span><span class="p">]</span> <span class="o">=</span> <span class="n">deg</span> <span class="o">*</span> <span class="p">(</span>
+                            <span class="n">Z</span><span class="p">[</span><span class="n">d2zndc2</span><span class="p">]</span> <span class="o">*</span> <span class="n">zn_m1</span>
+                            <span class="o">+</span> <span class="n">deg_m1</span> <span class="o">*</span> <span class="n">Z</span><span class="p">[</span><span class="n">dzndz</span><span class="p">]</span> <span class="o">*</span> <span class="n">Z</span><span class="p">[</span><span class="n">dzndc</span><span class="p">]</span> <span class="o">*</span> <span class="n">zn_m2</span>
+                        <span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">zn_m1</span> <span class="o">=</span> <span class="n">_zn</span> <span class="o">**</span> <span class="n">deg_m1</span>
+                        <span class="n">zn_m</span> <span class="o">=</span> <span class="n">zn_m1</span> <span class="o">*</span> <span class="n">_zn</span>
+        
+                    <span class="n">Z</span><span class="p">[</span><span class="n">dzndc</span><span class="p">]</span> <span class="o">=</span> <span class="n">deg</span> <span class="o">*</span> <span class="n">Z</span><span class="p">[</span><span class="n">dzndc</span><span class="p">]</span> <span class="o">*</span> <span class="n">zn_m1</span> <span class="o">+</span> <span class="mf">1.</span>
+                    <span class="n">Z</span><span class="p">[</span><span class="n">dzndz</span><span class="p">]</span> <span class="o">=</span> <span class="n">deg</span> <span class="o">*</span> <span class="n">Z</span><span class="p">[</span><span class="n">dzndz</span><span class="p">]</span> <span class="o">*</span> <span class="n">zn_m1</span> 
+                    <span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span> <span class="o">=</span> <span class="n">zn_m</span> <span class="o">+</span> <span class="n">c</span>
+        
+                    <span class="k">if</span> <span class="n">n_iter</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">Z</span><span class="p">[</span><span class="n">dzndz</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span>
+        
+                    <span class="k">if</span> <span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span><span class="o">.</span><span class="n">real</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="n">Mdiv_sq</span><span class="p">:</span>
+                        <span class="n">stop_reason</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                        <span class="k">return</span> <span class="mi">1</span>
+        
+                    <span class="k">if</span> <span class="n">Z</span><span class="p">[</span><span class="n">dzndz</span><span class="p">]</span><span class="o">.</span><span class="n">real</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">Z</span><span class="p">[</span><span class="n">dzndz</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="n">epscv_sq</span><span class="p">:</span>
+                        <span class="n">stop_reason</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+                        <span class="k">return</span> <span class="mi">1</span>
+        
+                    <span class="k">return</span> <span class="mi">0</span>
+
+            <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;iterate_newton_search&quot;</span><span class="p">:</span>
+
+                <span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span>
+                <span class="k">def</span> <span class="nf">numba_impl</span><span class="p">(</span><span class="n">d2zrdzdc</span><span class="p">,</span> <span class="n">dzrdc</span><span class="p">,</span> <span class="n">dzrdz</span><span class="p">,</span> <span class="n">zr</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+                    <span class="n">zr_m2</span> <span class="o">=</span> <span class="n">zr</span> <span class="o">**</span> <span class="n">deg_m2</span>
+                    <span class="n">zr_m1</span> <span class="o">=</span> <span class="n">zr_m2</span> <span class="o">*</span> <span class="n">zr</span>
+                    <span class="n">zr_m</span> <span class="o">=</span> <span class="n">zr_m1</span> <span class="o">*</span> <span class="n">zr</span>
+        
+                    <span class="n">d2zrdzdc</span> <span class="o">=</span> <span class="n">deg</span> <span class="o">*</span> <span class="p">(</span>
+                            <span class="n">d2zrdzdc</span> <span class="o">*</span> <span class="n">zr_m1</span>
+                            <span class="o">+</span> <span class="n">deg_m1</span> <span class="o">*</span> <span class="n">dzrdz</span> <span class="o">*</span> <span class="n">dzrdc</span> <span class="o">*</span> <span class="n">zr_m2</span>
+                    <span class="p">)</span>
+                    <span class="n">dzrdz</span> <span class="o">=</span> <span class="n">deg</span> <span class="o">*</span> <span class="n">dzrdz</span> <span class="o">*</span> <span class="n">zr_m1</span>
+                    <span class="n">dzrdc</span> <span class="o">=</span> <span class="n">deg</span> <span class="o">*</span> <span class="n">dzrdc</span> <span class="o">*</span> <span class="n">zr_m1</span> <span class="o">+</span> <span class="mf">1.</span>
+                    <span class="n">zr</span> <span class="o">=</span> <span class="n">zr_m</span> <span class="o">+</span> <span class="n">c</span>
+        
+                    <span class="k">return</span> <span class="p">(</span><span class="n">d2zrdzdc</span><span class="p">,</span> <span class="n">dzrdc</span><span class="p">,</span> <span class="n">dzrdz</span><span class="p">,</span> <span class="n">zr</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+            <span class="n">cache</span><span class="p">[</span><span class="n">full_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">numba_impl</span>
+            <span class="k">return</span> <span class="n">numba_impl</span>
+
+
+    <span class="nd">@fs</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">interactive_options</span>
+    <span class="k">def</span> <span class="nf">coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">pix</span><span class="p">,</span> <span class="n">dps</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">pix</span><span class="p">,</span> <span class="n">dps</span><span class="p">)</span></div>
+
+
+<span class="c1">#==============================================================================</span>
+<span class="c1">#==============================================================================</span>
+
+<div class="viewcode-block" id="Perturbation_mandelbrot_N">
+<a class="viewcode-back" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_mandelbrot_N">[docs]</a>
+<span class="k">class</span> <span class="nc">Perturbation_mandelbrot_N</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">PerturbationFractal</span><span class="p">):</span>
+    
+<div class="viewcode-block" id="Perturbation_mandelbrot_N.__init__">
+<a class="viewcode-back" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_mandelbrot_N.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">exponent</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">An arbitrary precision power-N Mandelbrot Fractal. </span>
+
+<span class="sd">.. math::</span>
+
+<span class="sd">    z_0 &amp;= 0 \\\\</span>
+<span class="sd">    z_{n+1} &amp;= {z_{n}}^N + c</span>
+
+<span class="sd">This class implements arbitrary precision for the reference orbit, ball method</span>
+<span class="sd">period search, newton search, perturbation method, chained billinear</span>
+<span class="sd">approximations.</span>
+
+<span class="sd">Parameters</span>
+<span class="sd">----------</span>
+<span class="sd">directory : str</span>
+<span class="sd">    Path for the working base directory</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exponent</span> <span class="o">=</span> <span class="n">exponent</span> <span class="c1"># Needed for serialization</span>
+
+        <span class="c1"># Sets default values used for postprocessing (potential)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">potential_kind</span> <span class="o">=</span> <span class="s2">&quot;infinity&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">potential_d</span> <span class="o">=</span> <span class="n">exponent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">potential_a_d</span> <span class="o">=</span> <span class="mf">1.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">potential_M_cutoff</span> <span class="o">=</span> <span class="mf">1000.</span> <span class="c1"># Minimum M for valid potential</span>
+
+        <span class="c1"># Set parameters for the full precision orbit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">critical_pt</span> <span class="o">=</span> <span class="mf">0.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">FP_code</span> <span class="o">=</span> <span class="s2">&quot;zn&quot;</span>
+
+        <span class="c1"># GUI &#39;badges&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">holomorphic</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">implements_dzndc</span> <span class="o">=</span> <span class="s2">&quot;user&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">implements_fieldlines</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">implements_newton</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">implements_Milnor</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">implements_interior_detection</span> <span class="o">=</span> <span class="s2">&quot;user&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">implements_deepzoom</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="c1"># Orbit &#39;on the fly&#39; calculation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zn_iterate</span> <span class="o">=</span> <span class="n">Mn_iterate</span><span class="p">(</span><span class="n">exponent</span><span class="p">)</span>
+        
+        <span class="c1"># Cache for numba compiled implementations</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_numba_cache</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_numba_initialize_cache</span> <span class="o">=</span> <span class="p">((),</span> <span class="kc">None</span><span class="p">)</span> <span class="c1"># args, numba_impl</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_numba_iterate_cache</span> <span class="o">=</span> <span class="p">((),</span> <span class="kc">None</span><span class="p">)</span> <span class="c1"># args, numba_impl</span></div>
+
+
+
+    <span class="k">def</span> <span class="nf">FP_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">NP_orbit</span><span class="p">,</span> <span class="n">c0</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The full precision loop ; fills in place NP_orbit</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">xr_detect_activated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xr_detect_activated</span>
+        <span class="n">max_orbit_iter</span> <span class="o">=</span> <span class="p">(</span><span class="n">NP_orbit</span><span class="o">.</span><span class="n">shape</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">M_divergence</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">M_divergence</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">c0</span><span class="o">.</span><span class="n">real</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">c0</span><span class="o">.</span><span class="n">imag</span>
+        <span class="n">seed_prec</span> <span class="o">=</span> <span class="n">mpmath</span><span class="o">.</span><span class="n">mp</span><span class="o">.</span><span class="n">prec</span>
+        <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">partial_dict</span><span class="p">,</span> <span class="n">xr_dict</span>
+         <span class="p">)</span> <span class="o">=</span> <span class="n">fsFP</span><span class="o">.</span><span class="n">perturbation_mandelbrotN_FP_loop</span><span class="p">(</span>
+            <span class="n">NP_orbit</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span>
+            <span class="n">xr_detect_activated</span><span class="p">,</span>
+            <span class="n">max_orbit_iter</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">exponent</span><span class="p">,</span>
+            <span class="n">M_divergence</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="c1"># to be sure ref exit after close points</span>
+            <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">),</span>
+            <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">),</span>
+            <span class="n">seed_prec</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">i</span><span class="p">,</span> <span class="n">partial_dict</span><span class="p">,</span> <span class="n">xr_dict</span>
+
+<div class="viewcode-block" id="Perturbation_mandelbrot_N.calc_std_div">
+<a class="viewcode-back" href="../../../API/arbitrary_models.html#fractalshades.models.Perturbation_mandelbrot_N.calc_std_div">[docs]</a>
+    <span class="nd">@fs</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">calc_options</span>
+    <span class="k">def</span> <span class="nf">calc_std_div</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+        <span class="n">calc_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">subset</span><span class="p">,</span>
+        <span class="n">max_iter</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">M_divergence</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">epsilon_stationnary</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">BLA_eps</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span>
+        <span class="n">interior_detect</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">calc_dzndc</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">calc_orbit</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">backshift</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Perturbation iterations (arbitrary precision) for Mandelbrot standard set</span>
+<span class="sd">(power N).</span>
+
+<span class="sd">Parameters</span>
+<span class="sd">==========</span>
+<span class="sd">calc_name : str</span>
+<span class="sd">     The string identifier for this calculation</span>
+<span class="sd">subset: Optional `fractalshades.postproc.Fractal_array`</span>
+<span class="sd">    A boolean array-like, where False no calculation is performed</span>
+<span class="sd">    If `None`, all points are calculated. Defaults to `None`.</span>
+<span class="sd">max_iter: int</span>
+<span class="sd">    the maximum iteration number. If reached, the loop is exited with</span>
+<span class="sd">    exit code &quot;max_iter&quot;.</span>
+<span class="sd">M_divergence: float</span>
+<span class="sd">    The diverging radius. If reached, the loop is exited with exit code</span>
+<span class="sd">    &quot;divergence&quot;</span>
+<span class="sd">epsilon_stationnary: float</span>
+<span class="sd">    Used only if `interior_detect` parameter is set to True</span>
+<span class="sd">    A small criteria (typical range 0.01 to 0.001) used to detect earlier</span>
+<span class="sd">    points belonging to a minibrot, based on dzndz1 value.</span>
+<span class="sd">    If reached, the loop is exited with exit code &quot;stationnary&quot;</span>
+<span class="sd">BLA_eps: None | float</span>
+<span class="sd">    Relative error criteria for Bilinear Approximation (default: 1.e-6)</span>
+<span class="sd">    if `None` BLA is not activated.</span>
+<span class="sd">interior_detect: bool</span>
+<span class="sd">    If True, activates interior points early detection.</span>
+<span class="sd">    This will trigger the computation of additionnal quantities (`dzndz`), so</span>
+<span class="sd">    shall be activated only when a mini fills a significative part of the view.</span>
+<span class="sd">calc_dzndc: bool</span>
+<span class="sd">    If True, activates the computation of an additionnal quantities (`dzndc`),</span>
+<span class="sd">    used for distance estimation plots and for shading (normal map calculation)</span>
+<span class="sd">calc_orbit: bool</span>
+<span class="sd">    If True, stores the value of an orbit point @ exit - backshift</span>
+<span class="sd">backshift: int (&gt; 0)</span>
+<span class="sd">    The number of iteration backward for the stored orbit starting point</span>
+<span class="sd">&quot;&quot;&quot;</span>
+        <span class="n">complex_codes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;zn&quot;</span><span class="p">]</span>
+        <span class="n">zn</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">code_int</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="n">calc_dzndz</span> <span class="o">=</span> <span class="n">interior_detect</span>
+        <span class="k">if</span> <span class="n">calc_dzndz</span><span class="p">:</span>
+            <span class="n">code_int</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">complex_codes</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;dzndz&quot;</span><span class="p">]</span>
+            <span class="n">dzndz</span> <span class="o">=</span> <span class="n">code_int</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dzndz</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">calc_dzndc</span><span class="p">:</span>
+            <span class="n">code_int</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">complex_codes</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;dzndc&quot;</span><span class="p">]</span>
+            <span class="n">dzndc</span> <span class="o">=</span> <span class="n">code_int</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dzndc</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">calc_orbit</span><span class="p">:</span>
+            <span class="n">code_int</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">complex_codes</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;zn_orbit&quot;</span><span class="p">]</span>
+            <span class="n">i_znorbit</span> <span class="o">=</span> <span class="n">code_int</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">i_znorbit</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+        <span class="c1"># Integer int32 fields codes &quot;U&quot; </span>
+        <span class="n">int_codes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ref_cycle_iter&quot;</span><span class="p">]</span> <span class="c1"># Position in ref orbit</span>
+
+        <span class="c1"># Stop codes</span>
+        <span class="n">stop_codes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;max_iter&quot;</span><span class="p">,</span> <span class="s2">&quot;divergence&quot;</span><span class="p">,</span> <span class="s2">&quot;stationnary&quot;</span><span class="p">]</span>
+        <span class="n">reason_max_iter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">reason_M_divergence</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">reason_stationnary</span> <span class="o">=</span> <span class="mi">2</span>
+
+        <span class="c1">#----------------------------------------------------------------------</span>
+        <span class="c1"># Define the functions used for BLA approximation</span>
+        <span class="c1"># BLA triggered ?</span>
+        <span class="n">BLA_activated</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">(</span><span class="n">BLA_eps</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dx</span> <span class="o">&lt;</span> <span class="n">fs</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">newton_zoom_level</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="n">nexp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exponent</span>
+
+        <span class="n">dfdz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_numba_cache</span><span class="p">(</span><span class="s2">&quot;dfdz&quot;</span><span class="p">,</span> <span class="n">nexp</span><span class="p">,</span> <span class="n">zn</span><span class="p">,</span> <span class="n">dzndz</span><span class="p">,</span> <span class="n">dzndc</span><span class="p">)</span>
+        <span class="n">dfdc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_numba_cache</span><span class="p">(</span><span class="s2">&quot;dfdc&quot;</span><span class="p">,</span> <span class="n">nexp</span><span class="p">,</span> <span class="n">zn</span><span class="p">,</span> <span class="n">dzndz</span><span class="p">,</span> <span class="n">dzndc</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">set_state</span><span class="p">():</span>
+            <span class="k">def</span> <span class="nf">impl</span><span class="p">(</span><span class="n">instance</span><span class="p">):</span>
+                <span class="n">instance</span><span class="o">.</span><span class="n">complex_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span>
+                <span class="n">instance</span><span class="o">.</span><span class="n">potential_M</span> <span class="o">=</span> <span class="n">M_divergence</span>
+                <span class="n">instance</span><span class="o">.</span><span class="n">codes</span> <span class="o">=</span> <span class="p">(</span><span class="n">complex_codes</span><span class="p">,</span> <span class="n">int_codes</span><span class="p">,</span> <span class="n">stop_codes</span><span class="p">)</span>
+
+                <span class="n">instance</span><span class="o">.</span><span class="n">calc_dZndz</span> <span class="o">=</span> <span class="n">interior_detect</span>
+                <span class="n">instance</span><span class="o">.</span><span class="n">calc_dZndc</span> <span class="o">=</span> <span class="n">calc_dzndc</span> <span class="c1"># no need for BLA_activated</span>
+                <span class="n">instance</span><span class="o">.</span><span class="n">dfdz</span> <span class="o">=</span> <span class="n">dfdz</span>
+                <span class="n">instance</span><span class="o">.</span><span class="n">dfdc</span> <span class="o">=</span> <span class="n">dfdc</span>
+            <span class="k">return</span> <span class="n">impl</span>
+
+        <span class="c1">#----------------------------------------------------------------------</span>
+        <span class="c1"># Defines initialize - jitted implementation</span>
+        <span class="k">def</span> <span class="nf">initialize</span><span class="p">():</span>
+            <span class="n">new_args</span> <span class="o">=</span> <span class="p">(</span><span class="n">zn</span><span class="p">,</span> <span class="n">dzndc</span><span class="p">,</span> <span class="n">dzndz</span><span class="p">)</span>
+            <span class="n">args</span><span class="p">,</span> <span class="n">numba_impl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_numba_initialize_cache</span>
+            <span class="k">if</span> <span class="n">new_args</span> <span class="o">==</span> <span class="n">args</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">numba_impl</span>
+
+            <span class="n">numba_impl</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">perturbation</span><span class="o">.</span><span class="n">numba_initialize</span><span class="p">(</span><span class="o">*</span><span class="n">new_args</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_numba_initialize_cache</span> <span class="o">=</span> <span class="p">(</span><span class="n">new_args</span><span class="p">,</span> <span class="n">numba_impl</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">numba_impl</span>
+
+        <span class="c1">#----------------------------------------------------------------------</span>
+        <span class="c1"># Defines iterate - jitted implementation</span>
+        <span class="n">M_divergence_sq</span> <span class="o">=</span> <span class="n">M_divergence</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="n">epsilon_stationnary_sq</span> <span class="o">=</span> <span class="n">epsilon_stationnary</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="c1"># Xr triggered for ultra-deep zoom</span>
+        <span class="n">xr_detect_activated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xr_detect_activated</span>
+
+        <span class="n">p_iter_zn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_numba_cache</span><span class="p">(</span>
+                <span class="s2">&quot;p_iter_zn&quot;</span><span class="p">,</span><span class="n">nexp</span><span class="p">,</span> <span class="n">zn</span><span class="p">,</span> <span class="n">dzndz</span><span class="p">,</span> <span class="n">dzndc</span>
+        <span class="p">)</span>
+        <span class="n">p_iter_dzndz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_numba_cache</span><span class="p">(</span>
+                <span class="s2">&quot;p_iter_dzndz&quot;</span><span class="p">,</span> <span class="n">nexp</span><span class="p">,</span> <span class="n">zn</span><span class="p">,</span> <span class="n">dzndz</span><span class="p">,</span> <span class="n">dzndc</span>
+        <span class="p">)</span>
+        <span class="n">p_iter_dzndc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_numba_cache</span><span class="p">(</span>
+                <span class="s2">&quot;p_iter_dzndc&quot;</span><span class="p">,</span> <span class="n">nexp</span><span class="p">,</span> <span class="n">zn</span><span class="p">,</span> <span class="n">dzndz</span><span class="p">,</span> <span class="n">dzndc</span>
+        <span class="p">)</span>
+        <span class="n">zn_iterate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">zn_iterate</span>
+
+        <span class="k">def</span> <span class="nf">iterate</span><span class="p">():</span>
+            <span class="n">new_args</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">max_iter</span><span class="p">,</span> <span class="n">M_divergence_sq</span><span class="p">,</span> <span class="n">epsilon_stationnary_sq</span><span class="p">,</span>
+                <span class="n">reason_max_iter</span><span class="p">,</span> <span class="n">reason_M_divergence</span><span class="p">,</span> <span class="n">reason_stationnary</span><span class="p">,</span>
+                <span class="n">xr_detect_activated</span><span class="p">,</span> <span class="n">BLA_activated</span><span class="p">,</span>
+                <span class="n">zn</span><span class="p">,</span> <span class="n">dzndc</span><span class="p">,</span> <span class="n">dzndz</span><span class="p">,</span>
+                <span class="n">p_iter_zn</span><span class="p">,</span> <span class="n">p_iter_dzndz</span><span class="p">,</span> <span class="n">p_iter_dzndc</span><span class="p">,</span>
+                <span class="n">calc_dzndc</span><span class="p">,</span> <span class="n">calc_dzndz</span><span class="p">,</span>
+                <span class="n">calc_orbit</span><span class="p">,</span> <span class="n">i_znorbit</span><span class="p">,</span> <span class="n">backshift</span><span class="p">,</span> <span class="n">zn_iterate</span>
+            <span class="p">)</span>
+            <span class="n">args</span><span class="p">,</span> <span class="n">numba_impl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_numba_iterate_cache</span>
+            <span class="k">if</span> <span class="n">new_args</span> <span class="o">==</span> <span class="n">args</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">numba_impl</span>
+
+            <span class="n">numba_impl</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">perturbation</span><span class="o">.</span><span class="n">numba_iterate</span><span class="p">(</span><span class="o">*</span><span class="n">new_args</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_numba_iterate_cache</span> <span class="o">=</span> <span class="p">(</span><span class="n">new_args</span><span class="p">,</span> <span class="n">numba_impl</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">numba_impl</span>
+
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;set_state&quot;</span><span class="p">:</span> <span class="n">set_state</span><span class="p">,</span>
+            <span class="s2">&quot;initialize&quot;</span><span class="p">:</span> <span class="n">initialize</span><span class="p">,</span>
+            <span class="s2">&quot;iterate&quot;</span><span class="p">:</span> <span class="n">iterate</span>
+        <span class="p">}</span></div>
+
+
+
+    <span class="k">def</span> <span class="nf">from_numba_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">nexp</span><span class="p">,</span> <span class="n">zn</span><span class="p">,</span> <span class="n">dzndz</span><span class="p">,</span> <span class="n">dzndc</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Returns the numba implementation if exists to avoid unnecessary</span>
+<span class="sd">        recompilation&quot;&quot;&quot;</span>
+        <span class="n">cache</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_numba_cache</span>
+        <span class="n">full_key</span> <span class="o">=</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">nexp</span><span class="p">,</span> <span class="n">zn</span><span class="p">,</span> <span class="n">dzndz</span><span class="p">,</span> <span class="n">dzndc</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">full_key</span><span class="p">]</span>
+
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            
+            <span class="c1"># We will need also Binomial coefficients - defined as float 64 due</span>
+            <span class="c1"># to numba Xrange implementation of operations</span>
+            <span class="n">C_binom</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">nexp</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nexp</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">C_binom</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="n">nexp</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+            <span class="n">float_nexp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exponent</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;dfdz&quot;</span><span class="p">:</span>
+                <span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span>
+                <span class="k">def</span> <span class="nf">numba_impl</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">z</span> <span class="c1"># ensure same datatype as z (incl. xrange)</span>
+                    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">nexp</span><span class="p">):</span>
+                        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span> <span class="o">*</span> <span class="n">z</span> <span class="c1"># Has the power k</span>
+                    <span class="k">return</span> <span class="n">tmp</span> <span class="o">*</span> <span class="n">float_nexp</span>
+
+            <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;dfdc&quot;</span><span class="p">:</span>
+                <span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span>
+                <span class="k">def</span> <span class="nf">numba_impl</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="mf">1.</span>
+
+            <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;p_iter_zn&quot;</span><span class="p">:</span>
+                <span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span>
+                <span class="k">def</span> <span class="nf">numba_impl</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">ref_zn</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+                    <span class="c1"># Uses a full binomial expansion - could be optimized</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span> <span class="o">+</span> <span class="n">C_binom</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">ref_zn</span><span class="p">)</span>
+                    <span class="n">ref_zn_pk</span> <span class="o">=</span> <span class="n">ref_zn</span> <span class="c1"># The iterative ref_zn ** k</span>
+                    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">nexp</span><span class="p">):</span> <span class="c1"># k is the power of ref_zn</span>
+                        <span class="c1"># Full binomial expansion</span>
+                        <span class="c1"># decreasing Z[zn] power, increasing ref_zn</span>
+                        <span class="n">ref_zn_pk</span> <span class="o">=</span> <span class="n">ref_zn_pk</span> <span class="o">*</span> <span class="n">ref_zn</span> <span class="c1"># ref_zn ** k</span>
+                        <span class="n">tmp</span> <span class="o">=</span> <span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">+</span> <span class="n">C_binom</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">ref_zn_pk</span><span class="p">)</span>
+        
+                    <span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span> <span class="o">+</span> <span class="n">c</span>
+
+            <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;p_iter_dzndz&quot;</span><span class="p">:</span>
+                <span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span>
+                <span class="k">def</span> <span class="nf">numba_impl</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">ref_zn</span><span class="p">,</span> <span class="n">ref_dzndz</span><span class="p">):</span>
+                    <span class="c1"># Use a full binomial expansion - could be optimized</span>
+                    <span class="n">mul</span> <span class="o">=</span> <span class="p">(</span><span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span> <span class="o">+</span> <span class="n">C_binom</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">ref_zn</span><span class="p">)</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span> <span class="o">*</span> <span class="n">mul</span>
+                    <span class="n">dtmpdz</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="n">Z</span><span class="p">[</span><span class="n">dzndz</span><span class="p">]</span> <span class="o">*</span> <span class="n">mul</span>
+                        <span class="o">+</span> <span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">Z</span><span class="p">[</span><span class="n">dzndz</span><span class="p">]</span> <span class="o">+</span> <span class="n">C_binom</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">ref_dzndz</span><span class="p">)</span>
+                    <span class="p">)</span>
+        
+                    <span class="n">ref_zn_pk</span> <span class="o">=</span> <span class="n">ref_zn</span>
+                    <span class="n">ref_dzn_pkdz</span> <span class="o">=</span> <span class="n">ref_dzndz</span>
+                    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">nexp</span><span class="p">):</span>
+                        <span class="c1"># Full binomial expansion</span>
+                        <span class="n">ref_dzn_pkdz</span> <span class="o">=</span> <span class="p">(</span>
+                            <span class="n">k</span> <span class="o">*</span> <span class="n">ref_zn_pk</span> <span class="o">*</span> <span class="n">ref_dzndz</span>
+                        <span class="p">)</span>
+                        <span class="n">ref_zn_pk</span> <span class="o">=</span> <span class="n">ref_zn_pk</span> <span class="o">*</span> <span class="n">ref_zn</span>
+        
+                        <span class="n">mul</span> <span class="o">=</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">+</span> <span class="n">C_binom</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">ref_zn_pk</span><span class="p">)</span>
+                        <span class="n">dtmpdz</span> <span class="o">=</span> <span class="p">(</span>
+                            <span class="n">Z</span><span class="p">[</span><span class="n">dzndz</span><span class="p">]</span> <span class="o">*</span> <span class="n">mul</span>
+                            <span class="o">+</span> <span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">dtmpdz</span> <span class="o">+</span> <span class="n">C_binom</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">ref_dzn_pkdz</span><span class="p">)</span>
+                        <span class="p">)</span>
+                        <span class="n">tmp</span> <span class="o">=</span> <span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span> <span class="o">*</span> <span class="n">mul</span>
+        
+                    <span class="n">Z</span><span class="p">[</span><span class="n">dzndz</span><span class="p">]</span> <span class="o">=</span> <span class="n">dtmpdz</span>
+
+            <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;p_iter_dzndc&quot;</span><span class="p">:</span>
+                <span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span>
+                <span class="k">def</span> <span class="nf">numba_impl</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">ref_zn</span><span class="p">,</span> <span class="n">ref_dzndc</span><span class="p">):</span>
+                    <span class="c1"># Use a full binomial expansion - could be optimized</span>
+                    <span class="n">mul</span> <span class="o">=</span> <span class="p">(</span><span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span> <span class="o">+</span> <span class="n">C_binom</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">ref_zn</span><span class="p">)</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span> <span class="o">*</span> <span class="n">mul</span>
+                    <span class="n">dtmpdc</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="n">Z</span><span class="p">[</span><span class="n">dzndc</span><span class="p">]</span> <span class="o">*</span> <span class="n">mul</span>
+                        <span class="o">+</span> <span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">Z</span><span class="p">[</span><span class="n">dzndc</span><span class="p">]</span> <span class="o">+</span> <span class="n">C_binom</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">ref_dzndc</span><span class="p">)</span>
+                    <span class="p">)</span>
+                    <span class="n">ref_zn_pk</span> <span class="o">=</span> <span class="n">ref_zn</span>
+                    <span class="n">ref_dzn_pkdc</span> <span class="o">=</span> <span class="n">ref_dzndc</span>
+        
+                    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">nexp</span><span class="p">):</span>
+                        <span class="c1"># Full binomial expansion</span>
+                        <span class="n">ref_dzn_pkdc</span> <span class="o">=</span> <span class="p">(</span>
+                            <span class="n">k</span> <span class="o">*</span> <span class="n">ref_zn_pk</span> <span class="o">*</span> <span class="n">ref_dzndc</span>
+                        <span class="p">)</span>
+                        <span class="n">ref_zn_pk</span> <span class="o">=</span> <span class="n">ref_zn_pk</span> <span class="o">*</span> <span class="n">ref_zn</span>
+        
+                        <span class="n">mul</span> <span class="o">=</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">+</span> <span class="n">C_binom</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">ref_zn_pk</span><span class="p">)</span>
+                        <span class="n">dtmpdc</span> <span class="o">=</span> <span class="p">(</span>
+                            <span class="n">Z</span><span class="p">[</span><span class="n">dzndc</span><span class="p">]</span> <span class="o">*</span> <span class="n">mul</span>
+                            <span class="o">+</span> <span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">dtmpdc</span> <span class="o">+</span> <span class="n">C_binom</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">ref_dzn_pkdc</span><span class="p">)</span>
+                        <span class="p">)</span>
+                        <span class="n">tmp</span> <span class="o">=</span> <span class="n">Z</span><span class="p">[</span><span class="n">zn</span><span class="p">]</span> <span class="o">*</span> <span class="n">mul</span>
+        
+                    <span class="n">Z</span><span class="p">[</span><span class="n">dzndc</span><span class="p">]</span> <span class="o">=</span> <span class="n">dtmpdc</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+            <span class="n">cache</span><span class="p">[</span><span class="n">full_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">numba_impl</span>
+            <span class="k">return</span> <span class="n">numba_impl</span>
+
+
+
+
+
+<span class="c1">#------------------------------------------------------------------------------</span>
+<span class="c1"># Newton search &amp; other related methods</span>
+
+    <span class="k">def</span> <span class="nf">_ball_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">px</span><span class="p">,</span> <span class="n">maxiter</span><span class="p">,</span> <span class="n">M_divergence</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Order 1 ball method: Cython wrapper&quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*** in Mandelbrot n, _ball_method&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">exponent</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">real</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">imag</span>
+        <span class="n">seed_prec</span> <span class="o">=</span> <span class="n">mpmath</span><span class="o">.</span><span class="n">mp</span><span class="o">.</span><span class="n">prec</span>
+        
+        <span class="n">order</span> <span class="o">=</span> <span class="n">fsFP</span><span class="o">.</span><span class="n">perturbation_mandelbrotN_ball_method</span><span class="p">(</span>
+            <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">),</span>
+            <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">),</span>
+            <span class="n">seed_prec</span><span class="p">,</span>
+            <span class="nb">str</span><span class="p">(</span><span class="n">px</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">exponent</span><span class="p">,</span>
+            <span class="n">maxiter</span><span class="p">,</span>
+            <span class="n">M_divergence</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">order</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">order</span>
+
+
+    <span class="k">def</span> <span class="nf">find_nucleus</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">eps_pixel</span><span class="p">,</span> <span class="n">max_newton</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eps_cv</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run Newton search to find z0 so that f^n(z0) == 0 : Cython wrapper</span>
+
+<span class="sd">        Includes a &quot;divide by undesired roots&quot; technique so that solutions</span>
+<span class="sd">        using divisors of n are disregarded.</span>
+<span class="sd">        </span>
+<span class="sd">        # eps_pixel = self.dx * (1. / self.nx)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+            <span class="s2">&quot;Divide by undesired roots technique not implemented, &quot;</span>
+            <span class="s2">&quot;Use &#39;find_any_nucleus&#39;&quot;</span>
+        <span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">find_any_nucleus</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">eps_pixel</span><span class="p">,</span> <span class="n">max_newton</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eps_cv</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run Newton search to find z0 so that f^n(z0) == 0 : Cython wrapper</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">order</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;order shall be defined for Newton method&quot;</span><span class="p">)</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">real</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">imag</span>
+        <span class="n">seed_prec</span> <span class="o">=</span> <span class="n">mpmath</span><span class="o">.</span><span class="n">mp</span><span class="o">.</span><span class="n">prec</span>
+        <span class="k">if</span> <span class="n">max_newton</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">max_newton</span> <span class="o">=</span> <span class="mi">80</span>
+        <span class="k">if</span> <span class="n">eps_cv</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">eps_cv</span> <span class="o">=</span> <span class="n">mpmath</span><span class="o">.</span><span class="n">mpf</span><span class="p">(</span><span class="n">val</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="n">seed_prec</span><span class="p">))</span>
+        
+        <span class="n">is_ok</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">fsFP</span><span class="o">.</span><span class="n">perturbation_mandelbrotN_find_any_nucleus</span><span class="p">(</span>
+            <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">),</span>
+            <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">),</span>
+            <span class="n">seed_prec</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">exponent</span><span class="p">,</span>
+            <span class="n">order</span><span class="p">,</span>
+            <span class="n">max_newton</span><span class="p">,</span>
+            <span class="nb">str</span><span class="p">(</span><span class="n">eps_cv</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">),</span>
+            <span class="nb">str</span><span class="p">(</span><span class="n">eps_pixel</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">is_ok</span><span class="p">,</span> <span class="n">val</span>
+
+
+    <span class="k">def</span> <span class="nf">_nucleus_size_estimate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c0</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Nucleus size estimate</span>
+
+<span class="sd">Parameters</span>
+<span class="sd">----------</span>
+<span class="sd">c0 :</span>
+<span class="sd">    position of the nucleus</span>
+<span class="sd">order :</span>
+<span class="sd">    cycle order</span>
+
+<span class="sd">Returns</span>
+<span class="sd">-------</span>
+<span class="sd">nucleus_size : </span>
+<span class="sd">    size estimate of the nucleus</span>
+<span class="sd">julia_size : </span>
+<span class="sd">    size estimate of the Julian embedded set</span>
+
+<span class="sd">https://mathr.co.uk/blog/2016-12-24_deriving_the_size_estimate.html</span>
+
+<span class="sd">Structure in the parameter dependence of order and chaos for the quadratic map</span>
+<span class="sd">Brian R Hunt and Edward Ott</span>
+<span class="sd">J. Phys. A: Math. Gen. 30 (1997) 7067–7076</span>
+
+<span class="sd">https://fractalforums.org/fractal-mathematics-and-new-theories/28/miniset-and-embedded-julia-size-estimates/912/msg4805#msg4805</span>
+<span class="sd">    julia size estimate : r_J = r_M ** ((n+1)*(n-1)/n**2)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">c0</span><span class="o">.</span><span class="n">real</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">c0</span><span class="o">.</span><span class="n">imag</span>
+        <span class="n">seed_prec</span> <span class="o">=</span> <span class="n">mpmath</span><span class="o">.</span><span class="n">mp</span><span class="o">.</span><span class="n">prec</span>
+        <span class="n">nucleus_size</span> <span class="o">=</span> <span class="n">fsFP</span><span class="o">.</span><span class="n">perturbation_mandelbrotN_nucleus_size_estimate</span><span class="p">(</span>
+            <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">),</span>
+            <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">),</span>
+            <span class="n">seed_prec</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">exponent</span><span class="p">,</span>
+            <span class="n">order</span>
+        <span class="p">)</span>
+        <span class="n">nucleus_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">nucleus_size</span><span class="p">)</span>
+
+        <span class="n">expo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exponent</span>
+        <span class="n">julia_exp</span> <span class="o">=</span> <span class="p">((</span><span class="n">expo</span> <span class="o">+</span> <span class="mf">1.</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">expo</span> <span class="o">-</span> <span class="mf">1.</span><span class="p">)</span> <span class="o">/</span> <span class="n">expo</span> <span class="o">/</span> <span class="n">expo</span><span class="p">)</span>
+        <span class="n">julia_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">nucleus_size</span><span class="p">,</span> <span class="n">julia_exp</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">nucleus_size</span><span class="p">,</span> <span class="n">julia_size</span>
+
+<span class="c1">#==============================================================================</span>
+<span class="c1"># GUI : &quot;interactive options&quot;</span>
+<span class="c1">#==============================================================================</span>
+    <span class="nd">@fs</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">interactive_options</span>
+    <span class="k">def</span> <span class="nf">coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">pix</span><span class="p">,</span> <span class="n">dps</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">pix</span><span class="p">,</span> <span class="n">dps</span><span class="p">)</span>
+
+    <span class="nd">@fs</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">interactive_options</span>
+    <span class="k">def</span> <span class="nf">ball_method_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">pix</span><span class="p">,</span> <span class="n">dps</span><span class="p">,</span> <span class="n">maxiter</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span>
+                          <span class="n">radius_pixels</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">25</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">ball_method_order</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">pix</span><span class="p">,</span> <span class="n">dps</span><span class="p">,</span> <span class="n">maxiter</span><span class="p">,</span>
+                    <span class="n">radius_pixels</span><span class="p">)</span>
+
+    <span class="nd">@fs</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">interactive_options</span>
+    <span class="k">def</span> <span class="nf">newton_search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">pix</span><span class="p">,</span> <span class="n">dps</span><span class="p">,</span> <span class="n">maxiter</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span>
+                      <span class="n">radius_pixels</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">newton_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">pix</span><span class="p">,</span> <span class="n">dps</span><span class="p">,</span> <span class="n">maxiter</span><span class="p">,</span> <span class="n">radius_pixels</span><span class="p">)</span></div>
+
+
+
+</pre></div>
+
+           </div>
+          </div>
+<div class="ribbon">
+  <a href="https://github.com/GBillotey/Fractalshades">Fork me on GitHub</a>
+</div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Fractalshades development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<style>
+  .wy-nav-content { max-width: 1250px !important; }
+</style>
+
+
+</body>
+</html>
