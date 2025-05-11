@@ -1,0 +1,241 @@
+{
+ "__name__": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "str"
+  }
+ ],
+ "fractalshades.models.Perturbation_burning_ship": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "fractalshades.models",
+   "module_short": "fractalshades.models",
+   "name": "Perturbation_burning_ship"
+  }
+ ],
+ "fs.gui.guimodel.Fractal_GUI": [
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "fractalshades.gui.guimodel",
+   "module_short": "fractalshades.gui.guimodel",
+   "name": "Fractal_GUI"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "fractalshades.gui",
+   "module_short": "fractalshades.gui",
+   "name": "Fractal_GUI"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "fractalshades",
+   "module_short": "fractalshades",
+   "name": "Fractal_GUI"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "fractalshades.gui.guimodel",
+   "module_short": "fractalshades.gui.guimodel",
+   "name": "Fractal_GUI"
+  }
+ ],
+ "fs.gui.guitemplates.std_zooming": [
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "fractalshades.gui.guitemplates",
+   "module_short": "fractalshades.gui.guitemplates",
+   "name": "std_zooming"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "fractalshades.gui",
+   "module_short": "fractalshades.gui",
+   "name": "std_zooming"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "fractalshades",
+   "module_short": "fractalshades",
+   "name": "std_zooming"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "fractalshades.gui.guitemplates",
+   "module_short": "fractalshades.gui.guitemplates",
+   "name": "GUItemplate"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "fractalshades.gui",
+   "module_short": "fractalshades.gui",
+   "name": "GUItemplate"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "fractalshades",
+   "module_short": "fractalshades",
+   "name": "GUItemplate"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "fractalshades.gui.guitemplates",
+   "module_short": "fractalshades.gui.guitemplates",
+   "name": "std_zooming"
+  }
+ ],
+ "fs.utils.exec_no_output": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "fractalshades.utils",
+   "module_short": "fractalshades.utils",
+   "name": "exec_no_output"
+  }
+ ],
+ "fsm.Perturbation_burning_ship": [
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "fractalshades.models.burning_ship",
+   "module_short": "fractalshades.models",
+   "name": "Perturbation_burning_ship"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "fractalshades.models",
+   "module_short": "fractalshades.models",
+   "name": "Perturbation_burning_ship"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "fractalshades",
+   "module_short": "fractalshades",
+   "name": "Perturbation_burning_ship"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "fractalshades.perturbation",
+   "module_short": "fractalshades",
+   "name": "PerturbationFractal"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "fractalshades",
+   "module_short": "fractalshades",
+   "name": "PerturbationFractal"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "fractalshades.core",
+   "module_short": "fractalshades",
+   "name": "Fractal"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "fractalshades",
+   "module_short": "fractalshades",
+   "name": "Fractal"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "fractalshades.models",
+   "module_short": "fractalshades.models",
+   "name": "Perturbation_burning_ship"
+  }
+ ],
+ "os.path.realpath": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "os.path",
+   "module_short": "os.path",
+   "name": "realpath"
+  }
+ ],
+ "os.path.splitext": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "os.path",
+   "module_short": "os.path",
+   "name": "splitext"
+  }
+ ],
+ "plot": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  }
+ ],
+ "plot_dir": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "str"
+  }
+ ],
+ "tempfile.TemporaryDirectory": [
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "tempfile",
+   "module_short": "tempfile",
+   "name": "TemporaryDirectory"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "tempfile",
+   "module_short": "tempfile",
+   "name": "TemporaryDirectory"
+  }
+ ]
+}
